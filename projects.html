@@ -38,30 +38,31 @@
       }
       .project-card-large {
         background: white;
-        border-radius: 15px;
+        border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
-        border: 1px solid #e9ecef;
+        border: 1px solid #f0f0f0;
         display: flex;
         flex-direction: column;
         height: 700px;
         align-self: stretch;
       }
       .project-card-large:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       }
       .project-image-large {
         height: 250px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: #6c757d;
         font-size: 4rem;
         position: relative;
         overflow: hidden;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       }
       .project-image-large::before {
         content: "";
@@ -127,12 +128,13 @@
         margin-bottom: 2rem;
       }
       .tech-tag-large {
-        background: #e3f2fd;
-        color: #1976d2;
+        background: #f8f9fa;
+        color: #6c757d;
         padding: 0.5rem 1rem;
-        border-radius: 25px;
+        border-radius: 4px;
         font-size: 0.9rem;
         font-weight: 500;
+        border: 1px solid #e9ecef;
       }
       .project-links-large {
         display: flex !important;
@@ -142,9 +144,9 @@
       }
       .project-link-large {
         padding: 0.8rem 1.5rem;
-        border-radius: 25px;
+        border-radius: 4px;
         text-decoration: none !important;
-        font-weight: 600;
+        font-weight: 500;
         transition: all 0.3s ease;
         display: inline-flex !important;
         align-items: center !important;
@@ -154,32 +156,32 @@
         opacity: 1 !important;
         min-width: 120px;
         height: 45px;
-        color: #ffffff !important;
-        background: #3498db !important;
-        border: 2px solid #3498db !important;
-        box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        color: #6c757d !important;
+        background: #f8f9fa !important;
+        border: 1px solid #e9ecef !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         line-height: 1;
       }
       .project-link-primary {
-        background: #3498db !important;
-        color: white !important;
+        background: #f8f9fa !important;
+        color: #6c757d !important;
       }
       .project-link-primary:hover {
-        color: #3498db !important;
-        background: #ffffff !important;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        color: #495057 !important;
+        background: #e9ecef !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       .project-link-secondary {
-        background: #3498db !important;
-        color: white !important;
-        border: 2px solid #3498db !important;
+        background: #f8f9fa !important;
+        color: #6c757d !important;
+        border: 1px solid #e9ecef !important;
       }
       .project-link-secondary:hover {
-        color: #3498db !important;
-        background: #ffffff !important;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        color: #495057 !important;
+        background: #e9ecef !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       .stats-section {
         background: #f8f9fa;
@@ -311,7 +313,6 @@
     </style>
   </head>
   <body>
-    <!-- Header -->
     <header class="header">
       <nav class="navbar">
         <div class="nav-container">
@@ -354,7 +355,6 @@
       </nav>
     </header>
 
-    <!-- Project Detail Section -->
     <section class="project-detail">
       <div class="container">
         <div class="project-header">
@@ -363,7 +363,6 @@
         </div>
 
         <div class="project-grid" id="projectGrid">
-          <!-- Project 1 -->
           <div class="project-card-large" data-page="1">
             <div class="project-image-large">
               <i class="fas fa-graduation-cap"></i>
@@ -415,7 +414,6 @@
             </div>
           </div>
 
-          <!-- Project 2 -->
           <div class="project-card-large" data-page="1">
             <div class="project-image-large">
               <i class="fas fa-building"></i>
@@ -466,7 +464,6 @@
             </div>
           </div>
 
-          <!-- Project 3 -->
           <div class="project-card-large" data-page="1">
             <div class="project-image-large">
               <i class="fas fa-search"></i>
@@ -517,7 +514,6 @@
             </div>
           </div>
 
-          <!-- Project 4 -->
           <div class="project-card-large" data-page="1">
             <div class="project-image-large">
               <i class="fas fa-users"></i>
@@ -568,7 +564,6 @@
             </div>
           </div>
 
-          <!-- Project 5 -->
           <div class="project-card-large" data-page="1">
             <div class="project-image-large">
               <i class="fas fa-chart-line"></i>
@@ -619,7 +614,6 @@
             </div>
           </div>
 
-          <!-- Project 6 -->
           <div class="project-card-large" data-page="1">
             <div class="project-image-large">
               <i class="fas fa-mobile-alt"></i>
@@ -670,7 +664,6 @@
             </div>
           </div>
 
-          <!-- Project 7 -->
           <div class="project-card-large" data-page="2">
             <div class="project-image-large">
               <i class="fas fa-shopping-cart"></i>
@@ -721,7 +714,6 @@
             </div>
           </div>
 
-          <!-- Project 8 -->
           <div class="project-card-large" data-page="2">
             <div class="project-image-large">
               <i class="fas fa-chart-bar"></i>
@@ -772,7 +764,6 @@
             </div>
           </div>
 
-          <!-- Project 9 -->
           <div class="project-card-large" data-page="2">
             <div class="project-image-large">
               <i class="fas fa-comments"></i>
@@ -823,7 +814,6 @@
             </div>
           </div>
 
-          <!-- Project 10 -->
           <div class="project-card-large" data-page="2">
             <div class="project-image-large">
               <i class="fas fa-file-alt"></i>
@@ -874,7 +864,6 @@
             </div>
           </div>
 
-          <!-- Project 11 -->
           <div class="project-card-large" data-page="2">
             <div class="project-image-large">
               <i class="fas fa-calendar-alt"></i>
@@ -925,7 +914,6 @@
             </div>
           </div>
 
-          <!-- Project 12 -->
           <div class="project-card-large" data-page="2">
             <div class="project-image-large">
               <i class="fas fa-gamepad"></i>
@@ -977,15 +965,12 @@
           </div>
         </div>
 
-        <!-- Pagination -->
         <div class="pagination-container">
           <div class="pagination">
             <button class="pagination-btn prev-btn" onclick="changePage(-1)">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <div class="pagination-numbers" id="paginationNumbers">
-              <!-- 페이지 번호들이 여기에 동적으로 생성됩니다 -->
-            </div>
+            <div class="pagination-numbers" id="paginationNumbers"></div>
             <button class="pagination-btn next-btn" onclick="changePage(1)">
               <i class="fas fa-chevron-right"></i>
             </button>
@@ -994,7 +979,6 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats-section">
       <div class="container">
         <h2 class="section-title">프로젝트 통계</h2>
@@ -1019,7 +1003,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <p>&copy; 2024 궁금하면500원. All rights reserved.</p>

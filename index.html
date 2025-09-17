@@ -23,14 +23,14 @@
       }
 
       .project-link {
-        color: #ffffff !important;
+        color: #6c757d !important;
         text-decoration: none !important;
-        font-weight: 600;
+        font-weight: 500;
         transition: all 0.3s ease;
         padding: 0.8rem 1.5rem;
-        border: 2px solid #3498db !important;
-        border-radius: 25px;
-        background: #3498db !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 4px;
+        background: #f8f9fa !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -41,14 +41,14 @@
         text-align: center;
         height: 45px;
         line-height: 1;
-        box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
 
       .project-link:hover {
-        color: #3498db !important;
-        background: #ffffff !important;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        color: #495057 !important;
+        background: #e9ecef !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
       .pagination-container {
         display: flex;
@@ -137,7 +137,6 @@
     </style>
   </head>
   <body>
-    <!-- Header -->
     <header class="header">
       <nav class="navbar">
         <div class="nav-container">
@@ -180,7 +179,6 @@
       </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-container">
         <div class="hero-content">
@@ -232,7 +230,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
         <h2 class="section-title">About Me</h2>
@@ -272,7 +269,6 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
         <h2 class="section-title">주요 프로젝트</h2>
@@ -406,7 +402,6 @@
           </div>
         </div>
 
-        <!-- Pagination -->
         <div class="pagination-container">
           <div class="pagination">
             <button class="pagination-btn prev-btn" onclick="changePage(-1)">
@@ -421,7 +416,6 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
       <div class="container">
         <h2 class="section-title">기술 스택</h2>
@@ -445,6 +439,10 @@
                 <i class="fas fa-code"></i>
                 <span>MyBatis</span>
               </div>
+              <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <span>Kotlin</span>
+              </div>
             </div>
           </div>
 
@@ -465,7 +463,7 @@
               </div>
               <div class="skill-item">
                 <i class="fas fa-database"></i>
-                <span>Tibero</span>
+                <span>Oracle</span>
               </div>
             </div>
           </div>
@@ -489,6 +487,10 @@
                 <i class="fab fa-github"></i>
                 <span>GitHub Actions</span>
               </div>
+              <div class="skill-item">
+                <i class="fab fa-jenkins"></i>
+                <span>Jenkins</span>
+              </div>
             </div>
           </div>
 
@@ -508,8 +510,8 @@
                 <span>Spring Batch</span>
               </div>
               <div class="skill-item">
-                <i class="fas fa-code"></i>
-                <span>Kotlin</span>
+                <i class="fas fa-database"></i>
+                <span>DBeaver</span>
               </div>
             </div>
           </div>
@@ -517,7 +519,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="experience">
       <div class="container">
         <h2 class="section-title">경력</h2>
@@ -581,7 +582,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
         <h2 class="section-title">연락처</h2>
@@ -612,7 +612,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <p>&copy; 2024 궁금하면500원. All rights reserved.</p>
@@ -703,8 +702,17 @@
         }
       }
 
-      // Initialize pagination when page loads
       document.addEventListener("DOMContentLoaded", initPagination);
+
+      function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
     </script>
   </body>
 </html>
