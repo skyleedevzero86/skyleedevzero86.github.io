@@ -1,607 +1,634 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기술 스택 - 나혼자 레벨업</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기술 스택 - 궁금하면500원</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-        .skills-detail {
-            padding: 100px 0;
-            background: white;
-        }
-        .skills-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        .skills-header h1 {
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        .skills-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .skill-category {
-            margin-bottom: 4rem;
-            background: #f8f9fa;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        .skill-category h2 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-        }
-        .skill-category h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #3498db, #2980b9);
-            border-radius: 2px;
-        }
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #3498db;
-        }
-        .skill-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        .skill-level {
-            background: #e9ecef;
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #3498db, #2980b9);
-            border-radius: 4px;
-            transition: width 1s ease;
-        }
-        .skill-description {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        .experience-timeline {
-            background: #f8f9fa;
-            padding: 4rem 0;
-        }
-        .timeline-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .timeline-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        .timeline-date {
-            flex: 0 0 200px;
-            text-align: center;
-            padding: 1rem;
-            background: #3498db;
-            color: white;
-            border-radius: 10px;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
-        }
-        .timeline-content {
-            flex: 1;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin: 0 2rem;
-            position: relative;
-        }
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-        }
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -30px;
-            border-left-color: white;
-        }
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -30px;
-            border-right-color: white;
-        }
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-        .timeline-content h4 {
-            color: #3498db;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        .timeline-content p {
-            color: #666;
-            line-height: 1.6;
-        }
-        .certifications {
-            background: white;
-            padding: 4rem 0;
-        }
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .cert-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        .cert-icon {
-            font-size: 3rem;
-            color: #f39c12;
-            margin-bottom: 1rem;
-        }
-        .cert-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        .cert-issuer {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        .cert-date {
-            color: #3498db;
-            font-weight: 500;
-        }
+      .skills-detail {
+        padding: 100px 0;
+        background: white;
+      }
+      .skills-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .skills-header h1 {
+        font-size: 3rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+      .skills-header p {
+        font-size: 1.2rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .skill-category {
+        margin-bottom: 4rem;
+        background: #f8f9fa;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .skill-category h2 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+      }
+      .skill-category h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #2980b9);
+        border-radius: 2px;
+      }
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      .skill-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid #e9ecef;
+      }
+      .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+      .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #3498db;
+      }
+      .skill-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+      .skill-level {
+        background: #e9ecef;
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+      .skill-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #3498db, #2980b9);
+        border-radius: 4px;
+        transition: width 1s ease;
+      }
+      .skill-description {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .experience-timeline {
+        background: #f8f9fa;
+        padding: 4rem 0;
+      }
+      .timeline-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .timeline-item {
+        display: flex;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+      .timeline-item:nth-child(odd) {
+        flex-direction: row;
+      }
+      .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      .timeline-date {
+        flex: 0 0 200px;
+        text-align: center;
+        padding: 1rem;
+        background: #3498db;
+        color: white;
+        border-radius: 10px;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+      }
+      .timeline-content {
+        flex: 1;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 0 2rem;
+        position: relative;
+      }
+      .timeline-content::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+      }
+      .timeline-item:nth-child(odd) .timeline-content::before {
+        right: -30px;
+        border-left-color: white;
+      }
+      .timeline-item:nth-child(even) .timeline-content::before {
+        left: -30px;
+        border-right-color: white;
+      }
+      .timeline-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+      }
+      .timeline-content h4 {
+        color: #3498db;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      .timeline-content p {
+        color: #666;
+        line-height: 1.6;
+      }
+      .certifications {
+        background: white;
+        padding: 4rem 0;
+      }
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      .cert-card {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      .cert-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      .cert-icon {
+        font-size: 3rem;
+        color: #f39c12;
+        margin-bottom: 1rem;
+      }
+      .cert-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+      .cert-issuer {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      .cert-date {
+        color: #3498db;
+        font-weight: 500;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html" style="text-decoration: none; color: inherit;">
-                        <h2>나혼자 레벨업</h2>
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">홈</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#about" class="nav-link">소개</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="projects.html" class="nav-link">프로젝트</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="skills.html" class="nav-link active">기술스택</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.html#contact" class="nav-link">연락처</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <a href="index.html" style="text-decoration: none; color: inherit">
+              <h2>궁금하면500원</h2>
+            </a>
+          </div>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a
+                href="https://github.com/skyleedevzero86/"
+                class="nav-link"
+                target="_blank"
+                >포트폴리오</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index.html#about" class="nav-link">소개</a>
+            </li>
+            <li class="nav-item">
+              <a href="projects.html" class="nav-link">프로젝트</a>
+            </li>
+            <li class="nav-item">
+              <a href="skills.html" class="nav-link active">기술스택</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#experience" class="nav-link">경력</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#contact" class="nav-link">연락처</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Skills Detail Section -->
     <section class="skills-detail">
-        <div class="container">
-            <div class="skills-header">
-                <h1>기술 스택</h1>
-                <p>다양한 기술들을 활용하여 효율적이고 안정적인 시스템을 구축합니다.</p>
-            </div>
-
-            <!-- Backend Skills -->
-            <div class="skill-category">
-                <h2>Backend Development</h2>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fab fa-java"></i>
-                        </div>
-                        <div class="skill-name">Java</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 95%"></div>
-                        </div>
-                        <div class="skill-description">
-                            3년 이상의 Java 개발 경험으로 객체지향 프로그래밍과 디자인 패턴을 활용한 효율적인 코드 작성이 가능합니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <div class="skill-name">Spring Boot</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Spring Boot를 활용한 RESTful API 개발과 마이크로서비스 아키텍처 구축 경험이 풍부합니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="skill-name">JPA/Hibernate</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-description">
-                            JPA를 활용한 객체-관계 매핑과 복잡한 쿼리 최적화 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="skill-name">MyBatis</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                        <div class="skill-description">
-                            MyBatis를 활용한 SQL 매핑과 동적 쿼리 작성에 능숙합니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Database Skills -->
-            <div class="skill-category">
-                <h2>Database & Caching</h2>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="skill-name">MySQL</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 92%"></div>
-                        </div>
-                        <div class="skill-description">
-                            MySQL 데이터베이스 설계, 인덱싱, 쿼리 최적화에 대한 깊은 이해를 가지고 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="skill-name">PostgreSQL</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-description">
-                            PostgreSQL의 고급 기능과 JSON 데이터 타입 활용 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-memory"></i>
-                        </div>
-                        <div class="skill-name">Redis</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Redis를 활용한 캐싱 전략과 세션 관리, 분산 락 구현 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="skill-name">Tibero</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                        <div class="skill-description">
-                            국산 데이터베이스 Tibero를 활용한 대규모 시스템 구축 경험이 있습니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cloud & DevOps Skills -->
-            <div class="skill-category">
-                <h2>Cloud & DevOps</h2>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fab fa-aws"></i>
-                        </div>
-                        <div class="skill-name">AWS</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 88%"></div>
-                        </div>
-                        <div class="skill-description">
-                            EC2, RDS, S3, Lambda 등 AWS 서비스를 활용한 클라우드 인프라 구축 경험이 풍부합니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fab fa-docker"></i>
-                        </div>
-                        <div class="skill-name">Docker</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Docker 컨테이너화와 Docker Compose를 활용한 개발 환경 구축에 능숙합니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <div class="skill-name">Terraform</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 82%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Infrastructure as Code를 통한 인프라 자동화와 관리 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="skill-name">GitHub Actions</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-description">
-                            CI/CD 파이프라인 구축과 자동화된 배포 시스템 운영 경험이 있습니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tools & Others -->
-            <div class="skill-category">
-                <h2>Tools & Others</h2>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="skill-name">Datadog</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Datadog을 활용한 애플리케이션 모니터링과 성능 분석 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                        <div class="skill-name">Shell Script</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Shell Script를 활용한 자동화 스크립트 작성과 서버 관리 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <div class="skill-name">Spring Batch</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 78%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Spring Batch를 활용한 대용량 데이터 처리와 배치 작업 구현 경험이 있습니다.
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="skill-name">Kotlin</div>
-                        <div class="skill-level">
-                            <div class="skill-progress" style="width: 70%"></div>
-                        </div>
-                        <div class="skill-description">
-                            Kotlin을 활용한 Spring Boot 애플리케이션 개발 경험이 있습니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="skills-header">
+          <h1>기술 스택</h1>
+          <p>
+            다양한 기술들을 활용하여 효율적이고 안정적인 시스템을 구축합니다.
+          </p>
         </div>
+
+        <!-- Backend Skills -->
+        <div class="skill-category">
+          <h2>Backend Development</h2>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-java"></i>
+              </div>
+              <div class="skill-name">Java</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+              <div class="skill-description">
+                3년 이상의 Java 개발 경험으로 객체지향 프로그래밍과 디자인
+                패턴을 활용한 효율적인 코드 작성이 가능합니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="skill-name">Spring Boot</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <div class="skill-description">
+                Spring Boot를 활용한 RESTful API 개발과 마이크로서비스 아키텍처
+                구축 경험이 풍부합니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-name">JPA/Hibernate</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <div class="skill-description">
+                JPA를 활용한 객체-관계 매핑과 복잡한 쿼리 최적화 경험이
+                있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="skill-name">MyBatis</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+              <div class="skill-description">
+                MyBatis를 활용한 SQL 매핑과 동적 쿼리 작성에 능숙합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Database Skills -->
+        <div class="skill-category">
+          <h2>Database & Caching</h2>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-name">MySQL</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 92%"></div>
+              </div>
+              <div class="skill-description">
+                MySQL 데이터베이스 설계, 인덱싱, 쿼리 최적화에 대한 깊은 이해를
+                가지고 있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-name">PostgreSQL</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+              <div class="skill-description">
+                PostgreSQL의 고급 기능과 JSON 데이터 타입 활용 경험이 있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-memory"></i>
+              </div>
+              <div class="skill-name">Redis</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <div class="skill-description">
+                Redis를 활용한 캐싱 전략과 세션 관리, 분산 락 구현 경험이
+                있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-name">Tibero</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+              <div class="skill-description">
+                국산 데이터베이스 Tibero를 활용한 대규모 시스템 구축 경험이
+                있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cloud & DevOps Skills -->
+        <div class="skill-category">
+          <h2>Cloud & DevOps</h2>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-aws"></i>
+              </div>
+              <div class="skill-name">AWS</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+              <div class="skill-description">
+                EC2, RDS, S3, Lambda 등 AWS 서비스를 활용한 클라우드 인프라 구축
+                경험이 풍부합니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-docker"></i>
+              </div>
+              <div class="skill-name">Docker</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+              <div class="skill-description">
+                Docker 컨테이너화와 Docker Compose를 활용한 개발 환경 구축에
+                능숙합니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-mountain"></i>
+              </div>
+              <div class="skill-name">Terraform</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 82%"></div>
+              </div>
+              <div class="skill-description">
+                Infrastructure as Code를 통한 인프라 자동화와 관리 경험이
+                있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="skill-name">GitHub Actions</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <div class="skill-description">
+                CI/CD 파이프라인 구축과 자동화된 배포 시스템 운영 경험이
+                있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Others -->
+        <div class="skill-category">
+          <h2>Tools & Others</h2>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="skill-name">Datadog</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+              <div class="skill-description">
+                Datadog을 활용한 애플리케이션 모니터링과 성능 분석 경험이
+                있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-terminal"></i>
+              </div>
+              <div class="skill-name">Shell Script</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+              <div class="skill-description">
+                Shell Script를 활용한 자동화 스크립트 작성과 서버 관리 경험이
+                있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div class="skill-name">Spring Batch</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 78%"></div>
+              </div>
+              <div class="skill-description">
+                Spring Batch를 활용한 대용량 데이터 처리와 배치 작업 구현 경험이
+                있습니다.
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="skill-name">Kotlin</div>
+              <div class="skill-level">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+              <div class="skill-description">
+                Kotlin을 활용한 Spring Boot 애플리케이션 개발 경험이 있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Experience Timeline -->
     <section class="experience-timeline">
-        <div class="container">
-            <h2 class="section-title">기술 경험 타임라인</h2>
-            <div class="timeline-container">
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 - 현재</div>
-                    <div class="timeline-content">
-                        <h3>시니어 백엔드 개발자</h3>
-                        <h4>광주 교육청</h4>
-                        <p>
-                            • AWS 클라우드 인프라 설계 및 구축<br>
-                            • Spring Boot 기반 마이크로서비스 아키텍처 개발<br>
-                            • 데이터베이스 성능 최적화 및 쿼리 튜닝<br>
-                            • CI/CD 파이프라인 구축 및 자동화<br>
-                            • Terraform을 활용한 Infrastructure as Code 구현
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2021 - 2023</div>
-                    <div class="timeline-content">
-                        <h3>백엔드 개발자</h3>
-                        <h4>IT 스타트업</h4>
-                        <p>
-                            • Spring Boot 기반 RESTful API 개발<br>
-                            • JPA/Hibernate를 활용한 데이터 레이어 구현<br>
-                            • Redis 캐싱 전략 수립 및 구현<br>
-                            • Docker 컨테이너화 및 배포 자동화<br>
-                            • GitHub Actions를 활용한 CI/CD 구축
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">2020 - 2021</div>
-                    <div class="timeline-content">
-                        <h3>주니어 개발자</h3>
-                        <h4>소프트웨어 개발사</h4>
-                        <p>
-                            • Java 기반 웹 애플리케이션 개발<br>
-                            • MyBatis를 활용한 데이터베이스 연동<br>
-                            • MySQL 데이터베이스 설계 및 관리<br>
-                            • Spring Framework 학습 및 적용<br>
-                            • Git을 활용한 버전 관리 및 협업
-                        </p>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">기술 경험 타임라인</h2>
+        <div class="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 현재</div>
+            <div class="timeline-content">
+              <h3>시니어 백엔드 개발자</h3>
+              <h4>광주 교육청</h4>
+              <p>
+                • AWS 클라우드 인프라 설계 및 구축<br />
+                • Spring Boot 기반 마이크로서비스 아키텍처 개발<br />
+                • 데이터베이스 성능 최적화 및 쿼리 튜닝<br />
+                • CI/CD 파이프라인 구축 및 자동화<br />
+                • Terraform을 활용한 Infrastructure as Code 구현
+              </p>
             </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2021 - 2023</div>
+            <div class="timeline-content">
+              <h3>백엔드 개발자</h3>
+              <h4>IT 스타트업</h4>
+              <p>
+                • Spring Boot 기반 RESTful API 개발<br />
+                • JPA/Hibernate를 활용한 데이터 레이어 구현<br />
+                • Redis 캐싱 전략 수립 및 구현<br />
+                • Docker 컨테이너화 및 배포 자동화<br />
+                • GitHub Actions를 활용한 CI/CD 구축
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2021</div>
+            <div class="timeline-content">
+              <h3>주니어 개발자</h3>
+              <h4>소프트웨어 개발사</h4>
+              <p>
+                • Java 기반 웹 애플리케이션 개발<br />
+                • MyBatis를 활용한 데이터베이스 연동<br />
+                • MySQL 데이터베이스 설계 및 관리<br />
+                • Spring Framework 학습 및 적용<br />
+                • Git을 활용한 버전 관리 및 협업
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Certifications -->
     <section class="certifications">
-        <div class="container">
-            <h2 class="section-title">자격증 및 인증</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="cert-name">AWS Certified Solutions Architect</div>
-                    <div class="cert-issuer">Amazon Web Services</div>
-                    <div class="cert-date">2023</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="cert-name">Oracle Certified Java Programmer</div>
-                    <div class="cert-issuer">Oracle Corporation</div>
-                    <div class="cert-date">2022</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="cert-name">정보처리기사</div>
-                    <div class="cert-issuer">한국산업인력공단</div>
-                    <div class="cert-date">2021</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="cert-name">SQLD (SQL 개발자)</div>
-                    <div class="cert-issuer">한국데이터산업진흥원</div>
-                    <div class="cert-date">2020</div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">자격증 및 인증</h2>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-icon">
+              <i class="fas fa-certificate"></i>
             </div>
+            <div class="cert-name">AWS Certified Solutions Architect</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+            <div class="cert-date">2023</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="cert-name">Oracle Certified Java Programmer</div>
+            <div class="cert-issuer">Oracle Corporation</div>
+            <div class="cert-date">2022</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="cert-name">정보처리기사</div>
+            <div class="cert-issuer">한국산업인력공단</div>
+            <div class="cert-date">2021</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="cert-name">SQLD (SQL 개발자)</div>
+            <div class="cert-issuer">한국데이터산업진흥원</div>
+            <div class="cert-date">2020</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 나혼자 레벨업. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2024 궁금하면500원. All rights reserved.</p>
+      </div>
     </footer>
 
     <script src="js/script.js"></script>
     <script>
-        // Skill progress animation
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      // Skill progress animation
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -50px 0px",
+      };
 
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressBars = entry.target.querySelectorAll('.skill-progress');
-                    progressBars.forEach(bar => {
-                        const width = bar.style.width;
-                        bar.style.width = '0%';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 200);
-                    });
-                }
+      const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const progressBars =
+              entry.target.querySelectorAll(".skill-progress");
+            progressBars.forEach((bar) => {
+              const width = bar.style.width;
+              bar.style.width = "0%";
+              setTimeout(() => {
+                bar.style.width = width;
+              }, 200);
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-category').forEach(category => {
-            skillObserver.observe(category);
+          }
         });
+      }, observerOptions);
+
+      document.querySelectorAll(".skill-category").forEach((category) => {
+        skillObserver.observe(category);
+      });
     </script>
-</body>
+  </body>
 </html>

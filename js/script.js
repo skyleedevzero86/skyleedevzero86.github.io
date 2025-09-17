@@ -1,4 +1,3 @@
-// Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -7,13 +6,11 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 }));
 
-// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,7 +24,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header background change on scroll
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
@@ -39,7 +35,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -54,7 +49,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.project-card, .skill-item, .timeline-item, .about-text, .about-image');
     
@@ -66,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typing animation for hero title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
@@ -82,7 +75,6 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing animation when page loads
 window.addEventListener('load', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
@@ -91,7 +83,6 @@ window.addEventListener('load', () => {
     }
 });
 
-// Code animation in hero section
 function animateCode() {
     const codeLines = document.querySelectorAll('.code-line');
     codeLines.forEach((line, index) => {
@@ -102,29 +93,24 @@ function animateCode() {
     });
 }
 
-// Start code animation after a delay
 setTimeout(animateCode, 1000);
 
-// Contact form handling
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form data
         const formData = new FormData(contactForm);
         const name = contactForm.querySelector('input[type="text"]').value;
         const email = contactForm.querySelector('input[type="email"]').value;
         const subject = contactForm.querySelector('input[placeholder="제목"]').value;
         const message = contactForm.querySelector('textarea').value;
         
-        // Simple validation
         if (!name || !email || !subject || !message) {
             alert('모든 필드를 입력해주세요.');
             return;
         }
         
-        // Simulate form submission
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         
@@ -140,7 +126,6 @@ if (contactForm) {
     });
 }
 
-// Skill items hover effect
 document.querySelectorAll('.skill-item').forEach(item => {
     item.addEventListener('mouseenter', () => {
         item.style.transform = 'translateY(-10px) scale(1.05)';
@@ -151,7 +136,6 @@ document.querySelectorAll('.skill-item').forEach(item => {
     });
 });
 
-// Project cards hover effect
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
         card.style.transform = 'translateY(-15px)';
@@ -164,7 +148,6 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Parallax effect for hero section
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -174,7 +157,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Active navigation link highlighting
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -196,7 +178,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add active class styles
 const style = document.createElement('style');
 style.textContent = `
     .nav-link.active {
@@ -208,7 +189,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Loading animation
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
@@ -218,14 +198,12 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
-// Console message
 console.log(`
-🚀 나혼자 레벨업 포트폴리오 사이트
-📧 연락처: developer@example.com
+🚀 궁금하면500원 포트폴리오 사이트
+📧 연락처: sleekydz86@naver.com
 💼 백엔드 개발자 포트폴리오
 `);
 
-// Easter egg - Konami code
 let konamiCode = [];
 const konamiSequence = [
     'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
