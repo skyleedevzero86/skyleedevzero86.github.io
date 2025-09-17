@@ -201,6 +201,8 @@ window.addEventListener('load', () => {
 console.log(`
 🚀 궁금하면500원 포트폴리오 사이트
 📧 연락처: sleekydz86@naver.com
+📝 기술블로그: https://velog.io/@sleekydevzero86/posts
+📚 학습블로그: https://blog.naver.com/sleekydz86
 💼 백엔드 개발자 포트폴리오
 `);
 
