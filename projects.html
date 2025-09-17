@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 - 나혼자 레벨업</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .project-detail {
+            padding: 100px 0;
+            background: white;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .project-header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .project-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .project-card-large {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        .project-card-large:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        .project-image-large {
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-image-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .project-image-large i {
+            position: relative;
+            z-index: 1;
+        }
+        .project-content-large {
+            padding: 2.5rem;
+        }
+        .project-content-large h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .project-content-large p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .project-features {
+            margin-bottom: 2rem;
+        }
+        .project-features h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .project-tech-large {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .tech-tag-large {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .project-links-large {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .project-link-large {
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-link-primary {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+        }
+        .project-link-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        .project-link-secondary {
+            background: transparent;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
+        .project-link-secondary:hover {
+            background: #3498db;
+            color: white;
+        }
+        .stats-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card h3 {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card p {
+            color: #666;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h2>나혼자 레벨업</h2>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link active">프로젝트</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#skills" class="nav-link">기술스택</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contact" class="nav-link">연락처</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>주요 프로젝트</h1>
+                <p>다양한 기술 스택을 활용하여 개발한 프로젝트들을 소개합니다.</p>
+            </div>
+
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card-large">
+                    <div class="project-image-large">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="project-content-large">
+                        <h3>광주 교육청 통합 예약 시스템</h3>
+                        <p>
+                            전자정부 프레임워크 기반의 대규모 교육 예약 및 관리 시스템입니다. 
+                            교육 신청, 강사 관리, 배너 관리 등 다양한 기능을 제공합니다.
+                        </p>
+                        <div class="project-features">
+                            <h4>주요 기능</h4>
+                            <ul class="feature-list">
+                                <li>교육 프로그램 예약 및 관리</li>
+                                <li>강사 정보 관리 시스템</li>
+                                <li>사용자 권한 관리</li>
+                                <li>통합 검색 기능</li>
+                                <li>배너 관리 시스템</li>
+                                <li>Excel 데이터 내보내기</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech-large">
+                            <span class="tech-tag-large">Spring Boot</span>
+                            <span class="tech-tag-large">MyBatis</span>
+                            <span class="tech-tag-large">MySQL</span>
+                            <span class="tech-tag-large">JavaScript</span>
+                            <span class="tech-tag-large">jQuery</span>
+                            <span class="tech-tag-large">Bootstrap</span>
+                        </div>
+                        <div class="project-links-large">
+                            <a href="#" class="project-link-large project-link-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                라이브 데모
+                            </a>
+                            <a href="#" class="project-link-large project-link-secondary">
+                                <i class="fab fa-github"></i>
+                                소스코드
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card-large">
+                    <div class="project-image-large">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="project-content-large">
+                        <h3>공간 대여 관리 시스템</h3>
+                        <p>
+                            회의실 및 강의실 대여 예약 및 관리 시스템입니다. 
+                            실시간 예약 현황 확인과 장비 관리 기능을 제공합니다.
+                        </p>
+                        <div class="project-features">
+                            <h4>주요 기능</h4>
+                            <ul class="feature-list">
+                                <li>실시간 공간 예약 시스템</li>
+                                <li>장비 관리 및 예약</li>
+                                <li>예약 현황 대시보드</li>
+                                <li>사용자별 예약 내역</li>
+                                <li>시간대별 예약 관리</li>
+                                <li>알림 시스템</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech-large">
+                            <span class="tech-tag-large">Spring Boot</span>
+                            <span class="tech-tag-large">JPA</span>
+                            <span class="tech-tag-large">Redis</span>
+                            <span class="tech-tag-large">Vue.js</span>
+                            <span class="tech-tag-large">WebSocket</span>
+                            <span class="tech-tag-large">Docker</span>
+                        </div>
+                        <div class="project-links-large">
+                            <a href="#" class="project-link-large project-link-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                라이브 데모
+                            </a>
+                            <a href="#" class="project-link-large project-link-secondary">
+                                <i class="fab fa-github"></i>
+                                소스코드
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card-large">
+                    <div class="project-image-large">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="project-content-large">
+                        <h3>통합 검색 시스템</h3>
+                        <p>
+                            다양한 데이터 소스를 통합한 검색 엔진입니다. 
+                            메뉴, 게시판, 파일 등 모든 콘텐츠를 한 번에 검색할 수 있습니다.
+                        </p>
+                        <div class="project-features">
+                            <h4>주요 기능</h4>
+                            <ul class="feature-list">
+                                <li>통합 검색 인터페이스</li>
+                                <li>실시간 검색 제안</li>
+                                <li>카테고리별 필터링</li>
+                                <li>검색 결과 하이라이팅</li>
+                                <li>검색 통계 및 분석</li>
+                                <li>검색 히스토리 관리</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech-large">
+                            <span class="tech-tag-large">Elasticsearch</span>
+                            <span class="tech-tag-large">Spring Boot</span>
+                            <span class="tech-tag-large">Kafka</span>
+                            <span class="tech-tag-large">Docker</span>
+                            <span class="tech-tag-large">Nginx</span>
+                            <span class="tech-tag-large">Logstash</span>
+                        </div>
+                        <div class="project-links-large">
+                            <a href="#" class="project-link-large project-link-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                라이브 데모
+                            </a>
+                            <a href="#" class="project-link-large project-link-secondary">
+                                <i class="fab fa-github"></i>
+                                소스코드
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card-large">
+                    <div class="project-image-large">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content-large">
+                        <h3>회원 관리 시스템</h3>
+                        <p>
+                            JWT 기반 인증 및 권한 관리 시스템입니다. 
+                            OAuth2 연동과 다양한 보안 기능을 제공합니다.
+                        </p>
+                        <div class="project-features">
+                            <h4>주요 기능</h4>
+                            <ul class="feature-list">
+                                <li>JWT 기반 인증</li>
+                                <li>OAuth2 소셜 로그인</li>
+                                <li>역할 기반 권한 관리</li>
+                                <li>비밀번호 암호화</li>
+                                <li>계정 잠금 기능</li>
+                                <li>로그인 이력 관리</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech-large">
+                            <span class="tech-tag-large">Spring Security</span>
+                            <span class="tech-tag-large">JWT</span>
+                            <span class="tech-tag-large">OAuth2</span>
+                            <span class="tech-tag-large">PostgreSQL</span>
+                            <span class="tech-tag-large">BCrypt</span>
+                            <span class="tech-tag-large">Redis</span>
+                        </div>
+                        <div class="project-links-large">
+                            <a href="#" class="project-link-large project-link-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                라이브 데모
+                            </a>
+                            <a href="#" class="project-link-large project-link-secondary">
+                                <i class="fab fa-github"></i>
+                                소스코드
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card-large">
+                    <div class="project-image-large">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content-large">
+                        <h3>데이터 분석 대시보드</h3>
+                        <p>
+                            실시간 데이터 수집 및 분석을 위한 대시보드 시스템입니다. 
+                            다양한 차트와 그래프로 데이터를 시각화합니다.
+                        </p>
+                        <div class="project-features">
+                            <h4>주요 기능</h4>
+                            <ul class="feature-list">
+                                <li>실시간 데이터 수집</li>
+                                <li>인터랙티브 차트</li>
+                                <li>데이터 필터링</li>
+                                <li>알림 시스템</li>
+                                <li>데이터 내보내기</li>
+                                <li>사용자 커스터마이징</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech-large">
+                            <span class="tech-tag-large">Spring Boot</span>
+                            <span class="tech-tag-large">WebSocket</span>
+                            <span class="tech-tag-large">Chart.js</span>
+                            <span class="tech-tag-large">InfluxDB</span>
+                            <span class="tech-tag-large">Grafana</span>
+                            <span class="tech-tag-large">Kafka</span>
+                        </div>
+                        <div class="project-links-large">
+                            <a href="#" class="project-link-large project-link-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                라이브 데모
+                            </a>
+                            <a href="#" class="project-link-large project-link-secondary">
+                                <i class="fab fa-github"></i>
+                                소스코드
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card-large">
+                    <div class="project-image-large">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content-large">
+                        <h3>모바일 API 서버</h3>
+                        <p>
+                            모바일 애플리케이션을 위한 RESTful API 서버입니다. 
+                            높은 성능과 확장성을 고려하여 설계되었습니다.
+                        </p>
+                        <div class="project-features">
+                            <h4>주요 기능</h4>
+                            <ul class="feature-list">
+                                <li>RESTful API 설계</li>
+                                <li>API 문서 자동화</li>
+                                <li>캐싱 전략</li>
+                                <li>API 버전 관리</li>
+                                <li>모니터링 및 로깅</li>
+                                <li>부하 분산</li>
+                            </ul>
+                        </div>
+                        <div class="project-tech-large">
+                            <span class="tech-tag-large">Spring Boot</span>
+                            <span class="tech-tag-large">Swagger</span>
+                            <span class="tech-tag-large">Redis</span>
+                            <span class="tech-tag-large">Docker</span>
+                            <span class="tech-tag-large">Kubernetes</span>
+                            <span class="tech-tag-large">Prometheus</span>
+                        </div>
+                        <div class="project-links-large">
+                            <a href="#" class="project-link-large project-link-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                라이브 데모
+                            </a>
+                            <a href="#" class="project-link-large project-link-secondary">
+                                <i class="fab fa-github"></i>
+                                소스코드
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">프로젝트 통계</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>15+</h3>
+                    <p>완료된 프로젝트</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50K+</h3>
+                    <p>처리된 요청</p>
+                </div>
+                <div class="stat-card">
+                    <h3>99.9%</h3>
+                    <p>시스템 가용성</p>
+                </div>
+                <div class="stat-card">
+                    <h3>24/7</h3>
+                    <p>모니터링</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 나혼자 레벨업. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

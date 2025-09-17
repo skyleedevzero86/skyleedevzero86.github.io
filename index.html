@@ -1,10 +1,448 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>안녕하세요 이경용 입니다.</title>
-</head>
-<body>
-	깃 블로그 셋팅!!!!!!
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>궁금하면500원 - 개발자 포트폴리오</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <h2>궁금하면500원</h2>
+          </div>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#home" class="nav-link">홈</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">소개</a>
+            </li>
+            <li class="nav-item">
+              <a href="#projects" class="nav-link">프로젝트</a>
+            </li>
+            <li class="nav-item">
+              <a href="#skills" class="nav-link">기술스택</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">연락처</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            안녕하세요, <span class="highlight">백엔드 개발자</span>입니다
+          </h1>
+          <p class="hero-description">
+            Spring Boot와 AWS를 활용한 웹 애플리케이션 개발에 특화된
+            개발자입니다.<br />
+            사용자 중심의 서비스를 만들기 위해 끊임없이 학습하고 성장하고
+            있습니다.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+            <a href="#contact" class="btn btn-secondary">연락하기</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="code-animation">
+            <div class="code-line">
+              <span class="keyword">public class</span>
+              <span class="class-name">Developer</span> {
+            </div>
+            <div class="code-line indent">
+              <span class="keyword">public void</span>
+              <span class="method">levelUp</span>() {
+            </div>
+            <div class="code-line indent-2">
+              <span class="comment">// 끊임없는 학습과 성장</span>
+            </div>
+            <div class="code-line indent-2">
+              <span class="variable">skills</span>.<span class="method"
+                >improve</span
+              >();
+            </div>
+            <div class="code-line indent">}</div>
+            <div class="code-line">}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>백엔드 개발자로서의 여정</h3>
+            <p>
+              전자정부 프레임워크(eGov) 기반의 대규모 웹 애플리케이션 개발
+              경험을 바탕으로, 사용자 중심의 서비스를 설계하고 구현하는 것을
+              목표로 합니다.
+            </p>
+            <p>
+              특히 Spring Boot, JPA, AWS를 활용한 마이크로서비스 아키텍처 설계와
+              데이터베이스 최적화에 관심이 많습니다.
+            </p>
+            <div class="stats">
+              <div class="stat-item">
+                <h4>3+</h4>
+                <p>년 경력</p>
+              </div>
+              <div class="stat-item">
+                <h4>10+</h4>
+                <p>프로젝트</p>
+              </div>
+              <div class="stat-item">
+                <h4>1000+</h4>
+                <p>사용자</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="image-placeholder">
+              <i class="fas fa-user-tie"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">주요 프로젝트</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="project-content">
+              <h3>광주 교육청 통합 예약 시스템</h3>
+              <p>전자정부 프레임워크 기반의 교육 예약 및 관리 시스템</p>
+              <div class="project-tech">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MyBatis</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="project-content">
+              <h3>공간 대여 관리 시스템</h3>
+              <p>회의실 및 강의실 대여 예약 및 관리 시스템</p>
+              <div class="project-tech">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">JPA</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">Vue.js</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="project-content">
+              <h3>통합 검색 시스템</h3>
+              <p>다양한 데이터 소스를 통합한 검색 엔진</p>
+              <div class="project-tech">
+                <span class="tech-tag">Elasticsearch</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Kafka</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="project-content">
+              <h3>회원 관리 시스템</h3>
+              <p>JWT 기반 인증 및 권한 관리 시스템</p>
+              <div class="project-tech">
+                <span class="tech-tag">Spring Security</span>
+                <span class="tech-tag">JWT</span>
+                <span class="tech-tag">OAuth2</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">기술 스택</h2>
+        <div class="skills-content">
+          <div class="skills-category">
+            <h3>Backend</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <i class="fab fa-java"></i>
+                <span>Java</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-leaf"></i>
+                <span>Spring Boot</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>JPA/Hibernate</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <span>MyBatis</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Database</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-memory"></i>
+                <span>Redis</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>Tibero</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Cloud & DevOps</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-mountain"></i>
+                <span>Terraform</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-github"></i>
+                <span>GitHub Actions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Tools</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Datadog</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-terminal"></i>
+                <span>Shell Script</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-cogs"></i>
+                <span>Spring Batch</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <span>Kotlin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+      <div class="container">
+        <h2 class="section-title">경력</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 현재</div>
+            <div class="timeline-content">
+              <h3>시니어 백엔드 개발자</h3>
+              <h4>광주 교육청</h4>
+              <p>
+                • 전자정부 프레임워크 기반 대규모 웹 애플리케이션 개발<br />
+                • AWS 클라우드 인프라 설계 및 구축<br />
+                • 데이터베이스 성능 최적화 및 쿼리 튜닝<br />
+                • CI/CD 파이프라인 구축 및 자동화
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2021 - 2023</div>
+            <div class="timeline-content">
+              <h3>백엔드 개발자</h3>
+              <h4>IT 스타트업</h4>
+              <p>
+                • Spring Boot 기반 RESTful API 개발<br />
+                • 마이크로서비스 아키텍처 설계<br />
+                • JWT 기반 인증 시스템 구현<br />
+                • Docker를 활용한 컨테이너화
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2021</div>
+            <div class="timeline-content">
+              <h3>주니어 개발자</h3>
+              <h4>소프트웨어 개발사</h4>
+              <p>
+                • Java 기반 웹 애플리케이션 개발<br />
+                • MySQL 데이터베이스 설계 및 관리<br />
+                • 프론트엔드와의 협업 경험<br />
+                • Git을 활용한 버전 관리
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">연락처</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>함께 일하고 싶으시다면</h3>
+            <p>
+              새로운 도전과 성장의 기회를 찾고 있습니다. 언제든지 연락주세요!
+            </p>
+            <div class="contact-items">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>developer@example.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>010-1234-5678</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>광주광역시</span>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="이름" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="이메일" required />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="제목" required />
+              </div>
+              <div class="form-group">
+                <textarea placeholder="메시지" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                메시지 보내기
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 나혼자 레벨업. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
