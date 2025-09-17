@@ -139,6 +139,9 @@
   font-weight: 600;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .timeline-content {
@@ -162,13 +165,13 @@
 }
 
 .timeline-item:nth-child(odd) .timeline-content::before {
-  right: -30px;
-  border-left-color: white;
+  left: -30px;
+  border-right-color: white;
 }
 
 .timeline-item:nth-child(even) .timeline-content::before {
-  left: -30px;
-  border-right-color: white;
+  right: -30px;
+  border-left-color: white;
 }
 
 .timeline-content h3 {
@@ -235,4 +238,33 @@
 .cert-date {
   color: #6c757d;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 2rem;
+  }
+  
+  .timeline-date {
+    flex: none;
+    width: 150px;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+  }
+  
+  .timeline-content {
+    margin: 0;
+    width: 100%;
+  }
+  
+  .timeline-content::before {
+    display: none;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content::before,
+  .timeline-item:nth-child(even) .timeline-content::before {
+    display: none;
+  }
 }

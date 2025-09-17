@@ -268,6 +268,34 @@ body {
     border-radius: 2px;
 }
 
+.section-title.clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.section-title.clickable:hover {
+    color: #3498db;
+    transform: translateY(-2px);
+}
+
+.section-title.clickable::before {
+    content: '→';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: #3498db;
+}
+
+.section-title.clickable:hover::before {
+    opacity: 1;
+    right: -40px;
+}
+
 .about {
     padding: 150px 0;
     background: white;

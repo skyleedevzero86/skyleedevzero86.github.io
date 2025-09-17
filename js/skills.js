@@ -1,4 +1,4 @@
-const observerOptions = {
+const skillObserverOptions = {
   threshold: 0.5,
   rootMargin: "0px 0px -50px 0px",
 };
@@ -16,7 +16,7 @@ const skillObserver = new IntersectionObserver((entries) => {
       });
     }
   });
-}, observerOptions);
+}, skillObserverOptions);
 
 document.querySelectorAll(".skill-category").forEach((category) => {
   skillObserver.observe(category);
