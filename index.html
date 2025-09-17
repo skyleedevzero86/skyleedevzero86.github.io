@@ -21,7 +21,6 @@
         align-items: center;
         min-height: 50px;
       }
-
       .project-link {
         color: #6c757d !important;
         text-decoration: none !important;
@@ -43,7 +42,6 @@
         line-height: 1;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
-
       .project-link:hover {
         color: #495057 !important;
         background: #e9ecef !important;
@@ -56,13 +54,11 @@
         margin-top: 3rem;
         padding: 2rem 0;
       }
-
       .pagination {
         display: flex;
         align-items: center;
         gap: 1rem;
       }
-
       .pagination-btn {
         width: 40px;
         height: 40px;
@@ -77,24 +73,20 @@
         transition: all 0.3s ease;
         font-size: 1rem;
       }
-
       .pagination-btn:hover {
         background: #3498db;
         color: white;
         transform: translateY(-2px);
       }
-
       .pagination-btn:disabled {
         opacity: 0.5;
         cursor: not-allowed;
         transform: none;
       }
-
       .pagination-numbers {
         display: flex;
         gap: 0.5rem;
       }
-
       .page-number {
         width: 40px;
         height: 40px;
@@ -109,28 +101,22 @@
         transition: all 0.3s ease;
         font-weight: 600;
       }
-
       .page-number:hover {
         background: #3498db;
         color: white;
         transform: translateY(-2px);
       }
-
       .page-number.active {
         background: #3498db;
         color: white;
       }
-
       .project-card {
         display: block;
         height: 600px;
       }
-
       .project-card.hide {
         display: none;
       }
-
-      /* Ensure project cards are visible by default */
       .projects-grid .project-card {
         display: block !important;
       }
@@ -178,7 +164,6 @@
         </div>
       </nav>
     </header>
-
     <section id="home" class="hero">
       <div class="hero-container">
         <div class="hero-content">
@@ -216,9 +201,6 @@
               <span class="method">levelUp</span>() {
             </div>
             <div class="code-line indent-2">
-              <span class="comment">// 끊임없는 학습과 성장</span>
-            </div>
-            <div class="code-line indent-2">
               <span class="variable">skills</span>.<span class="method"
                 >improve</span
               >();
@@ -229,7 +211,6 @@
         </div>
       </div>
     </section>
-
     <section id="about" class="about">
       <div class="container">
         <h2 class="section-title">About Me</h2>
@@ -268,7 +249,6 @@
         </div>
       </div>
     </section>
-
     <section id="projects" class="projects">
       <div class="container">
         <h2 class="section-title">주요 프로젝트</h2>
@@ -304,7 +284,6 @@
               </div>
             </div>
           </div>
-
           <div class="project-card" data-page="1">
             <div class="project-image">
               <i class="fas fa-building"></i>
@@ -336,7 +315,6 @@
               </div>
             </div>
           </div>
-
           <div class="project-card" data-page="1">
             <div class="project-image">
               <i class="fas fa-search"></i>
@@ -368,7 +346,6 @@
               </div>
             </div>
           </div>
-
           <div class="project-card" data-page="1">
             <div class="project-image">
               <i class="fas fa-users"></i>
@@ -401,7 +378,6 @@
             </div>
           </div>
         </div>
-
         <div class="pagination-container">
           <div class="pagination">
             <button class="pagination-btn prev-btn" onclick="changePage(-1)">
@@ -415,7 +391,6 @@
         </div>
       </div>
     </section>
-
     <section id="skills" class="skills">
       <div class="container">
         <h2 class="section-title">기술 스택</h2>
@@ -445,7 +420,6 @@
               </div>
             </div>
           </div>
-
           <div class="skills-category">
             <h3>Database</h3>
             <div class="skill-items">
@@ -467,7 +441,6 @@
               </div>
             </div>
           </div>
-
           <div class="skills-category">
             <h3>Cloud & DevOps</h3>
             <div class="skill-items">
@@ -493,7 +466,6 @@
               </div>
             </div>
           </div>
-
           <div class="skills-category">
             <h3>Tools</h3>
             <div class="skill-items">
@@ -518,7 +490,6 @@
         </div>
       </div>
     </section>
-
     <section id="experience" class="experience">
       <div class="container">
         <h2 class="section-title">경력</h2>
@@ -536,7 +507,6 @@
               </p>
             </div>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-date">2021 - 2023</div>
             <div class="timeline-content">
@@ -550,7 +520,6 @@
               </p>
             </div>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-date">2020 - 2021</div>
             <div class="timeline-content">
@@ -564,7 +533,6 @@
               </p>
             </div>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-date">2019 - 2020</div>
             <div class="timeline-content">
@@ -581,7 +549,6 @@
         </div>
       </div>
     </section>
-
     <section id="contact" class="contact">
       <div class="container">
         <h2 class="section-title">연락처</h2>
@@ -611,28 +578,21 @@
         </div>
       </div>
     </section>
-
     <footer class="footer">
       <div class="container">
         <p>&copy; 2024 궁금하면500원. All rights reserved.</p>
       </div>
     </footer>
-
     <script src="js/script.js"></script>
     <script>
-      // Pagination functionality for index.html
       let currentPage = 1;
-      const itemsPerPage = 6; // 6개씩 표시
+      const itemsPerPage = 6;
       let totalPages = 0;
-
       function initPagination() {
         const projectCards = document.querySelectorAll(".project-card");
         totalPages = Math.ceil(projectCards.length / itemsPerPage);
-
-        // Always show pagination, even if only 1 page
         const paginationNumbers = document.getElementById("paginationNumbers");
         paginationNumbers.innerHTML = "";
-
         for (let i = 1; i <= totalPages; i++) {
           const pageNumber = document.createElement("div");
           pageNumber.className = "page-number";
@@ -640,16 +600,12 @@
           pageNumber.onclick = () => goToPage(i);
           paginationNumbers.appendChild(pageNumber);
         }
-
-        // Show pagination container even if only 1 page
         const paginationContainer = document.querySelector(
           ".pagination-container"
         );
         if (paginationContainer) {
           paginationContainer.style.display = "flex";
         }
-
-        // If only 1 page, show all cards without pagination logic
         if (totalPages <= 1) {
           projectCards.forEach((card) => {
             card.classList.remove("hide");
@@ -658,52 +614,37 @@
           showPage(1);
         }
       }
-
       function showPage(page) {
         const projectCards = document.querySelectorAll(".project-card");
         const startIndex = (page - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-
-        // Hide all cards
         projectCards.forEach((card) => {
           card.classList.add("hide");
         });
-
-        // Show cards for current page
         for (let i = startIndex; i < endIndex && i < projectCards.length; i++) {
           projectCards[i].classList.remove("hide");
         }
-
-        // Update active page number
         document.querySelectorAll(".page-number").forEach((btn, index) => {
           btn.classList.toggle("active", index + 1 === page);
         });
-
-        // Update prev/next button states
         const prevBtn = document.querySelector(".prev-btn");
         const nextBtn = document.querySelector(".next-btn");
-
         prevBtn.disabled = page === 1;
         nextBtn.disabled = page === totalPages;
-
         currentPage = page;
       }
-
       function goToPage(page) {
         if (page >= 1 && page <= totalPages) {
           showPage(page);
         }
       }
-
       function changePage(direction) {
         const newPage = currentPage + direction;
         if (newPage >= 1 && newPage <= totalPages) {
           showPage(newPage);
         }
       }
-
       document.addEventListener("DOMContentLoaded", initPagination);
-
       function scrollToSection(sectionId) {
         const element = document.getElementById(sectionId);
         if (element) {

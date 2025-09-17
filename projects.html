@@ -1011,16 +1011,14 @@
 
     <script src="js/script.js"></script>
     <script>
-      // Pagination functionality
       let currentPage = 1;
-      const itemsPerPage = 6; // 6개씩 표시
+      const itemsPerPage = 6;
       let totalPages = 0;
 
       function initPagination() {
         const projectCards = document.querySelectorAll(".project-card-large");
         totalPages = Math.ceil(projectCards.length / itemsPerPage);
 
-        // Always show pagination, even if only 1 page
         const paginationNumbers = document.getElementById("paginationNumbers");
         paginationNumbers.innerHTML = "";
 
@@ -1032,7 +1030,6 @@
           paginationNumbers.appendChild(pageNumber);
         }
 
-        // Show pagination container even if only 1 page
         const paginationContainer = document.querySelector(
           ".pagination-container"
         );
@@ -1048,22 +1045,17 @@
         const startIndex = (page - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
 
-        // Hide all cards
         projectCards.forEach((card) => {
           card.classList.add("hide");
         });
 
-        // Show cards for current page
         for (let i = startIndex; i < endIndex && i < projectCards.length; i++) {
           projectCards[i].classList.remove("hide");
         }
 
-        // Update active page number
         document.querySelectorAll(".page-number").forEach((btn, index) => {
           btn.classList.toggle("active", index + 1 === page);
         });
-
-        // Update prev/next button states
         const prevBtn = document.querySelector(".prev-btn");
         const nextBtn = document.querySelector(".next-btn");
 
@@ -1086,7 +1078,6 @@
         }
       }
 
-      // Initialize pagination when page loads
       document.addEventListener("DOMContentLoaded", initPagination);
     </script>
   </body>

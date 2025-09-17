@@ -257,7 +257,6 @@
         </div>
       </nav>
     </header>
-
     <section class="skills-detail">
       <div class="container">
         <div class="skills-header">
@@ -266,7 +265,6 @@
             다양한 기술들을 활용하여 효율적이고 안정적인 시스템을 구축합니다.
           </p>
         </div>
-
         <div class="skill-category">
           <h2>Backend Development</h2>
           <div class="skill-grid">
@@ -335,7 +333,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-category">
           <h2>Database & Caching</h2>
           <div class="skill-grid">
@@ -391,7 +388,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-category">
           <h2>Cloud & DevOps</h2>
           <div class="skill-grid">
@@ -461,7 +457,6 @@
             </div>
           </div>
         </div>
-
         <div class="skill-category">
           <h2>Tools & Others</h2>
           <div class="skill-grid">
@@ -520,7 +515,6 @@
         </div>
       </div>
     </section>
-
     <section class="experience-timeline">
       <div class="container">
         <h2 class="section-title">기술 경험 타임라인</h2>
@@ -539,7 +533,6 @@
               </p>
             </div>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-date">2021 - 2023</div>
             <div class="timeline-content">
@@ -554,7 +547,6 @@
               </p>
             </div>
           </div>
-
           <div class="timeline-item">
             <div class="timeline-date">2020 - 2021</div>
             <div class="timeline-content">
@@ -572,7 +564,6 @@
         </div>
       </div>
     </section>
-
     <section class="certifications">
       <div class="container">
         <h2 class="section-title">자격증 및 인증</h2>
@@ -612,21 +603,17 @@
         </div>
       </div>
     </section>
-
     <footer class="footer">
       <div class="container">
         <p>&copy; 2024 궁금하면500원. All rights reserved.</p>
       </div>
     </footer>
-
     <script src="js/script.js"></script>
     <script>
-      // Skill progress animation
       const observerOptions = {
         threshold: 0.5,
         rootMargin: "0px 0px -50px 0px",
       };
-
       const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -642,7 +629,6 @@
           }
         });
       }, observerOptions);
-
       document.querySelectorAll(".skill-category").forEach((category) => {
         skillObserver.observe(category);
       });
