@@ -1,3 +1,5 @@
+<img width="1877" height="903" alt="image" src="https://github.com/user-attachments/assets/48c6bfce-17e7-4976-aba9-21de1674911d" />
+
 # 궁금하면500원 - 백엔드 개발자 포트폴리오
 
 안녕하세요! 백엔드 개발자 **이경용**의 포트폴리오 사이트입니다.
