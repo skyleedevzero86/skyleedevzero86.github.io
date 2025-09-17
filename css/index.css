@@ -1,0 +1,124 @@
+.project-links {
+  display: flex !important;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  visibility: visible !important;
+  opacity: 1 !important;
+  align-items: center;
+  min-height: 50px;
+}
+
+.project-link {
+  color: #6c757d !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #e9ecef !important;
+  border-radius: 4px;
+  background: #f8f9fa !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 1rem;
+  min-width: 100px;
+  text-align: center;
+  height: 45px;
+  line-height: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-link:hover {
+  color: #495057 !important;
+  background: #e9ecef !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #3498db;
+  background: white;
+  color: #3498db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.pagination-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-number {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #3498db;
+  background: white;
+  color: #3498db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.page-number:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.page-number.active {
+  background: #3498db;
+  color: white;
+}
+
+.project-card {
+  display: block;
+  height: 600px;
+}
+
+.project-card.hide {
+  display: none;
+}
+
+.projects-grid .project-card {
+  display: block !important;
+}

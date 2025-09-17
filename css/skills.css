@@ -1,0 +1,238 @@
+.skills-detail {
+  padding: 100px 0;
+  background: white;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.skills-header h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.skills-header p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  margin-bottom: 4rem;
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.skill-category h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  border-radius: 2px;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #6c757d;
+}
+
+.skill-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.skill-level {
+  background: #f8f9fa;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #6c757d, #495057);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.skill-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.experience-timeline {
+  background: #f8f9fa;
+  padding: 4rem 0;
+}
+
+.timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-date {
+  flex: 0 0 200px;
+  text-align: center;
+  padding: 1rem;
+  background: #3498db;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 0 2rem;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+  right: -30px;
+  border-left-color: white;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+  left: -30px;
+  border-right-color: white;
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.timeline-content h4 {
+  color: #6c757d;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.certifications {
+  background: white;
+  padding: 4rem 0;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cert-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cert-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.cert-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.cert-issuer {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.cert-date {
+  color: #6c757d;
+  font-weight: 500;
+}

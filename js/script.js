@@ -234,6 +234,6 @@ document.addEventListener('keydown', (e) => {
         `;
         document.head.appendChild(style);
         
-        console.log('🎉 Konami Code activated! You found the easter egg!');
+        console.log('🎉 스타일 완료');
     }
 });
