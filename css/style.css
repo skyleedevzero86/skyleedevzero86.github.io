@@ -344,6 +344,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    align-items: stretch;
 }
 
 .project-card {
@@ -355,7 +356,8 @@ body {
     border: 1px solid #e9ecef;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 600px;
+    align-self: stretch;
 }
 
 .project-card:hover {
@@ -377,7 +379,9 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex: 1;
+    justify-content: space-between;
+    min-height: 0;
 }
 
 .project-content h3 {
@@ -390,6 +394,12 @@ body {
     color: #666;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 4.8em;
 }
 
 .project-tech {
@@ -397,6 +407,8 @@ body {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    min-height: 60px;
+    align-items: flex-start;
 }
 
 .tech-tag {
@@ -411,7 +423,7 @@ body {
 .project-links {
     display: flex !important;
     gap: 1rem;
-    justify-content: center;
+    justify-content: center !important;
     margin-top: auto;
     padding-top: 1rem;
     visibility: visible !important;
@@ -429,14 +441,16 @@ body {
     border: 1px solid #3498db !important;
     border-radius: 20px;
     background: rgba(52, 152, 219, 0.1) !important;
-    display: inline-block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     visibility: visible !important;
     opacity: 1 !important;
     font-size: 0.9rem;
     min-width: 80px;
     text-align: center;
     height: 40px;
-    line-height: 28px;
+    line-height: 1;
 }
 
 .project-link:hover {
@@ -612,51 +626,125 @@ body {
 
 .contact-content-simple {
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-content-simple::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2980b9, #9b59b6);
 }
 
 .contact-content-simple h3 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #ff6b35;
-    font-weight: bold;
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    color: #2c3e50;
+    font-weight: 700;
+    position: relative;
+}
+
+.contact-content-simple h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 2px;
 }
 
 .contact-items-simple {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .contact-item-simple {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    background: white;
+    padding: 1.2rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.contact-item-simple:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .contact-item-simple i {
-    width: 30px;
-    margin-right: 1rem;
+    width: 40px;
+    margin-right: 1.5rem;
     color: #3498db;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(52, 152, 219, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.contact-item-simple span {
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 .contact-item-simple a {
     color: #2c3e50;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.contact-item-simple a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    transition: width 0.3s ease;
 }
 
 .contact-item-simple a:hover {
     color: #3498db;
 }
 
+.contact-item-simple a:hover::after {
+    width: 100%;
+}
+
 .contact-message {
     color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.8;
     margin-top: 2rem;
+    font-style: italic;
+    background: rgba(52, 152, 219, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
 }
 
 .contact-info h3 {
