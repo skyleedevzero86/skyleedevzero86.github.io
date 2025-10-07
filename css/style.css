@@ -6,13 +6,18 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 .container {
@@ -27,6 +32,7 @@ body {
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -63,6 +69,7 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -88,6 +95,7 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 5px;
 }
 
 .bar {
@@ -96,6 +104,7 @@ body {
     background-color: #333;
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
 .hero {
@@ -105,6 +114,7 @@ body {
     background: #f8f9fa;
     color: #2c3e50;
     position: relative;
+    padding-top: 80px;
 }
 
 .hero-container {
@@ -180,6 +190,11 @@ body {
     cursor: pointer;
     display: inline-block;
     text-align: center;
+    font-size: 1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -217,7 +232,7 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 8px;
-    font-family: 'Courier New', monospace;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
     font-size: 1rem;
     line-height: 1.6;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -864,6 +879,8 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .form-group input:focus,
@@ -912,6 +929,24 @@ body {
     }
 }
 
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .about-content {
+        gap: 2rem;
+    }
+    
+    .stats {
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -928,6 +963,7 @@ body {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -938,10 +974,15 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding-top: 2rem;
     }
 
     .hero-title {
         font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
     }
 
     .about-content {
@@ -951,16 +992,18 @@ body {
     
     .about {
         padding: 120px 0;
-        min-height: 100vh;
+        min-height: auto;
     }
     
     .skills {
         padding: 120px 0;
-        min-height: 100vh;
+        min-height: auto;
     }
 
     .stats {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .projects-grid {
@@ -1012,9 +1055,30 @@ body {
     .hero-buttons {
         justify-content: center;
     }
+    
+    .contact-content-simple {
+        padding: 2rem;
+    }
+    
+    .contact-content-simple h3 {
+        font-size: 2.2rem;
+    }
+    
+    .contact-item-simple {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
     .hero-title {
         font-size: 2rem;
     }
@@ -1039,11 +1103,76 @@ body {
     
     .about {
         padding: 100px 0;
-        min-height: 100vh;
+        min-height: auto;
     }
     
     .skills {
         padding: 100px 0;
-        min-height: 100vh;
+        min-height: auto;
+    }
+    
+    .hero {
+        padding-top: 60px;
+    }
+    
+    .hero-container {
+        padding: 0 15px;
+    }
+    
+    .about-content {
+        padding: 0 15px;
+    }
+    
+    .contact-content-simple {
+        padding: 1.5rem;
+    }
+    
+    .contact-content-simple h3 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-item-simple {
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .project-content {
+        padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .contact-content-simple h3 {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 }
