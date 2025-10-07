@@ -465,3 +465,53 @@ if (contactMessage) {
     }, 2000);
   });
 }
+
+// 데모 서비스 예정 팝업 모달 기능
+function showDemoModal() {
+  const modal = document.getElementById('demoModal');
+  if (modal) {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+      modal.style.opacity = '1';
+      modal.style.transform = 'scale(1)';
+    }, 10);
+  }
+}
+
+function closeDemoModal() {
+  const modal = document.getElementById('demoModal');
+  if (modal) {
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }, 300);
+  }
+}
+
+// 데모 버튼 클릭 이벤트 추가
+document.addEventListener('DOMContentLoaded', () => {
+  const demoButtons = document.querySelectorAll('a[href*="github.com"]');
+  demoButtons.forEach(button => {
+    if (button.textContent.includes('데모') || button.textContent.includes('Demo')) {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        showDemoModal();
+      });
+    }
+  });
+});
+
+// 모달 외부 클릭 시 닫기
+window.onclick = function(event) {
+  const modal = document.getElementById('demoModal');
+  if (event.target === modal) {
+    closeDemoModal();
+  }
+}
