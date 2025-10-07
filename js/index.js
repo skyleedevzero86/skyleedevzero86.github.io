@@ -86,7 +86,6 @@ function scrollToSection(sectionId) {
   }
 }
 
-
 const projectCards = document.querySelectorAll('.project-card');
 projectCards.forEach(card => {
   card.addEventListener('mouseenter', () => {
@@ -466,7 +465,6 @@ if (contactMessage) {
   });
 }
 
-// 데모 서비스 예정 팝업 모달 기능
 function showDemoModal() {
   const modal = document.getElementById('demoModal');
   if (modal) {
@@ -495,7 +493,6 @@ function closeDemoModal() {
   }
 }
 
-// 데모 버튼 클릭 이벤트 추가
 document.addEventListener('DOMContentLoaded', () => {
   const demoButtons = document.querySelectorAll('a[href*="github.com"]');
   demoButtons.forEach(button => {
@@ -508,7 +505,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 모달 외부 클릭 시 닫기
 window.onclick = function(event) {
   const modal = document.getElementById('demoModal');
   if (event.target === modal) {
