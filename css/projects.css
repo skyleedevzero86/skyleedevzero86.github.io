@@ -129,15 +129,27 @@
   padding: 0.5rem 0;
   color: #666;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .feature-list li::before {
   content: "✓";
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: #27ae60;
   font-weight: bold;
+  font-size: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .feature-list::after {
@@ -457,8 +469,11 @@
   padding: 0.8rem 0;
   color: #666;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 2.5rem;
   border-bottom: 1px solid #f8f9fa;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .modal-feature-list li:last-child {
@@ -469,9 +484,17 @@
   content: "✓";
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: #27ae60;
   font-weight: bold;
   font-size: 1.1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .modal-tech {
@@ -601,6 +624,13 @@
   .modal-feature-list li {
     padding: 0.6rem 0;
     font-size: 0.9rem;
+    padding-left: 2.2rem;
+  }
+  
+  .modal-feature-list li::before {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 1rem;
   }
   
   .modal-tech-tag {
@@ -650,6 +680,13 @@
   .feature-list li {
     font-size: 0.9rem;
     padding: 0.4rem 0;
+    padding-left: 1.8rem;
+  }
+  
+  .feature-list li::before {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.9rem;
   }
   
   .show-more-btn {
@@ -703,6 +740,13 @@
   .modal-feature-list li {
     padding: 0.5rem 0;
     font-size: 0.85rem;
+    padding-left: 2rem;
+  }
+  
+  .modal-feature-list li::before {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.9rem;
   }
   
   .modal-tech-tag {
@@ -731,6 +775,13 @@
   
   .feature-list li {
     font-size: 0.85rem;
+    padding-left: 1.6rem;
+  }
+  
+  .feature-list li::before {
+    width: 0.9rem;
+    height: 0.9rem;
+    font-size: 0.8rem;
   }
   
   .project-link-large {

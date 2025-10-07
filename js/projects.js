@@ -318,14 +318,76 @@ function showMoreFeatures(projectId) {
   if (modal) {
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+      modal.style.opacity = '1';
+      modal.style.transform = 'scale(1)';
+    }, 10);
+  }
+}
+
+function toggleFeatureList(projectId) {
+  console.log('toggleFeatureList called with:', projectId);
+  
+  const project = projectData[projectId];
+  if (!project) {
+    console.error('Project not found:', projectId);
+    return;
+  }
+
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const featureList = document.getElementById('modalFeatureList');
+  const techContainer = document.getElementById('modalTechTags');
+  const modal = document.getElementById('featureModal');
+
+  if (modalTitle) modalTitle.textContent = project.title + ' - 주요 기능';
+  if (modalDescription) modalDescription.textContent = project.description;
+  
+  if (featureList) {
+    featureList.innerHTML = '';
+    project.features.forEach(feature => {
+      const li = document.createElement('li');
+      li.textContent = feature;
+      featureList.appendChild(li);
+    });
+  }
+  
+  if (techContainer) {
+    techContainer.innerHTML = '';
+    project.tech.forEach(tech => {
+      const span = document.createElement('span');
+      span.className = 'modal-tech-tag';
+      span.textContent = tech;
+      techContainer.appendChild(span);
+    });
+  }
+  
+  if (modal) {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+      modal.style.opacity = '1';
+      modal.style.transform = 'scale(1)';
+    }, 10);
   }
 }
 
 function closeModal() {
   const modal = document.getElementById('featureModal');
   if (modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.8)';
+    
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }, 300);
   }
 }
 
@@ -336,30 +398,6 @@ window.onclick = function(event) {
   }
 }
 
-if ('ontouchstart' in window) {
-  document.body.classList.add('touch-device');
-}
-
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-if (isMobile) {
-  document.body.classList.add('mobile-device');
-}
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth <= 768) {
-    document.body.classList.add('mobile-view');
-  } else {
-    document.body.classList.remove('mobile-view');
-  }
-});
-
-if (window.innerWidth <= 768) {
-  document.body.classList.add('mobile-view');
-}
-
-document.addEventListener('touchstart', function() {}, {passive: true});
-
-document.addEventListener('touchmove', function() {}, {passive: true});
 
 const projectCards = document.querySelectorAll('.project-card-large');
 projectCards.forEach(card => {
