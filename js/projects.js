@@ -70,165 +70,164 @@ document.addEventListener("DOMContentLoaded", initPagination);
 
 const projectData = {
   project1: {
-    title: "광주 교육청 통합 예약 시스템",
-    description: "전자정부 프레임워크 기반의 대규모 교육 예약 및 관리 시스템입니다. 교육 신청, 강사 관리, 배너 관리 등 다양한 기능을 제공합니다.",
+       title: "전남대학교 병원 의료 통합 지원 시스템",
+    description: "적용한 임상시험 데이터와 운영 관리 기능을 표준화된 프로세스 제공으로 업무효율 향상 제공합니다.",
     features: [
-      "교육 프로그램 예약 및 관리",
-      "강사 정보 관리 시스템", 
-      "사용자 권한 관리",
-      "통합 검색 기능",
-      "배너 관리 시스템",
-      "Excel 데이터 내보내기",
-      "실시간 알림 시스템",
-      "통계 및 리포트 생성",
-      "모바일 반응형 지원",
-      "다국어 지원",
-      "사용자 피드백 시스템",
-      "자동 예약 승인 시스템",
-      "강의실 시설 관리",
-      "교육 과정 추천 시스템"
+      "IRB 심의관리",
+      "임상연구관리",
+      "전임상 실험관리",
+      "생물안전위원회",
+      "인체자원관리위원회",
+      "연구비 중앙관리",
+      "구매/물품 자산관리",
+      "통계 및 분석",
+      "알림 및 커뮤니케이션",
+      "파일 및 문서 관리",
+      "지적재산관리",
+      "인사급여관리"
     ],
-    tech: ["Spring Boot", "MyBatis", "MySQL", "JavaScript", "jQuery", "Bootstrap"]
+    tech: ["SpringFramework(egov)", "Report Designer", "SmartGwT", "Servlet", "Jsp", "Oracle","MyBatis"]
   },
   project2: {
-    title: "공간 대여 관리 시스템",
-    description: "회의실 및 강의실 대여 예약 및 관리 시스템입니다. 실시간 예약 현황 확인과 장비 관리 기능을 제공합니다.",
+    title: "서울 보라매병원 의료 통합 지원 시스템",
+    description: "적용한 임상시험 데이터와 운영 관리 기능을 표준화된 프로세스 제공으로 업무효율 향상 제공합니다.",
     features: [
-      "실시간 공간 예약 시스템",
-      "장비 관리 및 예약",
-      "예약 현황 대시보드",
-      "사용자별 예약 내역",
-      "시간대별 예약 관리",
-      "알림 시스템",
-      "QR 코드 예약 확인",
-      "예약 충돌 방지 시스템",
-      "사용자 평가 시스템",
-      "관리자 통계 대시보드",
-      "실시간 채팅 지원",
-      "예약 취소 및 변경",
-      "시설 이용 현황 분석",
-      "자동 청소 예약 시스템"
+      "IRB 심의관리",
+      "임상연구관리",
+      "전임상 실험관리",
+      "생물안전위원회",
+      "인체자원관리위원회",
+      "연구비 중앙관리",
+      "구매/물품 자산관리",
+      "통계 및 분석",
+      "알림 및 커뮤니케이션",
+      "파일 및 문서 관리",
+      "지적재산관리",
+      "인사급여관리"
     ],
-    tech: ["Spring Boot", "JPA", "Redis", "Vue.js", "WebSocket", "Docker"]
+    tech: ["SpringFramework(egov)", "Report Designer", "SmartGwT", "Servlet", "Jsp", "Oracle","MyBatis"]
   },
   project3: {
-    title: "통합 검색 시스템",
-    description: "다양한 데이터 소스를 통합한 검색 엔진입니다. 메뉴, 게시판, 파일 등 모든 콘텐츠를 한 번에 검색할 수 있습니다.",
+      title: "부산대학교 IRB시스템",
+    description: "IRB(기관생명윤리위원회) 관리 시스템으로, 연구윤리 및 생명윤리 관련 업무를 종합적으로 관리하는 시스템입니다.",
     features: [
-      "통합 검색 인터페이스",
-      "실시간 검색 제안",
-      "카테고리별 필터링",
-      "검색 결과 하이라이팅",
-      "검색 통계 및 분석",
-      "검색 히스토리 관리",
-      "자동완성 기능",
-      "검색 결과 정렬",
-      "다국어 검색 지원",
-      "검색 성능 최적화"
-    ],
-    tech: ["Elasticsearch", "Spring Boot", "Kafka", "Docker", "Nginx", "Logstash"]
-  },
-  project4: {
-    title: "회원 관리 시스템",
-    description: "JWT 기반 인증 및 권한 관리 시스템입니다. OAuth2 연동과 다양한 보안 기능을 제공합니다.",
-    features: [
-      "JWT 기반 인증",
-      "OAuth2 소셜 로그인",
-      "역할 기반 권한 관리",
-      "비밀번호 암호화",
-      "계정 잠금 기능",
-      "로그인 이력 관리",
-      "2단계 인증",
-      "세션 관리",
-      "API 키 관리",
-      "사용자 프로필 관리"
-    ],
-    tech: ["Spring Security", "JWT", "OAuth2", "PostgreSQL", "BCrypt", "Redis"]
-  },
-  project5: {
-    title: "데이터 분석 대시보드",
-    description: "실시간 데이터 수집 및 분석을 위한 대시보드 시스템입니다. 다양한 차트와 그래프로 데이터를 시각화합니다.",
-    features: [
-      "실시간 데이터 수집",
-      "인터랙티브 차트",
+      "IRB 심의 관리",
+      "연구보고서 관리",
       "데이터 필터링",
       "알림 시스템",
       "데이터 내보내기",
-      "사용자 커스터마이징",
+      "시스템 커스터마이징",
       "대시보드 공유",
       "데이터 예측 분석",
-      "성능 모니터링",
-      "리포트 생성"
+      "위반사항 및 품질관리",
+      "교육 및 인증"
     ],
-    tech: ["Spring Boot", "WebSocket", "Chart.js", "InfluxDB", "Grafana", "Kafka"]
+    tech: ["SpringFramework(egov)", "AdobeFlex", "SmartGwT", "Servlet", "Jsp", "Oracle","MyBatis"]
+  },
+  project4: {
+    title: "중앙대학교 IRB시스템",
+   description: "IRB(기관생명윤리위원회) 관리 시스템으로, 연구윤리 및 생명윤리 관련 업무를 종합적으로 관리하는 시스템입니다.",
+    features: [
+      "의뢰사관리시스템",
+      "결제시스템 관리",
+      "IRB 심의 관리",
+      "역할 기반 권한 관리",
+      "연구보고서 관리",
+      "교육 및 인증",
+      "로그인 이력 관리",
+      "실험실 관리",
+      "통계 및 분석",
+      "알림 및 커뮤니케이션",
+      "파일 및 문서 관리"
+    ],
+    tech: ["SpringFramework(egov)", "AdobeFlex", "SmartGwT", "Servlet", "Jsp", "Oracle","MyBatis"]
+  },
+  project5: {
+    title: "부산대학교 IRB시스템",
+    description: "IRB(기관생명윤리위원회) 관리 시스템으로, 연구윤리 및 생명윤리 관련 업무를 종합적으로 관리하는 시스템입니다.",
+    features: [
+      "IRB 심의 관리",
+      "연구보고서 관리",
+      "데이터 필터링",
+      "알림 시스템",
+      "데이터 내보내기",
+      "시스템 커스터마이징",
+      "대시보드 공유",
+      "데이터 예측 분석",
+      "위반사항 및 품질관리",
+      "교육 및 인증"
+    ],
+    tech: ["SpringFramework(egov)", "AdobeFlex", "SmartGwT", "Servlet", "Jsp", "Oracle","MyBatis"]
   },
   project6: {
-    title: "모바일 API 서버",
-    description: "모바일 애플리케이션을 위한 RESTful API 서버입니다. 높은 성능과 확장성을 고려하여 설계되었습니다.",
+    title: "한국식품산업클러스터진흥원 통합관리시스템",
+    description: "식품산업 클러스터의 다양한 이해관계자 를 위한 통합 플랫폼으로, 기업지원부터 연구과제 관리, 장비 공유까지 포괄적인 업무를 지원합니다.",
     features: [
       "RESTful API 설계",
-      "API 문서 자동화",
+      "통합 포털 메인화면",
       "캐싱 전략",
-      "API 버전 관리",
-      "모니터링 및 로깅",
+      "Excel 데이터 처리",
+      "사용자 권한별 맞춤형 대시보드",
+      "공지사항 및 모집공고 관리",
       "부하 분산",
-      "API 게이트웨이",
-      "Rate Limiting",
-      "API 보안",
-      "성능 최적화"
+      "회원 인증 및 권한 관리",
+      "기업지원 시스템",
+      "연구과제 시스템",
+      "시스템 관리",
+      "장비관리 시스템"
     ],
-    tech: ["Spring Boot", "Swagger", "Redis", "Docker", "Kubernetes", "Prometheus"]
+     tech: ["SpringFrameWork(egov)", "MyBatis", "MySQL", "jQuery", "EhCache", "Quartz","JSP"]
   },
   project7: {
-    title: "온라인 쇼핑몰 시스템",
-    description: "전자상거래 플랫폼으로 상품 관리, 주문 처리, 결제 시스템을 통합한 쇼핑몰입니다.",
+    title: "곡성군청 메인 홈페이지",
+    description: "곡성군청 홈페이지는 곡성군의 공식 기관 사이트로, 군정 소식 제공, 민원 안내, 지역 정보, 관광 및 문화서비스, 참여 소통 등 다양한 기능을 갖추고 있습니다.",
     features: [
-      "상품 등록 및 관리",
-      "장바구니 기능",
-      "주문 및 결제 처리",
-      "회원 관리",
-      "리뷰 시스템",
-      "재고 관리",
-      "쿠폰 시스템",
-      "배송 추적",
+      "군정 안내 및 정보 제공",
+      "민원 서비스",
+      "주분야별 정보",
+      "정보공개 및 참여",
+      "특화 서비스",
+      "관광섹션",
+      "지역 활성화 지원",
+      "생활 지원 안내",
       "고객 서비스",
-      "매출 분석"
+      "실생활 정보 제공"
     ],
-    tech: ["Spring Boot", "Spring Security", "JPA", "MySQL", "Redis", "React"]
+    tech: ["SpringFrameWork(egov)", "MyBatis", "MySQL", "jQuery", "EhCache", "Quartz","JSP"]
   },
   project8: {
-    title: "실시간 분석 플랫폼",
-    description: "대용량 데이터를 실시간으로 처리하고 분석하는 플랫폼입니다. 다양한 차트와 대시보드를 제공합니다.",
+    title: "고객 상담 센터 관리 시스템",
+    description: "대용량 고객 상담 데이터를 실시간으로 처리하고 분석하는 통합 관리 플랫폼입니다. CTI 연동, 캠페인 관리, 상담 기록 관리 등 다양한 기능을 제공합니다.",
     features: [
-      "실시간 데이터 스트리밍",
-      "데이터 시각화",
-      "알림 시스템",
-      "사용자 대시보드",
-      "데이터 내보내기",
-      "성능 모니터링",
-      "머신러닝 통합",
-      "데이터 파이프라인",
-      "실시간 알림",
-      "분석 리포트"
+      "실시간 CTI 연동",
+      "캠페인 관리",
+      "상담 관리",
+      "고객 정보 관리",
+      "조직도 관리",
+      "통계 및 리포트",
+      "메시지 관리",
+      "권한 관리",
+      "지식 관리",
+      "모니터링"
     ],
-    tech: ["Spring Boot", "Kafka", "Elasticsearch", "Apache Flink", "Docker", "Kubernetes", "Grafana"]
+    tech: ["SpringFrameWork(egov)","MyBatis","Oracle", "JavaScript/jQuery", "JSP", "WebSocket", "Apache POI", "Log4j2"]
   },
   project9: {
-    title: "채팅 시스템",
-    description: "실시간 채팅과 파일 공유가 가능한 웹 기반 채팅 시스템입니다. WebSocket을 활용한 실시간 통신을 구현했습니다.",
+    title: "시험분석 의뢰 서비스",
+    description: "식품기업의 제품개발과 수출을 위한 시험분석 의뢰 및 관리 시스템입니다. 안전성평가, 기능성 평가, 패키징 설계 분석을 통한 고부가가치 건강기능식품과 수출지향적 포장 개발을 지원합니다.",
     features: [
-      "실시간 채팅",
-      "파일 공유",
-      "그룹 채팅",
-      "메시지 히스토리",
-      "사용자 상태 표시",
-      "알림 기능",
+      "시험분석 의뢰 관리",
+      "진행 상태 추적",
+      "성적서 관리",
+      "회원 및 업체 관리",
+      "게시판 및 공지사항",
+      "시스템 관리",
       "이모지 지원",
       "메시지 검색",
       "사용자 차단",
       "채팅방 관리"
     ],
-    tech: ["Spring Boot", "WebSocket", "STOMP", "MongoDB", "Redis", "Vue.js"]
+    tech: ["Spring Framework(egov)", "WebSocket", "STOMP", "Oracle", "Jsp", "Python","Apache Tiles","AES256/SHA512 암호화"]
   },
   project10: {
     title: "문서 관리 시스템",

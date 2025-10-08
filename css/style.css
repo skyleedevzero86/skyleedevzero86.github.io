@@ -311,6 +311,16 @@ body {
     right: -40px;
 }
 
+.section-title.clickable {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.section-title.clickable:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
 .about {
     padding: 150px 0;
     background: white;
