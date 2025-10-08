@@ -108,7 +108,7 @@ const projectData = {
     tech: ["SpringFramework(egov)", "Report Designer", "SmartGwT", "Servlet", "Jsp", "Oracle","MyBatis"]
   },
   project3: {
-      title: "부산대학교 IRB시스템",
+      title: "양산 부산대학교 IRB시스템",
     description: "IRB(기관생명윤리위원회) 관리 시스템으로, 연구윤리 및 생명윤리 관련 업무를 종합적으로 관리하는 시스템입니다.",
     features: [
       "IRB 심의 관리",
