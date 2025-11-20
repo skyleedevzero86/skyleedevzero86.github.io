@@ -503,6 +503,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+  
+  const codeLinks = document.querySelectorAll('a.project-link[href="#"]');
+  codeLinks.forEach(link => {
+    if (link.textContent.includes('코드') || link.textContent.includes('Code')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showDemoModal();
+      });
+    }
+  });
 });
 
 window.onclick = function(event) {
