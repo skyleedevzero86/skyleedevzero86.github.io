@@ -29,6 +29,7 @@ function initPagination() {
   if (totalPages <= 1) {
     projectCards.forEach((card) => {
       card.classList.remove("hide");
+      card.style.display = "";
     });
   } else {
     showPage(1);
@@ -40,18 +41,16 @@ function showPage(page) {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  projectCards.forEach((card) => {
-    card.classList.add("hide");
+  projectCards.forEach((card, i) => {
+    const show = i >= startIndex && i < endIndex;
+    card.classList.toggle("hide", !show);
+    card.style.display = show ? "" : "none";
   });
-
-  for (let i = startIndex; i < endIndex && i < projectCards.length; i++) {
-    projectCards[i].classList.remove("hide");
-  }
 
   document.querySelectorAll(".page-number").forEach((btn, index) => {
     btn.classList.toggle("active", index + 1 === page);
   });
-  
+
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
 
@@ -74,7 +73,11 @@ function changePage(direction) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", initPagination);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPagination);
+} else {
+  initPagination();
+}
 
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
