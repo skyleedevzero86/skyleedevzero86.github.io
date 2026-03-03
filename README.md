@@ -73,83 +73,61 @@ skyleedevzero86.github.io/
 
 ## 🎯 주요 프로젝트
 
-### 1. 아시아문화전당 (ACC) 시스템
+메인 페이지에는 아래 9개 프로젝트가 페이지네이션(6개/페이지)으로 노출됩니다. 상세 목록은 [projects.html](https://skyleedevzero86.github.io/projects.html)에서 확인할 수 있습니다.
 
-- **기술**: Spring Boot, MyBatis, MySQL, JavaScript
-- **기능**: 문화행사 예약, 전시 관리, 사용자 권한 관리,민원상담
-- **특징**: 대규모 문화시설 통합 관리 시스템
+### 1. skylee.dev
 
-### 2. 보라매병원 통합연구지원시스템 (BRIS)
+- **기술**: Spring Boot, MyBatis, PostgreSQL, Kotlin, Next.js
+- **설명**: 운영 중인 개인 포트폴리오 사이트. 주요 핵심 프로젝트 상세 소개.
+- **링크**: [데모](https://skyleedevzero86.github.io/) | [GitHub](https://github.com/skyleedevzero86/)
 
-- **기술**: Spring Security, JWT, Oracle,egov,jsp
-- **기능**: 연구 프로젝트 관리, IRB 심의, 데이터 수집,IRB 심의 관리, 연구자 지원, 문서 관리,전임상실험관리,임상연구관리
-- **특징**: 의료기관 연구 지원 통합 플랫폼
+### 2. 건강 정보 웹어플리케이션
 
-### 3. 중앙대학교 연구윤리센터 통합연구지원시스템
+- **기술**: Spring Boot, MyBatis, PostgreSQL, SpringCloud, JSP
+- **설명**: 바이오 데이터 기반 건강 상태 분석, ChatGPT API 건강 조언, MSA 헬스케어 시스템.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/healthcare_mono)
 
-- **기술**: Spring Security, JWT, Oracle,egov,adobe flex,jsp,servlet
-- **기능**: 연구윤리 심의, 교육 관리, 위반 신고,IRB 심의 관리, 연구자 지원, 문서 관리
-- **특징**: 대학 연구윤리 통합 관리 시스템
+### 3. Public Data Harvester
 
-### 4. 전남대학교병원 IRB 시스템
+- **기술**: Spring Boot, JPA, PostgreSQL, Spring Security, MinIO, Redis, JSP, Spring Batch
+- **설명**: 공공데이터 수집·관리, 법인 정보 검색, 회원/파일 관리, 대시보드, Excel 내보내기.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/public-data-harvester)
 
-- **기술**: Spring Framework(egov), MyBatis, JWT, Oracle,egov
-- **기능**: 연구 프로젝트 관리, IRB 심의, 데이터 수집,IRB 심의 관리, 연구자 지원, 문서 관리,전임상실험관리,임상연구관리
-- **특징**: 의료기관 연구윤리 심의위원회 시스템
+### 4. Kafka 모니터링 관리 플랫폼
 
-### 5. 식품산업클러스터진흥원 (FOODPOLIS)
+- **기술**: Kotlin, Spring Boot, Kafka Client, H2/PostgreSQL, Vue 3, Swagger
+- **설명**: 연결/토픽/메시지 관리, 실시간 모니터링, 알림을 통한 Kafka 인프라 운영 솔루션.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/KAFKA_KOPANDA)
 
-- **기술**: Spring Framework(egov), MyBatis, JWT, Oracle,egov
-- **기능**: 시험분석 의뢰, 법적규제 정보, ERG Index
-- **특징**: 식품산업 지원 통합 플랫폼
+### 5. Finsight
 
-### 6. 곡성군 포털 시스템
+- **기술**: Spring Boot, MySQL, OAuth2, React 19, AI/ML, PyTorch
+- **설명**: 미국 경제 뉴스 크롤링·AI 분석, SPY/QQQ/비트코인/Big7 영향 분석.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/FinSight)
 
-- **기술**: Spring Framework(egov), MyBatis, JWT, Oracle, Docker
-- **기능**: 군청 업무 관리, 코로나19 대응, 문화관광
-- **특징**: 지방자치단체 통합 포털
+### 6. Ko Voice
 
-### 7. Kafka Kopanda 관리 도구
+- **기술**: Kotlin, Spring Boot, Gradle, Thymeleaf, Apache HttpClient, JDK 21
+- **설명**: 음성 메모 / STT·TTS 웹 앱. Groq API(Whisper STT, PlayAI TTS)로 음성↔텍스트 변환.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/studyKotlin/tree/main/ko_voice)
 
-- **기술**: Spring Boot, Kafka, WebSocket,redis
-- **기능**: Kafka 클러스터 모니터링, 토픽 관리, 메시지 관리
-- **특징**: 실시간 Kafka 관리 대시보드
+### 7. voice-stack
 
-### 8. FinSight 뉴스 대시보드
+- **기술**: Kotlin, Spring Boot, Next.js, MinIO, React
+- **설명**: Qwen3-TTS 기반 TTS 웹 앱. CustomVoice·VoiceDesign·VoiceClone, 참조 음성 MinIO 업로드·WAV 스트리밍.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/voice-stack)
 
-- **기술**: Spring Boot, AI/ML, Redis,mysql
-- **기능**: 금융 뉴스 분석, 감정 분석, 실시간 모니터링
-- **특징**: AI 기반 금융 뉴스 분석 플랫폼
+### 8. SmartCampus
 
-### 9. 부산대학교병원 시스템
+- **기술**: Spring Boot, Next.js, Spring AI, MySQL, Redis, MinIO
+- **설명**: AI 기반 상품 설명·벡터 검색, 실시간 AI 채팅, 배치 메일. 우리동네 중고거래 플랫폼 (market-api·market-chat·market-batch MSA).
+- **링크**: [GitHub](https://github.com/skyleedevzero86/SmartCampus)
 
-- **기술**: Spring Security, JWT, Oracle,egov,adobe flex,jsp,servlet
-- **기능**: 병원 업무 관리, 환자 관리, 의료진 지원
-- **특징**: 대학병원 통합 관리 시스템
+### 9. Health_mr
 
-### 10. 경찰대학 포털
-
-- **기술**: SSpring Security, JWT, Mysql,egov,adobe flex,jsp,servlet
-- **기능**: 입학 관리, 교육 과정, 공지사항,행정업무
-- **특징**: 교육기관 통합 포털 시스템
-
-### 11. 실험의뢰 시스템
-
-- **기술**: Spring Boot, Mysql, Jquery,javascript
-- **기능**: 실험 의뢰 관리, 결과 추적, 보고서 생성
-- **특징**: 연구 실험 지원 통합 시스템
-
-### 12. 의료 시스템
-
-- **기술**: Spring Boot, MyBatis, MySQL
-- **기능**: 의료진 관리, 환자 관리, 진료 기록
-- **특징**: 의료기관 업무 지원 시스템
-
-### 13. 통신판매사업자관리시스템
-
-- **기술**: Spring Boot, Elasticsearch, MinIO
-- **기능**: 사업자 등록 관리, 데이터 수집, 통계 분석
-- **특징**: 전자상거래 사업자 통합 관리 시스템
+- **기술**: Java 21, Spring Boot, JPA, JWT, QueryDSL, Gradle
+- **설명**: EMR(전자의무기록) 멀티모듈 백엔드. 임상(emr-clinical)·재무(emr-finance)·지원(emr-support), emr-core·emr-domain 공통 인프라.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/Health_mr)
 
 ## 🌟 포트폴리오 특징
 
@@ -245,6 +223,7 @@ npx serve .
 - **v1.1.0** - 프로젝트 상세 페이지 추가
 - **v1.2.0** - 스킬 페이지 및 반응형 디자인 개선
 - **v1.3.0** - 모달 시스템 및 인터랙션 개선
+- **v1.4.0** - 주요 프로젝트 카드 추가 (Ko Voice, voice-stack, SmartCampus, Health_mr), 페이지네이션 6개/페이지 적용, Font Awesome CDN 변경(jsDelivr), README 주요 프로젝트 목록 현행화
 
 ---
 
