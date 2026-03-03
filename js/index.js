@@ -23,7 +23,7 @@ function initPagination() {
     ".pagination-container"
   );
   if (paginationContainer) {
-    paginationContainer.style.display = "flex";
+    paginationContainer.style.display = totalPages > 1 ? "flex" : "none";
   }
 
   if (totalPages <= 1) {

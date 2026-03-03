@@ -120,11 +120,15 @@
 }
 
 .project-card.hide {
-  display: none;
+  display: none !important;
 }
 
 .projects-grid .project-card {
   display: block !important;
+}
+
+.projects-grid .project-card.hide {
+  display: none !important;
 }
 
 @media (max-width: 1024px) {

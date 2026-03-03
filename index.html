@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/font-awesome@6.0.0/css/all.min.css"
       rel="stylesheet"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <body>
@@ -334,6 +336,165 @@
                 </a>
                 <a
                   href="https://github.com/skyleedevzero86/FinSight"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card" data-page="1">
+            <div class="project-image">
+              <img src="images/ko_voice.png" alt="Ko Voice 웹 애플리케이션" />
+            </div>
+            <div class="project-content">
+              <h3>Ko Voice</h3>
+              <p>
+                Kotlin + Spring Boot 기반 음성 메모 / STT·TTS 웹 애플리케이션으로,
+                Groq API(Whisper STT, PlayAI TTS)를 활용해 음성-텍스트 변환 및
+                텍스트-음성 생성을 제공합니다.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Gradle</span>
+                <span class="tech-tag">Thymeleaf</span>
+                <span class="tech-tag">Apache HttpClient</span>
+                <span class="tech-tag">JDK 21</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/skyleedevzero86/studyKotlin/tree/main/ko_voice"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a
+                  href="https://github.com/skyleedevzero86/studyKotlin/tree/main/ko_voice"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card" data-page="1">
+            <div class="project-image">
+              <img
+                src="images/voice_stack.png"
+                alt="Voice Stack Qwen3-TTS 웹 애플리케이션"
+              />
+            </div>
+            <div class="project-content">
+              <h3>voice-stack</h3>
+              <p>
+                Qwen3-TTS 기반 텍스트-음성 합성(TTS) 웹 애플리케이션입니다.
+                CustomVoice·VoiceDesign·VoiceClone을 지원하며, Kotlin Spring
+                Boot 백엔드와 Next.js 프론트엔드로 구성됩니다. 참조 음성 MinIO
+                업로드 및 WAV 스트리밍을 제공합니다.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">MinIO</span>
+                <span class="tech-tag">React</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/skyleedevzero86/voice-stack"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a
+                  href="https://github.com/skyleedevzero86/voice-stack"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card" data-page="1">
+            <div class="project-image">
+              <img
+                src="images/smartcampus.png"
+                alt="SmartCampus 우리동네 중고거래 플랫폼"
+              />
+            </div>
+            <div class="project-content">
+              <h3>SmartCampus</h3>
+              <p>
+                AI 기반 상품 설명·벡터 검색과 실시간 AI 채팅, 배치 메일을 지원하는
+                우리동네 중고거래 플랫폼입니다. market-api·market-chat·market-batch
+                마이크로서비스와 Next.js로 구성되며, Spring AI(GLM-4.7), MySQL,
+                Redis, MinIO/S3를 활용합니다.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Spring AI</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">MinIO</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/skyleedevzero86/SmartCampus"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a
+                  href="https://github.com/skyleedevzero86/SmartCampus"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card" data-page="1">
+            <div class="project-image">
+              <img
+                src="images/health_mr.png"
+                alt="Health_mr EMR 전자의무기록 시스템"
+              />
+            </div>
+            <div class="project-content">
+              <h3>Health_mr</h3>
+              <p>
+                EMR(전자의무기록) 시스템 — Java/Spring Boot 기반 멀티모듈 백엔드.
+                임상(emr-clinical)·재무(emr-finance)·지원(emr-support) 도메인 분리,
+                emr-core·emr-domain 공통 인프라로 구성되며, 예약·진료·처방·입원,
+                수가/결제·의료급여 연동, 게시판·근태·장비 연동 등을 지원합니다.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java 21</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">JPA</span>
+                <span class="tech-tag">JWT</span>
+                <span class="tech-tag">QueryDSL</span>
+                <span class="tech-tag">Gradle</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/skyleedevzero86/Health_mr"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> 데모
+                </a>
+                <a
+                  href="https://github.com/skyleedevzero86/Health_mr"
                   class="project-link"
                   target="_blank"
                 >
