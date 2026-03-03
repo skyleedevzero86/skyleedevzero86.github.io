@@ -73,7 +73,7 @@ skyleedevzero86.github.io/
 
 ## 🎯 주요 프로젝트
 
-메인 페이지에는 아래 9개 프로젝트가 페이지네이션(6개/페이지)으로 노출됩니다. 상세 목록은 [projects.html](https://skyleedevzero86.github.io/projects.html)에서 확인할 수 있습니다.
+메인 페이지에는 아래 10개 프로젝트가 페이지네이션(6개/페이지)으로 노출됩니다. 상세 목록은 [projects.html](https://skyleedevzero86.github.io/projects.html)에서 확인할 수 있습니다.
 
 ### 1. skylee.dev
 
@@ -128,6 +128,12 @@ skyleedevzero86.github.io/
 - **기술**: Java 21, Spring Boot, JPA, JWT, QueryDSL, Gradle
 - **설명**: EMR(전자의무기록) 멀티모듈 백엔드. 임상(emr-clinical)·재무(emr-finance)·지원(emr-support), emr-core·emr-domain 공통 인프라.
 - **링크**: [GitHub](https://github.com/skyleedevzero86/Health_mr)
+
+### 10. Location Sample (expo-rn-map)
+
+- **기술**: Kotlin, Spring Boot, Vue 3, Expo, React Native, MySQL
+- **설명**: 위치 기반 메시지·위치 추적 풀스택 샘플. Backend(Kotlin + Spring Boot), Web(Vue 3 + Vite), Mobile(Expo/React Native). Clean Architecture/DDD, REST API·지도·알림.
+- **링크**: [GitHub](https://github.com/skyleedevzero86/expo-rn-map)
 
 ## 🌟 포트폴리오 특징
 
@@ -223,7 +229,8 @@ npx serve .
 - **v1.1.0** - 프로젝트 상세 페이지 추가
 - **v1.2.0** - 스킬 페이지 및 반응형 디자인 개선
 - **v1.3.0** - 모달 시스템 및 인터랙션 개선
-- **v1.4.0** - 주요 프로젝트 카드 추가 (Ko Voice, voice-stack, SmartCampus, Health_mr), 페이지네이션 6개/페이지 적용, Font Awesome CDN 변경(jsDelivr), README 주요 프로젝트 목록 현행화
+- **v1.4.0** - 주요 프로젝트 카드 추가 (Ko Voice, voice-stack, SmartCampus, Health_mr), 페이지네이션 6개/페이지 적용, Font Awesome CDN(cdnjs 6.5.1), README 주요 프로젝트 목록 현행화
+- **v1.5.0** - Location Sample(expo-rn-map) 프로젝트 추가, README 주요 프로젝트 10개로 현행화
 
 ---
 
