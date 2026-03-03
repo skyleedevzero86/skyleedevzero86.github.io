@@ -216,7 +216,7 @@ npx serve .
 
 - **이메일**: sleekydz86@naver.com
 - **기술블로그**: [Velog](https://velog.io/@sleekydevzero86/posts)
-- **학습블로그**: [네이버 블로그](https://blog.naver.com/sleekydz86)
+- **학습블로그**: [네이버 블로그](https://blog.naver.com/lasttokens9160)
 - **GitHub**: [skyleedevzero86](https://github.com/skyleedevzero86)
 
 ## 📄 라이선스
