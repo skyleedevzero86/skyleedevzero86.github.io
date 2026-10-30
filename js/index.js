@@ -535,6 +535,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (img.complete && img.naturalWidth === 0) markFailed();
   });
 
+  document.querySelectorAll("button.demo-status").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      showDemoModal();
+    });
+  });
+
   const demoButtons = document.querySelectorAll('a[href*="github.com"]');
   demoButtons.forEach(button => {
     if (button.textContent.includes('데모') || button.textContent.includes('Demo')) {

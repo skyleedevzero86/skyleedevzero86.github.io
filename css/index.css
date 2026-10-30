@@ -273,6 +273,12 @@
   flex: 0 0 44px;
 }
 
+.projects-grid button.project-link {
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
 .projects-grid .project-link {
   width: 100%;
   height: 44px;
