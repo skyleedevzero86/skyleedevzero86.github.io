@@ -1,0 +1,84 @@
+.skill-stage {
+  display: inline-block;
+  margin-top: 0.45rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  background: #f1f3f5;
+  color: #495057;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.stat-item h4 {
+  font-size: 1.6rem;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link.active {
+  color: #3498db;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+button.hamburger,
+button.pagination-btn,
+button.page-number,
+button.project-link,
+button.project-link-large,
+button.demo-close,
+button.close {
+  font-family: inherit;
+}
+
+button.hamburger {
+  background: none;
+  border: none;
+}
+
+button.pagination-btn,
+button.page-number {
+  padding: 0;
+  line-height: 1;
+}
+
+button.project-link,
+button.project-link-large {
+  cursor: pointer;
+}
+
+button.demo-close,
+button.close {
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+.demo-modal.open,
+.page-projects .modal.open {
+  display: block;
+}
+
+.page-projects .project-card-large {
+  height: auto;
+}
+
+.page-projects .project-content-large {
+  height: auto;
+  flex: 1 1 auto;
+}

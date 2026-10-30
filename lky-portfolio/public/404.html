@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>궁금하면500원</title>
+    <script>
+      var path = location.pathname.replace(/^\//, '') + location.search + location.hash
+      location.replace('/?p=' + encodeURIComponent(path))
+    </script>
+  </head>
+  <body></body>
+</html>

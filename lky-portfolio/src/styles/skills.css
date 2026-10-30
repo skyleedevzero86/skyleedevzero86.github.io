@@ -1,0 +1,554 @@
+.page-skills .skills-detail {
+  padding: 100px 0;
+  background: white;
+}
+
+.page-skills .skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-skills .skills-header h1 {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.page-skills .skills-header p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-skills .skill-category {
+  margin-bottom: 4rem;
+  background: #f8f9fa;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.page-skills .skill-category h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.page-skills .skill-category h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  border-radius: 2px;
+}
+
+.page-skills .skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.page-skills .skill-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.page-skills .skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.page-skills .skill-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #6c757d;
+}
+
+.page-skills .skill-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.page-skills .skill-level {
+  background: #f8f9fa;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.page-skills .skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #6c757d, #495057);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.page-skills .skill-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.page-skills .experience-timeline {
+  background: #f8f9fa;
+  padding: 4rem 0;
+}
+
+.page-skills .timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-skills .timeline-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.page-skills .timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.page-skills .timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.page-skills .timeline-date {
+  flex: 0 0 200px;
+  text-align: center;
+  padding: 1rem;
+  background: #3498db;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-skills .timeline-content {
+  flex: 1;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 0 2rem;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.page-skills .timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+}
+
+.page-skills .timeline-item:nth-child(odd) .timeline-content::before {
+  left: -30px;
+  border-right-color: white;
+}
+
+.page-skills .timeline-item:nth-child(even) .timeline-content::before {
+  right: -30px;
+  border-left-color: white;
+}
+
+.page-skills .timeline-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.page-skills .timeline-content h4 {
+  color: #6c757d;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.page-skills .timeline-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.page-skills .certifications {
+  background: white;
+  padding: 4rem 0;
+}
+
+.page-skills .cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.page-skills .cert-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.page-skills .cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.page-skills .cert-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.page-skills .cert-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.page-skills .cert-issuer {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.page-skills .cert-date {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .page-skills .skill-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .page-skills .skill-category {
+    padding: 2rem;
+  }
+  
+  .page-skills .skill-category h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-skills .skills-detail {
+    padding: 80px 0;
+  }
+  
+  .page-skills .skills-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .page-skills .skills-header p {
+    font-size: 1.1rem;
+  }
+  
+  .page-skills .skill-category {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .page-skills .skill-category h2 {
+    font-size: 2rem;
+  }
+  
+  .page-skills .skill-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .page-skills .skill-card {
+    padding: 1.5rem;
+  }
+  
+  .page-skills .skill-icon {
+    font-size: 2.5rem;
+  }
+  
+  .page-skills .skill-name {
+    font-size: 1.1rem;
+  }
+  
+  .page-skills .skill-description {
+    font-size: 0.85rem;
+  }
+  
+  .page-skills .timeline-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 2rem;
+  }
+  
+  .page-skills .timeline-date {
+    flex: none;
+    width: 150px;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+  }
+  
+  .page-skills .timeline-content {
+    margin: 0;
+    width: 100%;
+  }
+  
+  .page-skills .timeline-content::before {
+    display: none;
+  }
+  
+  .page-skills .timeline-item:nth-child(odd) .timeline-content::before,
+.page-skills .timeline-item:nth-child(even) .timeline-content::before {
+    display: none;
+  }
+  
+  .page-skills .cert-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .page-skills .cert-card {
+    padding: 1.5rem;
+  }
+  
+  .page-skills .cert-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-skills .skills-detail {
+    padding: 60px 0;
+  }
+  
+  .page-skills .skills-header h1 {
+    font-size: 2rem;
+  }
+  
+  .page-skills .skills-header p {
+    font-size: 1rem;
+  }
+  
+  .page-skills .skill-category {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .page-skills .skill-category h2 {
+    font-size: 1.8rem;
+  }
+  
+  .page-skills .skill-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .page-skills .skill-card {
+    padding: 1.2rem;
+  }
+  
+  .page-skills .skill-icon {
+    font-size: 2rem;
+  }
+  
+  .page-skills .skill-name {
+    font-size: 1rem;
+  }
+  
+  .page-skills .skill-description {
+    font-size: 0.8rem;
+  }
+  
+  .page-skills .timeline-container {
+    padding: 0 15px;
+  }
+  
+  .page-skills .timeline-item {
+    padding-left: 1.5rem;
+  }
+  
+  .page-skills .timeline-date {
+    width: 120px;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  
+  .page-skills .timeline-content {
+    padding: 1.5rem;
+  }
+  
+  .page-skills .timeline-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .page-skills .timeline-content h4 {
+    font-size: 1rem;
+  }
+  
+  .page-skills .timeline-content p {
+    font-size: 0.9rem;
+  }
+  
+  .page-skills .cert-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-skills .cert-card {
+    padding: 1.2rem;
+  }
+  
+  .page-skills .cert-icon {
+    font-size: 2.5rem;
+  }
+  
+  .page-skills .cert-name {
+    font-size: 1rem;
+  }
+  
+  .page-skills .cert-issuer {
+    font-size: 0.9rem;
+  }
+  
+  .page-skills .cert-date {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .page-skills .skills-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .page-skills .skill-category h2 {
+    font-size: 1.6rem;
+  }
+  
+  .page-skills .skill-card {
+    padding: 1rem;
+  }
+  
+  .page-skills .skill-icon {
+    font-size: 1.8rem;
+  }
+  
+  .page-skills .skill-name {
+    font-size: 0.9rem;
+  }
+  
+  .page-skills .skill-description {
+    font-size: 0.75rem;
+  }
+  
+  .page-skills .timeline-content {
+    padding: 1.2rem;
+  }
+  
+  .page-skills .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .page-skills .timeline-content h4 {
+    font-size: 0.9rem;
+  }
+  
+  .page-skills .timeline-content p {
+    font-size: 0.8rem;
+  }
+}
+
+.page-skills .experience-timeline .timeline-container {
+  max-width: 760px;
+  width: 100%;
+}
+
+.page-skills .experience-timeline .timeline-item,
+.page-skills .experience-timeline .timeline-item:nth-child(odd),
+.page-skills .experience-timeline .timeline-item:nth-child(even) {
+  display: flex;
+  flex-direction: column !important;
+  align-items: stretch;
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.page-skills .experience-timeline .timeline-date {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: none;
+  min-height: 48px;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0;
+  align-self: stretch;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.page-skills .experience-timeline .timeline-content {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff;
+}
+
+.page-skills .experience-timeline .timeline-content::before,
+.page-skills .experience-timeline .timeline-item:nth-child(odd) .timeline-content::before,
+.page-skills .experience-timeline .timeline-item:nth-child(even) .timeline-content::before {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .page-skills .experience-timeline .timeline-content {
+    padding: 1.15rem 1.35rem 1.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-skills .experience-timeline .timeline-content {
+    padding: 1rem 1.15rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-skills .experience-timeline .timeline-date {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .page-skills .experience-timeline .timeline-content {
+    padding: 1rem;
+  }
+}
