@@ -70,6 +70,27 @@
             <span class="highlight">RDB 성능 최적화</span>
           </h1>
           <p class="hero-description">궁금하면500원입니다.</p>
+          <p class="hero-intro">
+            병원 연구 시스템과 공공기관 시스템을 5년 6개월 개발·운영했고, 지금은
+            결제와 데이터 통합 백엔드를 개인 프로젝트로 깊게 파고 있습니다.
+          </p>
+          <ul class="hero-proofs">
+            <li class="hero-proof">
+              <span class="hero-proof-tag">실무 · 성능</span>
+              <strong class="hero-proof-value">3초 → 0.2초</strong>
+              <span class="hero-proof-label">병원 실험 보고서 조회 쿼리 개선</span>
+            </li>
+            <li class="hero-proof">
+              <span class="hero-proof-tag">실무 · 정합성</span>
+              <strong class="hero-proof-value">중복 승인 차단</strong>
+              <span class="hero-proof-label">IRB 승인 보고서 수정 잠금과 변경 이력</span>
+            </li>
+            <li class="hero-proof">
+              <span class="hero-proof-tag">개인 프로젝트 · 통합</span>
+              <strong class="hero-proof-value">외부 API 5종 → 기준 ID 1개</strong>
+              <span class="hero-proof-label">IdolGlow 공연 메타데이터 통합</span>
+            </li>
+          </ul>
           <div class="hero-buttons">
             <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
             <a href="#contact" class="btn btn-secondary">연락하기</a>
@@ -101,22 +122,48 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
           <div class="about-text">
-                <h3>의료 연구 시스템 5년</h3>
-                <p>
-                  병원 연구 지원 시스템을 5년 개발하고 운영했습니다. 외부에서
-                  들어오는 데이터와 내부 기록이 맞는지 검증하고, RDB 쿼리와
-                  인덱스로 성능을 맞춰 왔습니다.
-                </p>
-                <p>
-                  Spring Boot와 JPA로 심의·임상 연구 업무를 나누고, 데이터가
-                  어긋나거나 쿼리가 느린 지점을 먼저 봅니다.
-                </p>
-                <div class="stats">
-                  <div class="stat-item">
-                    <h4>5년 6개월</h4>
-                    <p>경력</p>
-                  </div>
-                </div>
+            <h3>이렇게 일했습니다</h3>
+            <div class="work-story">
+              <h4>승인된 보고서가 다시 올라오는 문제</h4>
+              <p>
+                연구자나 의뢰 업체가 이미 승인된 보고서를 다시 내거나 승인 뒤
+                내용을 고치는 일이 있었습니다. 승인 후 수정 잠금을 걸고, 저장
+                프로시저에서 원본을 저장할 때 같은 값을 로그 테이블에 남겼습니다.
+                유니크 제약으로 중복 저장을 막고, 조작이나 수정된 건은 관리자
+                목록에 빨간색으로 표시했습니다. 적용 뒤 중복 건수가 크게
+                줄었습니다.
+              </p>
+            </div>
+            <div class="work-story">
+              <h4>느린 실험 보고서 조회</h4>
+              <p>3초 걸리던 실험 보고서 조회를 쿼리와 인덱스를 고쳐 200ms로 줄였습니다.</p>
+            </div>
+            <div class="work-story">
+              <h4>병원 여러 곳을 한 시스템에서</h4>
+              <p>
+                본원과 분원 데이터를 기관 그룹 코드와 기관 구분 코드로 나누는
+                멀티 테넌트 구조를 중앙대학교병원과 부산대 그룹 시스템에 직접
+                구축했습니다.
+              </p>
+            </div>
+            <div class="stats">
+              <div class="stat-item">
+                <h4>5년 6개월</h4>
+                <p>실무 경력</p>
+              </div>
+              <div class="stat-item">
+                <h4>2년 4개월</h4>
+                <p>병원 연구 시스템 (IRB·CTMS·IACUC)</p>
+              </div>
+              <div class="stat-item">
+                <h4>5곳</h4>
+                <p>공공기관 콜센터 시스템</p>
+              </div>
+              <div class="stat-item">
+                <h4>304개</h4>
+                <p>IdolGlow 자동화 테스트 통과</p>
+              </div>
+            </div>
           </div>
           <div class="about-image">
             <div class="image-placeholder">
@@ -243,11 +290,18 @@
           </div>
         </div>
         <div class="other-projects-toggle">
-          <button type="button" class="btn btn-secondary" id="otherProjectsToggle" aria-expanded="false">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="otherProjectsToggle"
+            aria-expanded="false"
+            aria-controls="otherProjectsPanel"
+          >
             기타 프로젝트 (7)
           </button>
         </div>
-        <div class="projects-grid is-collapsed" id="otherProjectGrid">
+        <div class="other-projects-panel" id="otherProjectsPanel" hidden>
+        <div class="projects-grid" id="otherProjectGrid">
           <div class="project-card" data-page="1">
             <div class="project-image">
               <img src="images/sleekydz86Intro.png" alt="포트폴리오 사이트" />
@@ -260,18 +314,7 @@
                 <span class="tech-tag">Vite</span>
                 <span class="tech-tag">React Router</span>
               </div>
-              <div class="project-links">
-                <a
-                  href="https://skyleedevzero86.github.io/"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a href="#" class="project-link" target="_blank">
-                  <i class="fab fa-github"></i> 코드
-                </a>
-              </div>
+              <div class="project-links"></div>
             </div>
           </div>
           <div class="project-card" data-page="1">
@@ -468,16 +511,17 @@
             </div>
           </div>
         </div>
-        <div class="pagination-container is-collapsed" id="otherPagination">
+        <div class="pagination-container" id="otherPagination">
           <div class="pagination">
-            <button class="pagination-btn prev-btn" onclick="changePage(-1)">
-              <i class="fas fa-chevron-left"></i>
+            <button class="pagination-btn prev-btn" type="button" onclick="changePage(-1)" aria-label="이전 페이지">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
             <div class="pagination-numbers" id="paginationNumbers"></div>
-            <button class="pagination-btn next-btn" onclick="changePage(1)">
-              <i class="fas fa-chevron-right"></i>
+            <button class="pagination-btn next-btn" type="button" onclick="changePage(1)" aria-label="다음 페이지">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -571,7 +615,7 @@
               <div class="skill-item">
                 <i class="fab fa-jenkins"></i>
                 <span>Jenkins</span>
-                <span class="skill-stage">학습 중</span>
+                <span class="skill-stage">실무</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-stream"></i>
@@ -620,13 +664,12 @@
           <div class="timeline-item">
             <div class="timeline-date">2022.05 - 현재</div>
             <div class="timeline-content">
-              <h3>백엔드 개발자</h3>
-              <h4>개인 학습 및 프로젝트 진행중</h4>
+              <h3>개인 프로젝트</h3>
+              <h4>재직 없음 · 백엔드 개인 프로젝트</h4>
               <p>
-                • 블로그 포스팅 1000개 및 개발 스터디 운영중<br />
-                • 데이터베이스 성능 최적화 및 쿼리 튜닝 학습중<br />
-                • LLM,CI/CD 파이프라인 구축 및 자동화 학습중<br />
-                • 개인프로젝트 진행중
+                • IdolGlow: 공공 공연 API 5종 메타데이터 통합, 예약·토스 결제 정합성 (테스트 304개 통과)<br />
+                • FinSight: 뉴스 수집 배치 중복 제거·장애 격리, Elasticsearch 통합 검색<br />
+                • 기술 블로그 운영
               </p>
             </div>
           </div>
@@ -659,7 +702,7 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-date">2018.12 - 2020.03</div>
+            <div class="timeline-date">2018.12 - 2021.03</div>
             <div class="timeline-content">
               <h3>바자울정보기술</h3>
               <h4>IRB시스템 개발/유지보수/운영</h4>

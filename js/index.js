@@ -17,10 +17,12 @@ function initPagination() {
     paginationNumbers.innerHTML = "";
 
     for (let i = 1; i <= totalPages; i++) {
-      const pageNumber = document.createElement("div");
+      const pageNumber = document.createElement("button");
+      pageNumber.type = "button";
       pageNumber.className = "page-number";
       pageNumber.textContent = i;
-      pageNumber.onclick = () => goToPage(i);
+      pageNumber.setAttribute("aria-label", i + "페이지");
+      pageNumber.addEventListener("click", () => goToPage(i));
       paginationNumbers.appendChild(pageNumber);
     }
   }
@@ -53,8 +55,11 @@ function showPage(page) {
     card.style.display = show ? "" : "none";
   });
 
-  document.querySelectorAll(".page-number").forEach((btn, index) => {
-    btn.classList.toggle("active", index + 1 === page);
+  document.querySelectorAll("#otherPagination .page-number").forEach((btn, index) => {
+    const active = index + 1 === page;
+    btn.classList.toggle("active", active);
+    if (active) btn.setAttribute("aria-current", "page");
+    else btn.removeAttribute("aria-current");
   });
 
   const prevBtn = document.querySelector(".prev-btn");
@@ -504,13 +509,11 @@ function closeDemoModal() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("otherProjectsToggle");
-  const grid = document.getElementById("otherProjectGrid");
-  const pagination = document.getElementById("otherPagination");
-  if (toggle && grid) {
+  const panel = document.getElementById("otherProjectsPanel");
+  if (toggle && panel) {
     toggle.addEventListener("click", () => {
-      const open = grid.classList.contains("is-collapsed");
-      grid.classList.toggle("is-collapsed", !open);
-      if (pagination) pagination.classList.toggle("is-collapsed", !open);
+      const open = panel.hidden;
+      panel.hidden = !open;
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
