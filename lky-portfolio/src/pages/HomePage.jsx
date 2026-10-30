@@ -30,7 +30,6 @@ function ProjectCard({ project, onDemo, showStatusDemo = false }) {
   const [imageFailed, setImageFailed] = useState(false)
   const showDemo =
     project.demo?.type === 'link' || (showStatusDemo && project.demo?.type === 'modal')
-  const showCode = Boolean(project.code)
 
   return (
     <div className="project-card">
@@ -56,16 +55,7 @@ function ProjectCard({ project, onDemo, showStatusDemo = false }) {
             <ProjectAction action={project.demo} onDemo={onDemo}>
               <i className="fas fa-external-link-alt" /> 데모
             </ProjectAction>
-          ) : (
-            <span className="project-link-slot" aria-hidden="true" />
-          )}
-          {showCode ? (
-            <ProjectAction action={project.code} onDemo={onDemo}>
-              <i className="fab fa-github" /> 코드
-            </ProjectAction>
-          ) : (
-            <span className="project-link-slot" aria-hidden="true" />
-          )}
+          ) : null}
         </div>
       </div>
     </div>

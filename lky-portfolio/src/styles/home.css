@@ -267,15 +267,6 @@
   box-sizing: border-box;
 }
 
-.page-home .projects-grid .project-links .project-link:only-child {
-  grid-column: 2;
-}
-
-.page-home .projects-grid .project-link-slot {
-  display: block;
-  min-height: 44px;
-}
-
 @media (max-width: 1024px) {
   .page-home .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
