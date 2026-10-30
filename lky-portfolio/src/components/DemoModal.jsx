@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 
-export default function DemoModal({ open, onClose }) {
+const EMPTY_NOTICES = [{ id: 'service', label: '서비스 중' }]
+
+export default function DemoModal({ open, onClose, title = '프로젝트', notices = EMPTY_NOTICES, slides = [] }) {
+  const showControls = slides.length >= 2
+
   useEffect(() => {
     if (!open) return undefined
     const previous = document.body.style.overflow
@@ -20,28 +24,42 @@ export default function DemoModal({ open, onClose }) {
   return (
     <div className="demo-modal open" onClick={onClose} role="presentation">
       <div
-        className="demo-modal-content"
+        className="notice-popup"
         role="dialog"
         aria-modal="true"
         aria-labelledby="demo-modal-title"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="demo-modal-header">
-          <h3 id="demo-modal-title">서비스중</h3>
-          <button type="button" className="demo-close" onClick={onClose} aria-label="닫기">
-            &times;
-          </button>
-        </div>
-        <div className="demo-modal-body">
-          <div className="demo-icon">
-            <i className="fas fa-check-circle" />
+        <aside className="notice-popup-sidebar">
+          <div className="notice-popup-sidebar-header">
+            <h3 id="demo-modal-title">{title}</h3>
           </div>
-          <p>서비스중입니다</p>
-        </div>
-        <div className="demo-modal-footer">
-          <button type="button" className="demo-btn" onClick={onClose}>
-            확인
-          </button>
+          <ul className="notice-popup-items">
+            {notices.map((item, index) => (
+              <li key={item.id} className={index === 0 ? 'is-active' : undefined}>
+                {item.label}
+              </li>
+            ))}
+          </ul>
+          <div className="notice-popup-sidebar-footer">
+            <button type="button" className="notice-popup-close" onClick={onClose}>
+              닫기
+            </button>
+          </div>
+        </aside>
+        <div className="notice-popup-stage">
+          <div className="notice-popup-placeholder">곧 서비스할예정입니다</div>
+          <div className={`notice-popup-controls${showControls ? '' : ' is-hidden'}`} hidden={!showControls}>
+            <button type="button" aria-label="이전">
+              <i className="fas fa-chevron-left" />
+            </button>
+            <button type="button" aria-label="일시정지">
+              <i className="fas fa-pause" />
+            </button>
+            <button type="button" aria-label="다음">
+              <i className="fas fa-chevron-right" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

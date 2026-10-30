@@ -69,7 +69,10 @@ button.close {
   line-height: 1;
 }
 
-.demo-modal.open,
+.demo-modal.open {
+  display: flex;
+}
+
 .page-projects .modal.open {
   display: block;
 }

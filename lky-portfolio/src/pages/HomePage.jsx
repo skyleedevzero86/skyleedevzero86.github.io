@@ -65,7 +65,7 @@ function ProjectCard({ project, onDemo, showStatusDemo = false }) {
 export default function HomePage() {
   const navigate = useNavigate()
   const [othersOpen, setOthersOpen] = useState(false)
-  const [demoOpen, setDemoOpen] = useState(false)
+  const [demoProject, setDemoProject] = useState(null)
   const [page, setPage] = useState(1)
   const totalPages = Math.ceil(otherProjects.length / HOME_PAGE_SIZE)
   const visibleOthers = useMemo(() => {
@@ -174,7 +174,7 @@ export default function HomePage() {
                   key={project.title}
                   project={project}
                   showStatusDemo
-                  onDemo={() => setDemoOpen(true)}
+                  onDemo={() => setDemoProject(project)}
                 />
               ))}
             </div>
@@ -267,7 +267,11 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
-      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
+      <DemoModal
+        open={Boolean(demoProject)}
+        title={demoProject?.title}
+        onClose={() => setDemoProject(null)}
+      />
     </>
   )
 }
