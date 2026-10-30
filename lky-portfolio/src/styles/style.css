@@ -111,6 +111,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    align-items: safe center;
     background: #f8f9fa;
     color: #2c3e50;
     position: relative;
@@ -947,12 +948,21 @@ body {
 }
 
 @media (max-width: 1024px) {
+    .hero {
+        align-items: flex-start;
+        min-height: auto;
+        padding-top: 6.5rem;
+        padding-bottom: 3rem;
+    }
+
     .hero-container {
         gap: 2rem;
     }
     
     .hero-title {
         font-size: 3rem;
+        line-height: 1.35;
+        overflow-wrap: break-word;
     }
     
     .about-content {
@@ -1129,7 +1139,8 @@ body {
     }
     
     .hero {
-        padding-top: 60px;
+        padding-top: 5.5rem;
+        padding-bottom: 2.5rem;
     }
     
     .hero-container {
@@ -1194,7 +1205,6 @@ body {
     }
 }
 
-/* 데모 서비스 예정 팝업 모달 스타일 */
 .demo-modal {
     display: none;
     position: fixed;

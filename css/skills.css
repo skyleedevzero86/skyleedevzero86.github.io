@@ -241,6 +241,20 @@
 }
 
 @media (max-width: 1024px) {
+  .skills-detail {
+    padding: 6.5rem 0 3rem;
+  }
+
+  .skills-header h1 {
+    line-height: 1.35;
+  }
+
+  .skills-header p {
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
   .skill-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
@@ -256,11 +270,12 @@
 
 @media (max-width: 768px) {
   .skills-detail {
-    padding: 80px 0;
+    padding: 6.5rem 0 3rem;
   }
   
   .skills-header h1 {
     font-size: 2.5rem;
+    line-height: 1.35;
   }
   
   .skills-header p {
@@ -339,11 +354,12 @@
 
 @media (max-width: 480px) {
   .skills-detail {
-    padding: 60px 0;
+    padding: 5.5rem 0 2.5rem;
   }
   
   .skills-header h1 {
     font-size: 2rem;
+    line-height: 1.35;
   }
   
   .skills-header p {
