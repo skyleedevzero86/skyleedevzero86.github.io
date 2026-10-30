@@ -1108,6 +1108,8 @@ body {
     
     .hero-title {
         font-size: 2rem;
+        line-height: 1.45;
+        overflow: visible;
     }
 
     .section-title {
@@ -1139,8 +1141,11 @@ body {
     }
     
     .hero {
-        padding-top: 5.5rem;
+        align-items: flex-start;
+        min-height: auto;
+        padding-top: 7.25rem;
         padding-bottom: 2.5rem;
+        overflow: visible;
     }
     
     .hero-container {
