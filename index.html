@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0"
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -35,7 +35,7 @@
                 href="https://github.com/skyleedevzero86/"
                 class="nav-link"
                 target="_blank"
-                >매일 기록</a
+                >GitHub</a
               >
             </li>
             <li class="nav-item">
@@ -66,23 +66,10 @@
       <div class="hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
-            사용자 중심의 안정적인 백엔드 시스템을 구축하는 엔지니어
-            <span class="highlight">이. 경. 용</span> 입니다
+            외부 데이터 통합과 정합성 검증,
+            <span class="highlight">RDB 성능 최적화</span>
           </h1>
-          <p class="hero-description">
-            IT, 모두들 Information Technology라고 말씀하실 지 모릅니다.<br />
-            Inner Thoughtfulness, 유저를 마음으로부터 배려하는 프로그래밍.<br />
-            그것이 제가 앞으로 함께 펼쳐나가고 싶은 길입니다.
-          </p>
-          <div class="achievements">
-            <p class="achievement-text">
-              압도적인 성과 창출을 위해 끊임없이 고민하고 개선하는 자세가 제가
-              갖추어 나가야 할 스탠스라고 생각합니다.<br />
-              시스템 성능 최적화를 위해 기여했으며<br />
-              데이터베이스 성능 최적화를 위해 기여했습니다.
-            </p>
-            <br />
-          </div>
+          <p class="hero-description">궁금하면500원입니다.</p>
           <div class="hero-buttons">
             <a href="projects.html" class="btn btn-primary">프로젝트 보기</a>
             <a href="#contact" class="btn btn-secondary">연락하기</a>
@@ -114,30 +101,22 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
           <div class="about-text">
-            <h3>백엔드 개발자로서의 여정</h3>
-            <p>
-              전자정부 프레임워크(eGov) 기반의 대규모 웹 애플리케이션 개발
-              경험을 바탕으로, 사용자 중심의 서비스를 설계하고 구현하는 것을
-              목표로 합니다.
-            </p>
-            <p>
-              특히 Spring Boot, JPA, AWS를 활용한 마이크로서비스 아키텍처 설계와
-              데이터베이스 최적화에 관심이 많습니다.
-            </p>
-            <div class="stats">
-              <div class="stat-item">
-                <h4>5+</h4>
-                <p>년 경력</p>
-              </div>
-              <div class="stat-item">
-                <h4>21+</h4>
-                <p>프로젝트</p>
-              </div>
-              <div class="stat-item">
-                <h4>5000+</h4>
-                <p>사용자</p>
-              </div>
-            </div>
+                <h3>의료 연구 시스템 5년</h3>
+                <p>
+                  병원 연구 지원 시스템을 5년 개발하고 운영했습니다. 외부에서
+                  들어오는 데이터와 내부 기록이 맞는지 검증하고, RDB 쿼리와
+                  인덱스로 성능을 맞춰 왔습니다.
+                </p>
+                <p>
+                  Spring Boot와 JPA로 심의·임상 연구 업무를 나누고, 데이터가
+                  어긋나거나 쿼리가 느린 지점을 먼저 봅니다.
+                </p>
+                <div class="stats">
+                  <div class="stat-item">
+                    <h4>5년 6개월</h4>
+                    <p>경력</p>
+                  </div>
+                </div>
           </div>
           <div class="about-image">
             <div class="image-placeholder">
@@ -159,23 +138,127 @@
         >
           주요 프로젝트
         </h2>
-        <div class="projects-grid" id="projectGrid">
+        <div class="projects-grid" id="featuredProjectGrid">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/idolglow.png" alt="IdolGlow 공연 메타데이터 통합 및 예약·결제 플랫폼" />
+            </div>
+            <div class="project-content">
+              <h3>IdolGlow</h3>
+              <p>
+                공공 공연·축제 API 5종(KOPIS 공연·축제, 세종문화회관, 문화정보, 한국관광공사 Tour API)의 외부 ID를 내부 기준 ID 하나로 통합하고, 충돌 후보는 자동 병합하지 않고 검토로 보류합니다. 슬롯 예약과 토스페이먼츠 결제·정기결제에서 잠금 순서 고정, 외부 호출과 트랜잭션 분리, 타임아웃 결과의 대기 처리 후 조회 확정으로 정합성을 다룹니다. 테스트 304개 통과.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Spring Boot 4</span>
+                <span class="tech-tag">JPA</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Querydsl</span>
+                <span class="tech-tag">GraphQL</span>
+                <span class="tech-tag">토스페이먼츠</span>
+                <span class="tech-tag">Testcontainers</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/skyleedevzero86/IdolGlow" class="project-link" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/news.png" alt="미국경제 뉴스 시스템" />
+            </div>
+            <div class="project-content">
+              <h3>Finsight</h3>
+              <p>
+                경제·시장 뉴스를 수집해 AI 감성 분석과 함께 제공하는 서비스입니다. web·core·batch 멀티모듈 백엔드에서 제공처별 실패 격리, URL 정규화와 유니크제약으로 중복 저장을 막고, AI 장애 시 대체 모델과 서킷 브레이커로 대응합니다. Elasticsearch(nori)로 통합 검색을 제공합니다.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java 21</span>
+                <span class="tech-tag">Spring Boot 3.5</span>
+                <span class="tech-tag">Spring Batch</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Elasticsearch</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">PyTorch(DJL)</span>
+                <span class="tech-tag">Next.js 15</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/skyleedevzero86/FinSight" class="project-link" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/통신판매사업자관리시스템.png" alt="Public Data Harvester 공공데이터 수집 관리 시스템" />
+            </div>
+            <div class="project-content">
+              <h3>Public Data Harvester</h3>
+              <p>
+                공공데이터 수집 및 관리 시스템으로, 법인 정보 검색, 회원 관리, 파일 관리, 대시보드, 법인정보 수집 및 Excel 내보내기 등의 핵심 기능을 제공
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">JPA</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Spring Security</span>
+                <span class="tech-tag">MinIO</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">JSP</span>
+                <span class="tech-tag">Spring Batch</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/skyleedevzero86/public-data-harvester" class="project-link" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="images/kafkakopanda.png" alt="Kafka Panda(kotlin 버전)" />
+            </div>
+            <div class="project-content">
+              <h3>Kafka 모니터링 관리 플랫폼</h3>
+              <p>
+                연결 관리, 토픽 관리, 메시지 처리, 실시간 모니터링, 알림 시스템을 통해 Kafka 인프라를 효율적으로 운영할 수 있는 웹 기반 솔루션
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Kafka Client</span>
+                <span class="tech-tag">H2/PostgreSQL</span>
+                <span class="tech-tag">Vue 3</span>
+                <span class="tech-tag">Swagger</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/skyleedevzero86/KAFKA_KOPANDA" class="project-link" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> 코드
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="other-projects-toggle">
+          <button type="button" class="btn btn-secondary" id="otherProjectsToggle" aria-expanded="false">
+            기타 프로젝트 (7)
+          </button>
+        </div>
+        <div class="projects-grid is-collapsed" id="otherProjectGrid">
           <div class="project-card" data-page="1">
             <div class="project-image">
               <img src="images/sleekydz86Intro.png" alt="포트폴리오 사이트" />
             </div>
             <div class="project-content">
               <h3>skylee.dev</h3>
-              <p>
-                운영중인 개인 포트폴리오 사이트입니다. 주요 핵심 프로젝트 상세
-                소개 합니다.
-              </p>
+              <p>이 포트폴리오 사이트입니다. 주요 프로젝트와 경력 프로젝트를 소개합니다.</p>
               <div class="project-tech">
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">MyBatis</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Kotlin</span>
-                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">React 19</span>
+                <span class="tech-tag">Vite</span>
+                <span class="tech-tag">React Router</span>
               </div>
               <div class="project-links">
                 <a
@@ -210,134 +293,10 @@
               </div>
               <div class="project-links">
                 <a
-                  href="https://github.com/skyleedevzero86/"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a
                   href="https://github.com/skyleedevzero86/healthcare_mono"
                   class="project-link"
                   target="_blank"
-                >
-                  <i class="fab fa-github"></i> 코드
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card" data-page="1">
-            <div class="project-image">
-              <img
-                src="images/통신판매사업자관리시스템.png"
-                alt="공간 대여 관리 시스템"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Public Data Harvester</h3>
-              <p>
-                공공데이터 수집 및 관리 시스템으로, 법인 정보 검색, 회원 관리,
-                파일 관리, 대시보드,법인정보 수집 및 Excel 내보내기 등의 핵심
-                기능을 제공
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">JPA</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Spring Security</span>
-                <span class="tech-tag">MinIO</span>
-                <span class="tech-tag">Redis</span>
-                <span class="tech-tag">JSP</span>
-                <span class="tech-tag">Spring Batch</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/skyleedevzero86/"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a
-                  href="https://github.com/skyleedevzero86/public-data-harvester"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fab fa-github"></i> 코드
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card" data-page="1">
-            <div class="project-image">
-              <img
-                src="images/kafkakopanda.png"
-                alt="Kafka Panda(kotlin 버전)"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Kafka 모니터링 관리 플랫폼</h3>
-              <p>
-                연결 관리, 토픽 관리, 메시지 처리, 실시간 모니터링, 알림
-                시스템을 통해 Kafka 인프라를 효율적으로 운영할 수 있는 웹 기반
-                솔루션
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Kotlin</span>
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">Kafka Client</span>
-                <span class="tech-tag">H2/PostgreSQL</span>
-                <span class="tech-tag">Vue 3</span>
-                <span class="tech-tag">Swagger</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/skyleedevzero86/"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a
-                  href="https://github.com/skyleedevzero86/KAFKA_KOPANDA"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fab fa-github"></i> 코드
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card" data-page="1">
-            <div class="project-image">
-              <img src="images/news.png" alt="미국경제 뉴스 시스템" />
-            </div>
-            <div class="project-content">
-              <h3>Finsight</h3>
-              <p>
-                미국 경제 뉴스를 자동으로 크롤링하고 AI를 통해 SPY, QQQ,
-                비트코인, Big7 기업들에 미치는 영향을 분석 시스템
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">Mysql</span>
-                <span class="tech-tag">OAuth2</span>
-                <span class="tech-tag"> React 19</span>
-                <span class="tech-tag"> AI/ML</span>
-                <span class="tech-tag"> PyTorch</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/skyleedevzero86/"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a
-                  href="https://github.com/skyleedevzero86/FinSight"
-                  class="project-link"
-                  target="_blank"
+                  rel="noreferrer"
                 >
                   <i class="fab fa-github"></i> 코드
                 </a>
@@ -364,13 +323,6 @@
                 <span class="tech-tag">JDK 21</span>
               </div>
               <div class="project-links">
-                <a
-                  href="https://github.com/skyleedevzero86/studyKotlin/tree/main/ko_voice"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
                 <a
                   href="https://github.com/skyleedevzero86/studyKotlin/tree/main/ko_voice"
                   class="project-link"
@@ -404,13 +356,6 @@
                 <span class="tech-tag">React</span>
               </div>
               <div class="project-links">
-                <a
-                  href="https://github.com/skyleedevzero86/voice-stack"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
                 <a
                   href="https://github.com/skyleedevzero86/voice-stack"
                   class="project-link"
@@ -450,13 +395,6 @@
                   class="project-link"
                   target="_blank"
                 >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a
-                  href="https://github.com/skyleedevzero86/SmartCampus"
-                  class="project-link"
-                  target="_blank"
-                >
                   <i class="fab fa-github"></i> 코드
                 </a>
               </div>
@@ -486,13 +424,6 @@
                 <span class="tech-tag">Gradle</span>
               </div>
               <div class="project-links">
-                <a
-                  href="https://github.com/skyleedevzero86/Health_mr"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
                 <a
                   href="https://github.com/skyleedevzero86/Health_mr"
                   class="project-link"
@@ -531,20 +462,13 @@
                   class="project-link"
                   target="_blank"
                 >
-                  <i class="fas fa-external-link-alt"></i> 데모
-                </a>
-                <a
-                  href="https://github.com/skyleedevzero86/expo-rn-map"
-                  class="project-link"
-                  target="_blank"
-                >
                   <i class="fab fa-github"></i> 코드
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="pagination-container">
+        <div class="pagination-container is-collapsed" id="otherPagination">
           <div class="pagination">
             <button class="pagination-btn prev-btn" onclick="changePage(-1)">
               <i class="fas fa-chevron-left"></i>
@@ -572,22 +496,27 @@
               <div class="skill-item">
                 <i class="fab fa-java"></i>
                 <span>Java</span>
+                <span class="skill-stage">실무</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-leaf"></i>
                 <span>Spring Boot</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-database"></i>
                 <span>JPA/Hibernate</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-code"></i>
                 <span>MyBatis</span>
+                <span class="skill-stage">실무</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-code"></i>
                 <span>Kotlin</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
             </div>
           </div>
@@ -597,18 +526,22 @@
               <div class="skill-item">
                 <i class="fas fa-database"></i>
                 <span>MySQL</span>
+                <span class="skill-stage">실무</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-database"></i>
                 <span>PostgreSQL</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-memory"></i>
                 <span>Redis</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-database"></i>
                 <span>Oracle</span>
+                <span class="skill-stage">실무</span>
               </div>
             </div>
           </div>
@@ -618,26 +551,32 @@
               <div class="skill-item">
                 <i class="fab fa-aws"></i>
                 <span>AWS</span>
+                <span class="skill-stage">학습 중</span>
               </div>
               <div class="skill-item">
                 <i class="fab fa-docker"></i>
                 <span>Docker</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-mountain"></i>
                 <span>Terraform</span>
+                <span class="skill-stage">학습 중</span>
               </div>
               <div class="skill-item">
                 <i class="fab fa-github"></i>
                 <span>GitHub Actions</span>
+                <span class="skill-stage">학습 중</span>
               </div>
               <div class="skill-item">
                 <i class="fab fa-jenkins"></i>
                 <span>Jenkins</span>
+                <span class="skill-stage">학습 중</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-stream"></i>
                 <span>Apache Flink</span>
+                <span class="skill-stage">학습 중</span>
               </div>
             </div>
           </div>
@@ -647,18 +586,22 @@
               <div class="skill-item">
                 <i class="fas fa-chart-line"></i>
                 <span>Datadog</span>
+                <span class="skill-stage">학습 중</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-terminal"></i>
                 <span>Shell Script</span>
+                <span class="skill-stage">실무</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-cogs"></i>
                 <span>Spring Batch</span>
+                <span class="skill-stage">개인 프로젝트</span>
               </div>
               <div class="skill-item">
                 <i class="fas fa-database"></i>
                 <span>DBeaver</span>
+                <span class="skill-stage">실무</span>
               </div>
             </div>
           </div>
@@ -777,7 +720,7 @@
     </section>
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024 궁금하면500원. All rights reserved.</p>
+        <p>&copy; 2026 궁금하면500원. All rights reserved.</p>
       </div>
     </footer>
     <div id="demoModal" class="demo-modal">

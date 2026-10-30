@@ -2,8 +2,14 @@ let currentPage = 1;
 const itemsPerPage = 6;
 let totalPages = 0;
 
+function otherCards() {
+  const grid = document.getElementById("otherProjectGrid");
+  if (!grid) return document.querySelectorAll(".project-card");
+  return grid.querySelectorAll(".project-card");
+}
+
 function initPagination() {
-  const projectCards = document.querySelectorAll(".project-card");
+  const projectCards = otherCards();
   totalPages = Math.ceil(projectCards.length / itemsPerPage);
 
   const paginationNumbers = document.getElementById("paginationNumbers");
@@ -19,9 +25,9 @@ function initPagination() {
     }
   }
 
-  const paginationContainer = document.querySelector(
-    ".pagination-container"
-  );
+  const paginationContainer =
+    document.getElementById("otherPagination") ||
+    document.querySelector(".pagination-container");
   if (paginationContainer) {
     paginationContainer.style.display = totalPages > 1 ? "flex" : "none";
   }
@@ -37,7 +43,7 @@ function initPagination() {
 }
 
 function showPage(page) {
-  const projectCards = document.querySelectorAll(".project-card");
+  const projectCards = otherCards();
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
@@ -496,7 +502,36 @@ function closeDemoModal() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("otherProjectsToggle");
+  const grid = document.getElementById("otherProjectGrid");
+  const pagination = document.getElementById("otherPagination");
+  if (toggle && grid) {
+    toggle.addEventListener("click", () => {
+      const open = grid.classList.contains("is-collapsed");
+      grid.classList.toggle("is-collapsed", !open);
+      if (pagination) pagination.classList.toggle("is-collapsed", !open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".project-image img").forEach((img) => {
+    const markFailed = () => {
+      const box = img.parentElement;
+      if (!box || box.classList.contains("project-image-fallback")) return;
+      const card = box.closest(".project-card");
+      const title = card ? card.querySelector("h3").textContent : "";
+      box.classList.add("project-image-fallback");
+      box.replaceChildren();
+      const span = document.createElement("span");
+      span.className = "project-image-fallback-title";
+      span.textContent = title;
+      box.appendChild(span);
+    };
+    img.addEventListener("error", markFailed);
+    if (img.complete && img.naturalWidth === 0) markFailed();
+  });
+
   const demoButtons = document.querySelectorAll('a[href*="github.com"]');
   demoButtons.forEach(button => {
     if (button.textContent.includes('데모') || button.textContent.includes('Demo')) {
