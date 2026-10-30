@@ -51,6 +51,14 @@ body {
     align-items: center;
 }
 
+.nav-logo a,
+.nav-logo .nav-home {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
 .nav-logo h2 {
     color: #2c3e50;
     font-size: 1.8rem;

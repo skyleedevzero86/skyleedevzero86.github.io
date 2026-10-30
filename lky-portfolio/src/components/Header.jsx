@@ -70,6 +70,15 @@ export default function Header({ page }) {
 
   const close = () => setOpen(false)
 
+  const goHome = (event) => {
+    close()
+    const onHome = location.pathname === '/' || location.pathname === '/index.html'
+    if (onHome && !location.hash) {
+      event.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   const isActive = (item) => {
     if (item.section === 'experience-timeline') return current === 'experience-timeline'
     if (item.section) return current === item.section
@@ -83,9 +92,9 @@ export default function Header({ page }) {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
-            <Link to="/">
+            <a href="/" className="nav-home" onClick={goHome}>
               <h2>궁금하면500원</h2>
-            </Link>
+            </a>
           </div>
           <ul className={`nav-menu${open ? ' active' : ''}`}>
             {menus[page].map((item) => {
