@@ -66,6 +66,9 @@ window.__antockFuzzyRows = function(rows, term, textOf) { var k = String(term ||
       const i = html.lastIndexOf('</body>')
       html = i >= 0 ? html.slice(0, i) + tags + html.slice(i) : html + tags
     }
+    const fmt = '<script src="./demo-format.js"></script>'
+    const j = html.lastIndexOf('</body>')
+    html = j >= 0 ? html.slice(0, j) + fmt + html.slice(j) : html + fmt
     return html
   }
 
