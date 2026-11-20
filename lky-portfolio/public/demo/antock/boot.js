@@ -1,3 +1,4 @@
+window.__antockFuzzyRows = function(rows, term, textOf) { var k = String(term || '').toLowerCase().replace(/\s+/g, ''); if (!k) return 0; var grams = []; for (var i = 0; i < k.length - 1; i++) grams.push(k.slice(i, i + 2)); var chars = k.split(''); var best = []; Array.prototype.forEach.call(rows, function (row) { var t = String(textOf(row) || '').toLowerCase().replace(/\s+/g, ''); var sc = 0; grams.forEach(function (g) { if (t.indexOf(g) >= 0) sc += 3; }); chars.forEach(function (ch) { if (t.indexOf(ch) >= 0) sc += 1; }); best.push([row, sc]); }); var any = best.some(function (b) { return b[1] > 0; }); best.forEach(function (b) { b[0].style.display = (!any || b[1] > 0) ? '' : 'none'; }); return best.filter(function (b) { return b[0].style.display === ''; }).length; };
 (function () {
   const RT = window.AntockRuntime
   const SV = window.AntockServer

@@ -1,6 +1,6 @@
 (function () {
   const RT = window.AntockRuntime
-  const KEY = 'antock-demo-db-v2'
+  const KEY = 'antock-demo-db-v3'
   const SKEY = 'antock-demo-session-v1'
   const DAY = 86400000
   const now = () => Date.now()
@@ -26,9 +26,6 @@
   const DISTRICTS = window.ANTOCK_DISTRICTS || []
 
   const REGION_CD = { '서울특별시': '11', '부산광역시': '26', '대구광역시': '27', '인천광역시': '28', '광주광역시': '29', '대전광역시': '30', '울산광역시': '31', '세종특별자치시': '36', '경기도': '41', '강원특별자치도': '51', '충청북도': '43', '충청남도': '44', '전라북도': '52', '전라남도': '46', '경상북도': '47', '경상남도': '48', '제주특별자치도': '50' }
-  const NAME_A = ['한빛', '새솔', '다온', '가람', '누리', '미르', '해담', '온새미', '라온', '여울', '푸른', '청솔', '바른', '든솔', '해솔', '참빛', '하늘', '은빛', '별빛', '도담', '마루', '나래', '이음', '보람', '소담']
-  const NAME_B = ['커머스', '유통', '상사', '트레이딩', '마켓', '리테일', '쇼핑', '네트웍스', '글로벌', '푸드', '패션', '테크', '라이프', '스토어', '코리아']
-  const NAME_C = ['(주)', '주식회사 ', '', '유한회사 ']
 
   function freshDb() {
     seedState = 20251120
@@ -48,7 +45,7 @@
     addMember('admin', '시스템관리자', 'ADMIN', 'APPROVED', { created: t - 240 * DAY })
     addMember('manager01', '운영매니저', 'MANAGER', 'APPROVED', { created: t - 200 * DAY })
     addMember('manager02', '지역담당', 'MANAGER', 'APPROVED', { created: t - 150 * DAY })
-    const users = [['kimseller', '김판매', 'APPROVED'], ['leetrade', '이유통', 'APPROVED'], ['parkshop', '박쇼핑', 'APPROVED'], ['choimarket', '최마켓', 'APPROVED'], ['jungcom', '정커머스', 'SUSPENDED'], ['kangstore', '강스토어', 'PENDING'], ['yoondeal', '윤딜', 'PENDING'], ['jangmall', '장몰', 'PENDING'], ['limretail', '임리테일', 'REJECTED'], ['hanbiz', '한비즈', 'APPROVED'], ['ohtrade', '오트레이드', 'WITHDRAWN'], ['seoshop', '서샵', 'APPROVED'], ['shinfood', '신푸드', 'PENDING'], ['kwonmart', '권마트', 'APPROVED']]
+    const users = [['kimseller', '궁금하면 500원', 'APPROVED'], ['leetrade', '궁금하면 500원', 'APPROVED'], ['parkshop', '궁금하면 500원', 'APPROVED'], ['choimarket', '궁금하면 500원', 'APPROVED'], ['jungcom', '궁금하면 500원', 'SUSPENDED'], ['kangstore', '궁금하면 500원', 'PENDING'], ['yoondeal', '궁금하면 500원', 'PENDING'], ['jangmall', '궁금하면 500원', 'PENDING'], ['limretail', '궁금하면 500원', 'REJECTED'], ['hanbiz', '궁금하면 500원', 'APPROVED'], ['ohtrade', '궁금하면 500원', 'WITHDRAWN'], ['seoshop', '궁금하면 500원', 'APPROVED'], ['shinfood', '궁금하면 500원', 'PENDING'], ['kwonmart', '궁금하면 500원', 'APPROVED']]
     users.forEach(([u, n, s], i) => addMember(u, n, 'USER', s, { extra: { loginFailCount: u === 'choimarket' ? 5 : u === 'parkshop' ? 2 : 0, lastLoginAt: t - sint(1, 400) * 3600000, approvedAt: t - sint(30, 90) * DAY } }))
     db.members.find((m) => m.username === 'admin').passwordChangedAt = t - 85 * DAY
     db.members.find((m) => m.username === 'manager02').passwordChangedAt = t - 20 * DAY
@@ -63,7 +60,7 @@
         const validRc = srnd() > 0.12
         db.corps.push({
           id, sellerId: `${REGION_CD[city]}${pad(ri, 2)}-${2020 + sint(0, 5)}-${pad(sint(1, 9999), 4)}`,
-          bizNm: spick(NAME_C) + spick(NAME_A) + spick(NAME_B), bizNo: String(sint(100, 899)) + pad(sint(1, 99)) + pad(sint(1, 99999), 5),
+          bizNm: '궁금하면 500원', bizNo: String(sint(100, 899)) + pad(sint(1, 99)) + pad(sint(1, 99999), 5),
           corpRegNo: validReg ? String(sint(110111, 285011)) + pad(sint(1, 9999999), 7) : String(sint(110111, 285011)) + '-' + pad(sint(1, 99999), 5),
           regionCd: validRc ? REGION_CD[city] + pad(sint(100, 890), 3) + '00000' : REGION_CD[city] + pad(sint(100, 890), 3),
           siNm: city, sggNm: district, username: spick(owners), description: `${district} 소재 ${spick(['온라인 쇼핑몰', '오픈마켓 입점', '식품 통신판매', '의류 통신판매', '생활용품 판매'])} 사업자`,
@@ -407,9 +404,35 @@
   const redirect = (to, flash) => ({ redirect: to, flash: flash || null })
   const forbidden = () => ({ status: 403, view: 'member/error', model: { pageTitle: '접근 거부', error: '접근 권한이 없습니다.', errorCode: 'ACCESS_DENIED' } })
 
+  const normQ = (x) => String(x == null ? '' : x).toLowerCase().replace(/\s+/g, '')
+  function rankFuzzy(list, query, textOf) {
+    const k = normQ(query)
+    if (!k || !list.length) return list
+    const tokens = String(query).toLowerCase().split(/\s+/).map(normQ).filter(Boolean)
+    const grams = new Set()
+    for (let i = 0; i < k.length - 1; i++) grams.add(k.slice(i, i + 2))
+    const chars = new Set(k.split(''))
+    const scored = list.map((x, i) => {
+      const t = normQ(textOf(x))
+      let sc = 0
+      tokens.forEach((tk) => { if (t.includes(tk)) sc += 10 })
+      grams.forEach((g) => { if (t.includes(g)) sc += 3 })
+      chars.forEach((ch) => { if (t.includes(ch)) sc += 1 })
+      return { x, sc, i }
+    }).filter((r) => r.sc > 0).sort((a, b) => b.sc - a.sc || a.i - b.i).map((r) => r.x)
+    return scored.length ? scored : list
+  }
+  function smartSearch(list, query, textOf) {
+    const k = normQ(query)
+    if (!k) return list
+    const exact = list.filter((x) => normQ(textOf(x)).includes(k))
+    return exact.length ? exact : rankFuzzy(list, query, textOf)
+  }
+  const corpText = (c) => [c.bizNm, c.bizNo, c.corpRegNo, c.sellerId, c.siNm, c.sggNm, c.regionCd, c.description].join(' ')
+
   function corpFilter(list, f) {
     const has = (x) => x !== undefined && x !== null && String(x).trim() !== ''
-    return list.filter((c) => {
+    const strict = list.filter((c) => {
       if (has(f.bizNm) && !c.bizNm.includes(f.bizNm.trim())) return false
       if (has(f.bizNo) && !c.bizNo.includes(f.bizNo.replace(/-/g, '').trim())) return false
       if (has(f.corpRegNo) && !(c.corpRegNo || '').includes(f.corpRegNo.replace(/-/g, '').trim())) return false
@@ -418,6 +441,11 @@
       if (has(f.sggNm) && !c.sggNm.includes(f.sggNm.trim())) return false
       return true
     })
+    if (strict.length) return strict
+    const q = [f.bizNm, f.bizNo, f.corpRegNo, f.sellerId, f.siNm, f.sggNm].filter(has).map((x) => String(x).trim()).join(' ')
+    if (!q) return strict
+    const inCity = has(f.siNm) ? list.filter((c) => c.siNm.includes(f.siNm.trim())) : list
+    return rankFuzzy(inCity.length ? inCity : list, q, corpText)
   }
   function bodyGet(b, k) {
     if (!b) return undefined
@@ -596,7 +624,7 @@
   }, { auth: true })
   on('GET', '/members/admin/search', (req) => {
     const q = (req.params.get('q') || '').toLowerCase()
-    return { json: db.members.filter((m) => m.username.toLowerCase().includes(q) || m.nickname.toLowerCase().includes(q) || m.email.toLowerCase().includes(q)).map((m) => ({ id: m.id, name: m.nickname, username: m.username, email: m.email, status: m.status, role: m.role })) }
+    return { json: smartSearch(db.members, q, (m) => [m.username, m.nickname, m.email].join(' ')).map((m) => ({ id: m.id, name: m.nickname, username: m.username, email: m.email, status: m.status, role: m.role })) }
   }, { auth: true })
   const adminAction = (fn) => (req) => {
     if (!isStaff(req.me)) return forbidden()
@@ -750,7 +778,7 @@
     const existing = db.corps.filter((c) => c.siNm === city && c.sggNm === district).length
     const n = existing > 0 ? rnd(1, 4) : rnd(6, 24)
     for (let i = 0; i < n; i++) {
-      const c = { id: ++db.seq.corp, sellerId: `${REGION_CD[city]}${rnd(10, 99)}-${2020 + rnd(0, 6)}-${pad(rnd(1, 9999), 4)}`, bizNm: pick(NAME_C) + pick(NAME_A) + pick(NAME_B), bizNo: String(rnd(100, 899)) + pad(rnd(1, 99)) + pad(rnd(1, 99999), 5), corpRegNo: Math.random() > 0.15 ? String(rnd(110111, 285011)) + pad(rnd(1, 9999999), 7) : String(rnd(110111, 285011)) + '-' + pad(rnd(1, 99999), 5), regionCd: Math.random() > 0.1 ? REGION_CD[city] + pad(rnd(100, 890), 3) + '00000' : REGION_CD[city] + pad(rnd(100, 890), 3), siNm: city, sggNm: district, username: me ? me.username : 'system', description: `${district} CSV 수집 데이터`, createDate: now(), modifyDate: now() }
+      const c = { id: ++db.seq.corp, sellerId: `${REGION_CD[city]}${rnd(10, 99)}-${2020 + rnd(0, 6)}-${pad(rnd(1, 9999), 4)}`, bizNm: '궁금하면 500원', bizNo: String(rnd(100, 899)) + pad(rnd(1, 99)) + pad(rnd(1, 99999), 5), corpRegNo: Math.random() > 0.15 ? String(rnd(110111, 285011)) + pad(rnd(1, 9999999), 7) : String(rnd(110111, 285011)) + '-' + pad(rnd(1, 99999), 5), regionCd: Math.random() > 0.1 ? REGION_CD[city] + pad(rnd(100, 890), 3) + '00000' : REGION_CD[city] + pad(rnd(100, 890), 3), siNm: city, sggNm: district, username: me ? me.username : 'system', description: `${district} CSV 수집 데이터`, createDate: now(), modifyDate: now() }
       db.corps.push(c); corpHist('INSERT', c)
     }
     db.csvHistory.push({ id: ++db.seq.csv, city, district, status: n > 0 ? 'SUCCESS' : 'FAILED', recordCount: n, timestamp: now() })
@@ -803,7 +831,7 @@
   const fileResp = (f) => ({ id: f.id, originalFileName: f.originalFileName, storedFileName: f.storedFileName, fileSize: f.fileSize, contentType: f.contentType, uploadTime: ldt(f.uploadTime), lastModifiedTime: ldt(f.lastModifiedTime), description: f.description, downloadUrl: null, fileSizeInMB: Math.round(f.fileSize / 1048576 * 100) / 100, uploadTimeAsDate: jdate(f.uploadTime), lastModifiedTimeAsDate: jdate(f.lastModifiedTime) })
   on('GET', '/web/files', (req) => {
     const kw = req.params.get('keyword')
-    const list = db.files.slice().sort((a, b) => b.uploadTime - a.uploadTime).filter((f) => !kw || !kw.trim() || f.originalFileName.toLowerCase().includes(kw.trim().toLowerCase()) || (f.description || '').includes(kw.trim()))
+    const list = smartSearch(db.files.slice().sort((a, b) => b.uploadTime - a.uploadTime), kw || '', (f) => [f.originalFileName, f.description].join(' '))
     const model = { files: list.map(fileResp) }
     if (kw !== null) model.keyword = kw
     return view('file/fileList', model)
