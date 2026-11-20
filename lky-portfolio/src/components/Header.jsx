@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const menus = {
   home: [
@@ -45,6 +45,7 @@ export default function Header({ page }) {
   const [scrolled, setScrolled] = useState(false)
   const [current, setCurrent] = useState('')
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => {
@@ -71,12 +72,15 @@ export default function Header({ page }) {
   const close = () => setOpen(false)
 
   const goHome = (event) => {
+    event.preventDefault()
     close()
     const onHome = location.pathname === '/' || location.pathname === '/index.html'
-    if (onHome && !location.hash) {
-      event.preventDefault()
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (!onHome) {
+      navigate('/')
+      return
     }
+    if (location.hash || window.location.hash) navigate('/')
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
   }
 
   const isActive = (item) => {
@@ -92,9 +96,9 @@ export default function Header({ page }) {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
-            <a href="/" className="nav-home" onClick={goHome}>
+            <Link to="/" className="nav-home" onClick={goHome} aria-label="홈으로">
               <h2>궁금하면500원</h2>
-            </a>
+            </Link>
           </div>
           <ul className={`nav-menu${open ? ' active' : ''}`}>
             {menus[page].map((item) => {

@@ -11,6 +11,14 @@ import { featuredProjects, HOME_PAGE_SIZE, otherProjects } from '../data/homePro
 import { skillGroups } from '../data/skills.js'
 
 function ProjectAction({ action, onDemo, children }) {
+  if (action.type === 'route') {
+    return (
+      <Link className="project-link" to={action.to}>
+        {children}
+      </Link>
+    )
+  }
+
   if (action.type === 'modal') {
     return (
       <button type="button" className="project-link" onClick={onDemo}>
@@ -29,7 +37,7 @@ function ProjectAction({ action, onDemo, children }) {
 function ProjectCard({ project, onDemo, showStatusDemo = false }) {
   const [imageFailed, setImageFailed] = useState(false)
   const showDemo =
-    project.demo?.type === 'link' || (showStatusDemo && project.demo?.type === 'modal')
+    project.demo?.type === 'link' || project.demo?.type === 'route' || (showStatusDemo && project.demo?.type === 'modal')
 
   return (
     <div className="project-card">
@@ -242,22 +250,28 @@ export default function HomePage() {
             <div className="contact-content-simple">
               <h3>Communication.</h3>
               <div className="contact-items-simple">
-                <div className="contact-item-simple">
+                <a className="contact-item-simple" href="mailto:sleekydz86@naver.com">
                   <i className="fas fa-envelope" />
-                  <span>sleekydz86@naver.com</span>
-                </div>
-                <div className="contact-item-simple">
+                  <span className="contact-item-text">sleekydz86@naver.com</span>
+                </a>
+                <a
+                  className="contact-item-simple"
+                  href="https://velog.io/@sleekydevzero86/posts"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fas fa-blog" />
-                  <a href="https://velog.io/@sleekydevzero86/posts" target="_blank" rel="noreferrer">
-                    기술블로그 - Velog
-                  </a>
-                </div>
-                <div className="contact-item-simple">
+                  <span className="contact-item-text">기술블로그 - Velog</span>
+                </a>
+                <a
+                  className="contact-item-simple"
+                  href="https://blog.naver.com/lasttokens9160"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fas fa-book" />
-                  <a href="https://blog.naver.com/lasttokens9160" target="_blank" rel="noreferrer">
-                    학습블로그 - 네이버 블로그
-                  </a>
-                </div>
+                  <span className="contact-item-text">학습블로그 - 네이버 블로그</span>
+                </a>
               </div>
               <p className="contact-message">
                 이메일을 보내주시면 최대한 빠르게 답변드리겠습니다 :)

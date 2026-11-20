@@ -85,3 +85,98 @@ button.close {
   height: auto;
   flex: 1 1 auto;
 }
+
+.demo-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.demo-toolbar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.demo-toolbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.demo-back {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.demo-back:hover {
+  color: #2563eb;
+}
+
+.demo-title {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+}
+
+.demo-title strong {
+  font-size: 16px;
+  color: #111827;
+}
+
+.demo-title span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.demo-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.demo-badge {
+  font-size: 12px;
+  color: #b45309;
+  background: #fef3c7;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.demo-actions button,
+.demo-actions a {
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.demo-actions button:hover,
+.demo-actions a:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.demo-frame {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  border: 0;
+  background: #fff;
+}

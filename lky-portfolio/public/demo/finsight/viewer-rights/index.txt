@@ -1,0 +1,309 @@
+1:"$Sreact.fragment"
+a:I[7150,[],""]
+:HL["/demo/finsight/_next/static/media/2bcd4b1f8f3a3e9f.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/media/cf72403939ff961f-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/css/9d97557ca7c2b054.css","style"]
+2:T6b2,(function () {
+  if (typeof window === "undefined") return;
+  if (window.__finsightChunkLoadRecovery) return;
+  window.__finsightChunkLoadRecovery = true;
+
+  var RELOAD_KEY = "finsight-chunk-load-reloaded";
+  var COOLDOWN_MS = 20000;
+
+  function isChunkErr(reason) {
+    if (reason == null) return false;
+    if (typeof reason === "string") {
+      return /ChunkLoadError|Loading chunk .+ failed/i.test(reason);
+    }
+    if (typeof reason !== "object") return false;
+    if (reason.name === "ChunkLoadError") return true;
+    var message = String(reason.message || "");
+    return /ChunkLoadError|Loading chunk .+ failed/i.test(message);
+  }
+
+  function reloadOnce() {
+    try {
+      var raw = sessionStorage.getItem(RELOAD_KEY);
+      var last = raw ? Number(raw) : 0;
+      if (isFinite(last) && Date.now() - last < COOLDOWN_MS) return;
+      sessionStorage.setItem(RELOAD_KEY, String(Date.now()));
+    } catch (e) {
+      return;
+    }
+    try {
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("Next.js 청크 로드에 실패했습니다. 페이지를 새로고침합니다.");
+      }
+    } catch (e) {}
+    location.reload();
+  }
+
+  window.addEventListener("unhandledrejection", function (event) {
+    if (!isChunkErr(event.reason)) return;
+    try { event.preventDefault(); } catch (e) {}
+    reloadOnce();
+  });
+
+  window.addEventListener("error", function (event) {
+    var target = event.target;
+    if (target && target.tagName === "SCRIPT") {
+      var src = target.src || "";
+      if (src.indexOf("/_next/static/chunks/") !== -1) {
+        reloadOnce();
+        return;
+      }
+    }
+    if (isChunkErr(event.error || event.message)) reloadOnce();
+  }, true);
+})();3:T74e,(function () {
+  if (typeof window === "undefined" || typeof WebSocket === "undefined") return;
+  if (window.__finsightNextHmrBfcacheGuard) return;
+  window.__finsightNextHmrBfcacheGuard = true;
+
+  var Original = window.WebSocket;
+  var hmrSockets = new Set();
+
+  function warnHmr(message, err) {
+    if (typeof console === "undefined" || typeof console.warn !== "function") return;
+    if (err === undefined) {
+      console.warn(message);
+      return;
+    }
+    console.warn(message, err);
+  }
+
+  function isNextHmr(url) {
+    try {
+      return String(url).indexOf("/_next/webpack-hmr") !== -1;
+    } catch (err) {
+      warnHmr("HMR 웹소켓 URL을 확인하는 중 오류가 발생했습니다. 해당 소켓은 HMR로 처리하지 않습니다.", err);
+      return false;
+    }
+  }
+
+  function closeHmrSockets() {
+    hmrSockets.forEach(function (ws) {
+      try {
+        if (ws.readyState === Original.OPEN || ws.readyState === Original.CONNECTING) {
+          ws.close();
+        }
+      } catch (err) {
+        warnHmr("Next.js HMR 웹소켓을 닫는 중 오류가 발생했습니다. BFCache 정리는 계속 진행합니다.", err);
+      }
+    });
+    try {
+      hmrSockets.clear();
+    } catch (err) {
+      warnHmr("HMR 웹소켓 목록을 비우는 중 오류가 발생했습니다.", err);
+    }
+  }
+
+  class GuardedWebSocket extends Original {
+    constructor(url, protocols) {
+      if (protocols === undefined) {
+        super(url);
+      } else {
+        super(url, protocols);
+      }
+      if (isNextHmr(url)) {
+        var self = this;
+        hmrSockets.add(self);
+        self.addEventListener("close", function () {
+          hmrSockets.delete(self);
+        });
+      }
+    }
+  }
+
+  window.WebSocket = GuardedWebSocket;
+  window.addEventListener("pagehide", closeHmrSockets);
+  document.addEventListener("freeze", closeHmrSockets);
+})();0:{"P":null,"b":"epKNCil2mlvE1CIE8_y_Z","p":"/demo/finsight","c":["","viewer-rights",""],"i":false,"f":[[["",{"children":["(site)",{"children":["viewer-rights",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demo/finsight/_next/static/css/9d97557ca7c2b054.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__variable_e8460a __variable_226622","children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}],"$L5"]}]]}],{"children":["(site)","$L6",{"children":["viewer-rights","$L7",{"children":["__PAGE__","$L8",{},null,false]},null,false]},null,false]},null,false],"$L9",false]],"m":"$undefined","G":["$a",[]],"s":false,"S":true}
+c:I[5015,["7177","static/chunks/app/layout-7b26dcece50e7390.js"],"default"]
+d:I[9766,[],""]
+e:I[8924,[],""]
+f:I[5298,["2619","static/chunks/2619-3c9e02e22d10480a.js","5239","static/chunks/5239-6837ded35395fd65.js","6750","static/chunks/app/(site)/layout-892e6c89bdf0ad91.js"],"default"]
+10:I[8912,["2619","static/chunks/2619-3c9e02e22d10480a.js","5239","static/chunks/5239-6837ded35395fd65.js","6750","static/chunks/app/(site)/layout-892e6c89bdf0ad91.js"],"default"]
+13:I[4431,[],"ViewportBoundary"]
+15:I[4431,[],"MetadataBoundary"]
+16:"$Sreact.suspense"
+b:Tafc,(function () {
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
+  if (typeof navigator.serviceWorker.getRegistrations !== "function") return;
+
+  var SAFE_SW_PATH = "/finsight-sw.js";
+  var host = location.hostname;
+  var isLocal = host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+  var reloadFlag = "finsight-sw-cleanup-reloaded";
+
+  function pathnameOf(url) {
+    try { return new URL(url, location.href).pathname; } catch (e) { return ""; }
+  }
+
+  function scriptURL(reg) {
+    return (reg.active && reg.active.scriptURL)
+      || (reg.waiting && reg.waiting.scriptURL)
+      || (reg.installing && reg.installing.scriptURL)
+      || "";
+  }
+
+  function isSafe(reg) {
+    return pathnameOf(scriptURL(reg)) === SAFE_SW_PATH;
+  }
+
+  function controllerSafe() {
+    if (!navigator.serviceWorker.controller) return true;
+    return pathnameOf(navigator.serviceWorker.controller.scriptURL) === SAFE_SW_PATH;
+  }
+
+  function disablePreload(reg) {
+    try {
+      if (reg.navigationPreload && typeof reg.navigationPreload.disable === "function") {
+        return reg.navigationPreload.disable().catch(function () {});
+      }
+    } catch (e) {}
+    return Promise.resolve();
+  }
+
+  navigator.serviceWorker.getRegistrations().then(function (regs) {
+    regs = regs || [];
+    var hadForeign = !!navigator.serviceWorker.controller && !controllerSafe();
+    var hadAny = regs.length > 0 || !!navigator.serviceWorker.controller;
+    var tasks = regs.map(function (reg) {
+      return disablePreload(reg).then(function () {
+        if (isLocal) {
+          try { return reg.unregister(); } catch (e) {}
+          return;
+        }
+        if (isSafe(reg)) return;
+        var path = pathnameOf(scriptURL(reg));
+        var stale = path === "/sw.js"
+          || path === "/service-worker.js"
+          || path === "/serviceworker.js"
+          || /workbox|serwist|next-pwa|ngsw/i.test(scriptURL(reg));
+        if (!stale) return;
+        try { return reg.unregister(); } catch (e) {}
+      });
+    });
+
+    return Promise.all(tasks).then(function () {
+      if (isLocal) return null;
+      if (!hadAny) return null;
+      return navigator.serviceWorker.register(SAFE_SW_PATH, {
+        scope: "/",
+        updateViaCache: "none"
+      }).then(function (reg) {
+        return disablePreload(reg).then(function () { return reg; });
+      }).catch(function () { return null; });
+    }).then(function () {
+      if (!isLocal) return;
+      if (!hadAny && !hadForeign) {
+        try { sessionStorage.removeItem(reloadFlag); } catch (e) {}
+        return;
+      }
+      try {
+        if (sessionStorage.getItem(reloadFlag) === "1") return;
+        sessionStorage.setItem(reloadFlag, "1");
+        location.reload();
+      } catch (e) {}
+    });
+  }).catch(function () {});
+})();4:["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$b"}}]
+5:["$","body",null,{"suppressHydrationWarning":true,"className":"antialiased","children":["$","$Lc",null,{"children":["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]
+6:["$","$1","c",{"children":[null,["$","div",null,{"className":"flex min-h-screen w-full flex-1 flex-col bg-white","children":[["$","$Lf",null,{}],["$","main",null,{"className":"relative flex min-h-0 w-full flex-1 flex-col","children":["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L10",null,{}]]}]]}]
+7:["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:T3722,<div class="board__inner">
+  <div class="board__box">
+    <div class="fr-element fr-view">
+      <p style="text-align: center"><strong><u>시청자권익보호</u></strong></p>
+      <p style="text-align: center">담당 성명: 궁금하면 500원</p>
+      <p><br /></p>
+
+      <p style="text-align: justify"><strong>IV. 시청자권익보호에 대한 방송사업자의 의무</strong></p>
+
+      <table style="border-collapse: collapse; width: 100%" border="1">
+        <tbody>
+          <tr>
+            <td style="padding: 12px; vertical-align: top">
+              <strong>제90조(방송사업자의 의무)</strong>
+              ①제87조제1항 각 호에 따른 방송사업자는 제88조제1항제1호 및 제2호에 따른 시청자위원회의 의견제시 또는 시정요구를 받은 경우에는 특별한 사유가 없으면 이를 수용하여야 한다.
+              <br />1. 삭제 <br />2. 삭제 <br />3. 삭제 <br />②시청자위원회는 방송사업자가 시청자위원회의 의견제시 또는 시정요구의 수용을 부당하게 거부하는 경우에는 방송미디어통신위원회에 시청자불만처리를 요청할 수 있다.
+              <br />③제1항에 따른 방송사업자는 시청자위원회가 제88조제1항 각 호에 따른 직무를 수행하기 위하여 필요한 자료의 제출 또는 관계자의 출석ㆍ답변을 요청하는 경우에는 특별한 사유가 없으면 그 요청에 따라야 한다.
+              <br />④ 제1항에 따른 방송사업자는 시청자위원회의 심의결과 및 그 처리에 관한 사항을 방송미디어통신위원회에 보고하여야 한다.
+              <br />⑤제1항에 따른 방송사업자는 대통령령으로 정하는 바에 의하여 시청자가 요구하는 방송사업에 관한 정보를 공개하여야 한다.<br /><br />
+              <strong>시행령 제65조(정보의 공개)</strong>
+              ①법 제90조제5항에 따라 같은 조 제1항 각 호의 어느 하나에 해당하는 방송사업자(「공공기관의 정보공개에 관한 법률」의 적용을 받는 방송사업자는 제외하며, 이하 이 조에서 “정보공개의무 방송사업자”라 한다)에 대하여 정보의 공개를 요구하려는 시청자는 다음 각 호의 사항을 기재한 정보공개 신청서를 정보공개의무 방송사업자에게 제출하여야 한다.
+              <br />1. 신청인의 성명ㆍ생년월일 및 주소<br />2. 공개를 요구하는 정보의 내용 및 사용목적<br />②정보공개의무 방송사업자는 제1항에 따라 정보공개의 신청이 있는 때에는 신청을 받은 날부터 10일 이내에 공개 여부를 결정하고 그 결과를 신청인에게 통보하여야 한다.
+              <br />③정보공개의무 방송사업자는 부득이한 사유로 제2항에 따른 기간 이내에 공개 여부를 결정할 수 없을 때에는 그 기간이 끝나는 날의 다음 날부터 기산하여 10일 이내의 범위에서 공개 여부 결정기간을 연장할 수 있다. 이 경우 정보공개의무 방송사업자는 연장된 사실과 연장사유를 신청인에게 지체 없이 서면으로 통지하여야 한다.
+              <br />④정보공개의무 방송사업자는 신청인이 요구하는 방송사업에 관한 정보가 「공공기관의 정보공개에 관한 법률」 제9조제1항에 따른 비공개 대상 정보에 해당하는 경우에는 이를 공개하지 아니할 수 있다.<br />⑤제1항부터 제4항까지에서 규정한 사항 외에 정보공개의 절차와 방법 등에 관하여 필요한 사항은 방송미디어통신위원회규칙으로 정한다.<br /><br />
+              <strong>방송법 시행에 관한 방송통신위원회 규칙 제25조(정보공개의 절차와 방법)</strong>
+              ① 영 제65조제2항에 따라 정보공개의무 방송사업자로부터 정보비공개의 통보를 받은 신청인은 방송통신위원회에 비공개의 결정을 통보 받은 날부터 15일이내에 별지 제20호의 서식에 따른 정보공개신청서를 제출하여 조정을 신청할 수 있다.
+              <br />② 방송통신위원회는 제1항에 따른 조정신청을 접수한 날부터 30일 이내에 당사자의 의견을 들어 조정내용을 결정하고 이를 당사자에게 통보하여야 한다.
+              <br />③ 정보공개의무 방송사업자는 방송통신위원회가 결정한 조정내용에 따라 신청인에게 방송사업에 관한 정보를 공개하여야 한다.
+              <br />④ 정보공개 결정에 따른 비용부담은 신청인의 부담으로 하되 실비의 범위내에서 방송사업자가 정하는 비용으로 한다.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="text-align: justify"><strong>1. 의의</strong></p>
+      <p>
+        방송사업자는 시청자위원회의 의견제시 또는 시정요구를 받은 경우에는 특별한 사유가 없으면 이를 수용하여야 하고 자료의 제출 또는 관계자의 출석ㆍ답변을 요청하는 경우에는 특별한 사유가 없으면 그 요청에 따라야 한다(제90조).
+      </p>
+
+      <p style="text-align: justify"><strong>2. 구체적 내용</strong></p>
+      <p><strong>(1) 의견제시 등의 수용</strong><br />방송사업자는 시청자위원회의 의견제시 또는 시정요구를 받은 경우에는 특별한 사유가 없으면 이를 수용하여야 한다(제90조 제1항).<br />방송사업자가 시청자위원회의 의견제시 또는 시정요구의 수용을 부당하게 거부하는 경우에는 방송미디어통신위원회에 시청자불만처리를 요청할 수 있다(제90조 제3항).</p>
+      <p><strong>(2) 자료의 제출 또는 관계자의 출석ㆍ답변 요청에 대한 수용</strong><br />방송사업자는 시청자위원회가 직무를 수행하기 위하여 필요한 자료의 제출 또는 관계자의 출석ㆍ답변을 요청하는 경우에는 특별한 사유가 없으면 그 요청에 따라야 한다(제90조 제2항).</p>
+      <p><strong>(3) 결과 보고</strong><br />방송사업자는 시청자위원회의 심의결과 및 그 처리에 관한 사항을 방송미디어통신위원회에 보고하여야 한다(제90조 제4항).</p>
+      <p><strong>(4) 정보의 공개</strong></p>
+      <p><strong>1) 정보공개 신청</strong><br />방송사업자(「공공기관의 정보공개에 관한 법률」의 적용을 받는 방송사업자는 제외하며, 이하 이 조에서 “정보공개의무 방송사업자”라 한다)에 대하여 정보의 공개를 요구하려는 시청자는 신청인의 성명ㆍ생년월일 및 주소(시행령 제65조 제1항 제1호), 공개를 요구하는 정보의 내용 및 사용목적(제2호)의 사항을 기재한 정보공개 신청서를 정보공개의무 방송사업자에게 제출하여야 한다(법 제90조 제5항 및 시행령 제65조 제1항).</p>
+      <p><strong>2) 결과통보</strong><br />정보공개의무 방송사업자는 정보공개의 신청이 있는 때에는 신청을 받은 날부터 10일 이내에 공개 여부를 결정하고 그 결과를 신청인에게 통보하여야 한다(시행령 제65조 제2항). 정보공개의무 방송사업자는 부득이한 사유로 위 기간 이내에 공개 여부를 결정할 수 없을 때에는 그 기간이 끝나는 날의 다음 날부터 기산하여 10일 이내의 범위에서 공개 여부 결정기간을 연장할 수 있다. 이 경우 정보공개의무 방송사업자는 연장된 사실과 연장사유를 신청인에게 지체 없이 서면으로 통지하여야 한다(제3항).</p>
+      <p><strong>3) 비공개 대상 정보의 공개거부</strong></p>
+      <p><strong>가. 정보공개의무 방송사업자의 정보공개거부</strong><br />정보공개의무 방송사업자는 신청인이 요구하는 방송사업에 관한 정보가 「공공기관의 정보공개에 관한 법률」 제9조제1항에 따른 비공개 대상 정보에 해당하는 경우에는 이를 공개하지 아니할 수 있다(시행령 제65조 제4항).</p>
+
+      <table style="border-collapse: collapse; width: 100%" border="1">
+        <tbody>
+          <tr>
+            <td style="padding: 12px; vertical-align: top">
+              <strong>공공기관의 정보공개에 관한 법률 제9조(비공개 대상 정보)</strong>
+              ① 공공기관이 보유ㆍ관리하는 정보는 공개 대상이 된다. 다만, 다음 각 호의 어느 하나에 해당하는 정보는 공개하지 아니할 수 있다.
+              <br />1. 다른 법률 또는 법률에서 위임한 명령(국회규칙ㆍ대법원규칙ㆍ헌법재판소규칙ㆍ중앙선거관리위원회규칙ㆍ대통령령 및 조례로 한정한다)에 따라 비밀이나 비공개 사항으로 규정된 정보<br />2. 국가안전보장ㆍ국방ㆍ통일ㆍ외교관계 등에 관한 사항으로서 공개될 경우 국가의 중대한 이익을 현저히 해칠 우려가 있다고 인정되는 정보<br />3. 공개될 경우 국민의 생명ㆍ신체 및 재산의 보호에 현저한 지장을 초래할 우려가 있다고 인정되는 정보<br />4. 진행 중인 재판에 관련된 정보와 범죄의 예방, 수사, 공소의 제기 및 유지, 형의 집행, 교정(矯正), 보안처분에 관한 사항으로서 공개될 경우 그 직무수행을 현저히 곤란하게 하거나 형사피고인의 공정한 재판을 받을 권리를 침해한다고 인정할 만한 상당한 이유가 있는 정보<br />5. 감사ㆍ감독ㆍ검사ㆍ시험ㆍ규제ㆍ입찰계약ㆍ기술개발ㆍ인사관리에 관한 사항이나 의사결정 과정 또는 내부검토 과정에 있는 사항 등으로서 공개될 경우 업무의 공정한 수행이나 연구ㆍ개발에 현저한 지장을 초래한다고 인정할 만한 상당한 이유가 있는 정보. 다만, 의사결정 과정 또는 내부검토 과정을 이유로 비공개할 경우에는 제13조제5항에 따라 통지를 할 때 의사결정 과정 또는 내부검토 과정의 단계 및 종료 예정일을 함께 안내하여야 하며, 의사결정 과정 및 내부검토 과정이 종료되면 제10조에 따른 청구인에게 이를 통지하여야 한다.<br />6. 해당 정보에 포함되어 있는 성명ㆍ주민등록번호 등 「개인정보 보호법」 제2조제1호에 따른 개인정보로서 공개될 경우 사생활의 비밀 또는 자유를 침해할 우려가 있다고 인정되는 정보. 다만, 다음 각 목에 열거한 사항은 제외한다.<br />가. 법령에서 정하는 바에 따라 열람할 수 있는 정보<br />나. 공공기관이 공표를 목적으로 작성하거나 취득한 정보로서 사생활의 비밀 또는 자유를 부당하게 침해하지 아니하는 정보<br />다. 공공기관이 작성하거나 취득한 정보로서 공개하는 것이 공익이나 개인의 권리 구제를 위하여 필요하다고 인정되는 정보<br />라. 직무를 수행한 공무원의 성명ㆍ직위<br />마. 공개하는 것이 공익을 위하여 필요한 경우로서 법령에 따라 국가 또는 지방자치단체가 업무의 일부를 위탁 또는 위촉한 개인의 성명ㆍ직업<br />7. 법인ㆍ단체 또는 개인(이하 “법인등”이라 한다)의 경영상ㆍ영업상 비밀에 관한 사항으로서 공개될 경우 법인등의 정당한 이익을 현저히 해칠 우려가 있다고 인정되는 정보. 다만, 다음 각 목에 열거한 정보는 제외한다.<br />가. 사업활동에 의하여 발생하는 위해(危害)로부터 사람의 생명ㆍ신체 또는 건강을 보호하기 위하여 공개할 필요가 있는 정보<br />나. 위법ㆍ부당한 사업활동으로부터 국민의 재산 또는 생활을 보호하기 위하여 공개할 필요가 있는 정보<br />8. 공개될 경우 부동산 투기, 매점매석 등으로 특정인에게 이익 또는 불이익을 줄 우려가 있다고 인정되는 정보
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>나. 신청자의 조정신청</strong><br />정보공개의무 방송사업자로부터 정보비공개의 통보를 받은 신청인은 방송통신위원회에 비공개의 결정을 통보 받은 날부터 15일이내에 별지 제20호의 서식에 따른 정보공개신청서를 제출하여 조정을 신청할 수 있다(방송법 시행에 관한 방송통신위원회 규칙 제25조 제1항).</p>
+
+      <p style="text-align: center"><strong>방송법 시행에 관한 방송통신위원회 규칙 [별지 제20호]</strong></p>
+      <figure
+        class="imageblock alignCenter"
+        style="margin: 1.5rem 0; display: flex; justify-content: center; width: 100%"
+      >
+        <img
+          src="/viewer-rights-form-20.png"
+          alt="방송법 시행에 관한 방송통신위원회 규칙 별지 제20호 서식"
+          loading="lazy"
+          width="437"
+          height="651"
+          style="max-width: 100%; height: auto; display: block"
+        />
+      </figure>
+
+      <p>
+        <strong>다. 조정의 처리</strong><br />방송통신위원회는 제1항에 따른 조정신청을 접수한 날부터 30일 이내에 당사자의 의견을 들어 조정내용을 결정하고 이를 당사자에게 통보하여야 한다(방송법 시행에 관한 방송통신위원회 규칙 제25조 제2항). 정보공개의무 방송사업자는 방송통신위원회가 결정한 조정내용에 따라 신청인에게 방송사업에 관한 정보를 공개하여야 한다(제3항).<br />정보공개 결정에 따른 비용부담은 신청인의 부담으로 하되 실비의 범위내에서 방송사업자가 정하는 비용으로 한다(제4항).
+      </p>
+    </div>
+  </div>
+</div>
+8:["$","$1","c",{"children":[["$","div",null,{"className":"px-4 py-8 md:px-6 md:py-10","children":["$","div",null,{"className":"mx-auto max-w-4xl bg-white px-4 py-10 text-gray-900 shadow-sm md:px-10 md:py-14 border border-gray-100/90 [&_.fr-element]:text-[15px] [&_.fr-element]:leading-[1.8] [&_.fr-element]:tracking-[-0.01em] [&_.fr-element_p]:mb-0 [&_.fr-element_p+p]:mt-3 [&_.fr-element_strong]:text-gray-900 [&_a]:text-finsight-primary [&_a]:underline","children":["$","div",null,{"className":"legal-policy-doc max-w-none overflow-x-auto [&_.board__inner]:text-gray-800 [&_table]:max-w-full [&_table]:w-full [&_table]:text-[14px] [&_table]:border-collapse","dangerouslySetInnerHTML":{"__html":"$11"}}]}]}],null,"$L12"]}]
+9:["$","$1","h",{"children":[null,[["$","$L13",null,{"children":"$L14"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L15",null,{"children":["$","div",null,{"hidden":true,"children":["$","$16",null,{"fallback":null,"children":"$L17"}]}]}]]}]
+18:I[4431,[],"OutletBoundary"]
+1a:I[5278,[],"AsyncMetadataOutlet"]
+12:["$","$L18",null,{"children":["$L19",["$","$L1a",null,{"promise":"$@1b"}]]}]
+14:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+19:null
+1c:I[622,[],"IconMark"]
+1b:{"metadata":[["$","title","0",{"children":"시청자권익보호 | finsight"}],["$","meta","1",{"name":"description","content":"시청자권익보호에 관한 방송사업자의 의무 및 정보공개 절차 안내"}],["$","link","2",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","3",{"rel":"icon","href":"/finsight-logo.png","type":"image/png"}],["$","link","4",{"rel":"apple-touch-icon","href":"/finsight-logo.png"}],["$","$L1c","5",{}]],"error":null,"digest":"$undefined"}
+17:"$1b:metadata"

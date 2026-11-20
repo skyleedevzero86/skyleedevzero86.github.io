@@ -1,0 +1,231 @@
+1:"$Sreact.fragment"
+e:I[7150,[],""]
+:HL["/demo/finsight/_next/static/media/2bcd4b1f8f3a3e9f.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/media/cf72403939ff961f-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/css/9d97557ca7c2b054.css","style"]
+:HL["/demo/finsight/_next/static/css/41e62eb71e06675d.css","style"]
+2:T6b2,(function () {
+  if (typeof window === "undefined") return;
+  if (window.__finsightChunkLoadRecovery) return;
+  window.__finsightChunkLoadRecovery = true;
+
+  var RELOAD_KEY = "finsight-chunk-load-reloaded";
+  var COOLDOWN_MS = 20000;
+
+  function isChunkErr(reason) {
+    if (reason == null) return false;
+    if (typeof reason === "string") {
+      return /ChunkLoadError|Loading chunk .+ failed/i.test(reason);
+    }
+    if (typeof reason !== "object") return false;
+    if (reason.name === "ChunkLoadError") return true;
+    var message = String(reason.message || "");
+    return /ChunkLoadError|Loading chunk .+ failed/i.test(message);
+  }
+
+  function reloadOnce() {
+    try {
+      var raw = sessionStorage.getItem(RELOAD_KEY);
+      var last = raw ? Number(raw) : 0;
+      if (isFinite(last) && Date.now() - last < COOLDOWN_MS) return;
+      sessionStorage.setItem(RELOAD_KEY, String(Date.now()));
+    } catch (e) {
+      return;
+    }
+    try {
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("Next.js 청크 로드에 실패했습니다. 페이지를 새로고침합니다.");
+      }
+    } catch (e) {}
+    location.reload();
+  }
+
+  window.addEventListener("unhandledrejection", function (event) {
+    if (!isChunkErr(event.reason)) return;
+    try { event.preventDefault(); } catch (e) {}
+    reloadOnce();
+  });
+
+  window.addEventListener("error", function (event) {
+    var target = event.target;
+    if (target && target.tagName === "SCRIPT") {
+      var src = target.src || "";
+      if (src.indexOf("/_next/static/chunks/") !== -1) {
+        reloadOnce();
+        return;
+      }
+    }
+    if (isChunkErr(event.error || event.message)) reloadOnce();
+  }, true);
+})();3:T74e,(function () {
+  if (typeof window === "undefined" || typeof WebSocket === "undefined") return;
+  if (window.__finsightNextHmrBfcacheGuard) return;
+  window.__finsightNextHmrBfcacheGuard = true;
+
+  var Original = window.WebSocket;
+  var hmrSockets = new Set();
+
+  function warnHmr(message, err) {
+    if (typeof console === "undefined" || typeof console.warn !== "function") return;
+    if (err === undefined) {
+      console.warn(message);
+      return;
+    }
+    console.warn(message, err);
+  }
+
+  function isNextHmr(url) {
+    try {
+      return String(url).indexOf("/_next/webpack-hmr") !== -1;
+    } catch (err) {
+      warnHmr("HMR 웹소켓 URL을 확인하는 중 오류가 발생했습니다. 해당 소켓은 HMR로 처리하지 않습니다.", err);
+      return false;
+    }
+  }
+
+  function closeHmrSockets() {
+    hmrSockets.forEach(function (ws) {
+      try {
+        if (ws.readyState === Original.OPEN || ws.readyState === Original.CONNECTING) {
+          ws.close();
+        }
+      } catch (err) {
+        warnHmr("Next.js HMR 웹소켓을 닫는 중 오류가 발생했습니다. BFCache 정리는 계속 진행합니다.", err);
+      }
+    });
+    try {
+      hmrSockets.clear();
+    } catch (err) {
+      warnHmr("HMR 웹소켓 목록을 비우는 중 오류가 발생했습니다.", err);
+    }
+  }
+
+  class GuardedWebSocket extends Original {
+    constructor(url, protocols) {
+      if (protocols === undefined) {
+        super(url);
+      } else {
+        super(url, protocols);
+      }
+      if (isNextHmr(url)) {
+        var self = this;
+        hmrSockets.add(self);
+        self.addEventListener("close", function () {
+          hmrSockets.delete(self);
+        });
+      }
+    }
+  }
+
+  window.WebSocket = GuardedWebSocket;
+  window.addEventListener("pagehide", closeHmrSockets);
+  document.addEventListener("freeze", closeHmrSockets);
+})();0:{"P":null,"b":"epKNCil2mlvE1CIE8_y_Z","p":"/demo/finsight","c":["","community","free","share","523",""],"i":false,"f":[[["",{"children":["(site)",{"children":["community",{"children":["free",{"children":["share",{"children":[["id","523","d"],{"children":["__PAGE__",{}]}]}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demo/finsight/_next/static/css/9d97557ca7c2b054.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__variable_e8460a __variable_226622","children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}],"$L5"]}]]}],{"children":["(site)","$L6",{"children":["community","$L7",{"children":["free","$L8",{"children":["share","$L9",{"children":[["id","523","d"],"$La",{"children":["__PAGE__","$Lb",{},null,false]},null,false]},null,false]},null,false]},["$Lc",[],[]],false]},null,false]},null,false],"$Ld",false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
+10:I[5015,["7177","static/chunks/app/layout-7b26dcece50e7390.js"],"default"]
+11:I[9766,[],""]
+12:I[8924,[],""]
+13:I[5298,["2619","static/chunks/2619-3c9e02e22d10480a.js","5239","static/chunks/5239-6837ded35395fd65.js","6750","static/chunks/app/(site)/layout-892e6c89bdf0ad91.js"],"default"]
+14:I[8912,["2619","static/chunks/2619-3c9e02e22d10480a.js","5239","static/chunks/5239-6837ded35395fd65.js","6750","static/chunks/app/(site)/layout-892e6c89bdf0ad91.js"],"default"]
+15:I[746,["2619","static/chunks/2619-3c9e02e22d10480a.js","7500","static/chunks/app/(site)/community/layout-75561af912ee8113.js"],"default"]
+16:I[8940,["2619","static/chunks/2619-3c9e02e22d10480a.js","931","static/chunks/931-3edc73da408600f2.js","5968","static/chunks/app/(site)/community/free/share/%5Bid%5D/page-e886a5141a1495b3.js"],"default"]
+17:I[4431,[],"OutletBoundary"]
+19:I[5278,[],"AsyncMetadataOutlet"]
+1b:I[4431,[],"ViewportBoundary"]
+1d:I[4431,[],"MetadataBoundary"]
+1e:"$Sreact.suspense"
+f:Tafc,(function () {
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
+  if (typeof navigator.serviceWorker.getRegistrations !== "function") return;
+
+  var SAFE_SW_PATH = "/finsight-sw.js";
+  var host = location.hostname;
+  var isLocal = host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+  var reloadFlag = "finsight-sw-cleanup-reloaded";
+
+  function pathnameOf(url) {
+    try { return new URL(url, location.href).pathname; } catch (e) { return ""; }
+  }
+
+  function scriptURL(reg) {
+    return (reg.active && reg.active.scriptURL)
+      || (reg.waiting && reg.waiting.scriptURL)
+      || (reg.installing && reg.installing.scriptURL)
+      || "";
+  }
+
+  function isSafe(reg) {
+    return pathnameOf(scriptURL(reg)) === SAFE_SW_PATH;
+  }
+
+  function controllerSafe() {
+    if (!navigator.serviceWorker.controller) return true;
+    return pathnameOf(navigator.serviceWorker.controller.scriptURL) === SAFE_SW_PATH;
+  }
+
+  function disablePreload(reg) {
+    try {
+      if (reg.navigationPreload && typeof reg.navigationPreload.disable === "function") {
+        return reg.navigationPreload.disable().catch(function () {});
+      }
+    } catch (e) {}
+    return Promise.resolve();
+  }
+
+  navigator.serviceWorker.getRegistrations().then(function (regs) {
+    regs = regs || [];
+    var hadForeign = !!navigator.serviceWorker.controller && !controllerSafe();
+    var hadAny = regs.length > 0 || !!navigator.serviceWorker.controller;
+    var tasks = regs.map(function (reg) {
+      return disablePreload(reg).then(function () {
+        if (isLocal) {
+          try { return reg.unregister(); } catch (e) {}
+          return;
+        }
+        if (isSafe(reg)) return;
+        var path = pathnameOf(scriptURL(reg));
+        var stale = path === "/sw.js"
+          || path === "/service-worker.js"
+          || path === "/serviceworker.js"
+          || /workbox|serwist|next-pwa|ngsw/i.test(scriptURL(reg));
+        if (!stale) return;
+        try { return reg.unregister(); } catch (e) {}
+      });
+    });
+
+    return Promise.all(tasks).then(function () {
+      if (isLocal) return null;
+      if (!hadAny) return null;
+      return navigator.serviceWorker.register(SAFE_SW_PATH, {
+        scope: "/",
+        updateViaCache: "none"
+      }).then(function (reg) {
+        return disablePreload(reg).then(function () { return reg; });
+      }).catch(function () { return null; });
+    }).then(function () {
+      if (!isLocal) return;
+      if (!hadAny && !hadForeign) {
+        try { sessionStorage.removeItem(reloadFlag); } catch (e) {}
+        return;
+      }
+      try {
+        if (sessionStorage.getItem(reloadFlag) === "1") return;
+        sessionStorage.setItem(reloadFlag, "1");
+        location.reload();
+      } catch (e) {}
+    });
+  }).catch(function () {});
+})();4:["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$f"}}]
+5:["$","body",null,{"suppressHydrationWarning":true,"className":"antialiased","children":["$","$L10",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]
+6:["$","$1","c",{"children":[null,["$","div",null,{"className":"flex min-h-screen w-full flex-1 flex-col bg-white","children":[["$","$L13",null,{}],["$","main",null,{"className":"relative flex min-h-0 w-full flex-1 flex-col","children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L14",null,{}]]}]]}]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demo/finsight/_next/static/css/41e62eb71e06675d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L15",null,{"children":["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]
+8:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":[null,["$","$L11",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L12",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+b:["$","$1","c",{"children":[[["$","header",null,{"className":"fcb-heading","children":[["$","h2",null,{"children":"포트폴리오 공유"}],["$","p",null,{"className":"fcb-description","children":"공유한 자산 Snapshot과 댓글을 확인합니다."}]]}],["$","$L16",null,{}]],null,["$","$L17",null,{"children":["$L18",["$","$L19",null,{"promise":"$@1a"}]]}]]}]
+c:["$","div","l",{"className":"fcb-loading","aria-busy":"true","aria-label":"게시판 불러오는 중","children":[["$","div",null,{"className":"fcb-heading","children":[["$","div",null,{"className":"fcb-skel fcb-skel-title"}],["$","div",null,{"className":"fcb-skel fcb-skel-desc"}]]}],["$","div",null,{"className":"fcb-skel-table","children":[["$","div","0",{"className":"fcb-skel fcb-skel-row"}],["$","div","1",{"className":"fcb-skel fcb-skel-row"}],["$","div","2",{"className":"fcb-skel fcb-skel-row"}],["$","div","3",{"className":"fcb-skel fcb-skel-row"}],["$","div","4",{"className":"fcb-skel fcb-skel-row"}],["$","div","5",{"className":"fcb-skel fcb-skel-row"}],["$","div","6",{"className":"fcb-skel fcb-skel-row"}],["$","div","7",{"className":"fcb-skel fcb-skel-row"}]]}]]}]
+d:["$","$1","h",{"children":[null,[["$","$L1b",null,{"children":"$L1c"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L1d",null,{"children":["$","div",null,{"hidden":true,"children":["$","$1e",null,{"fallback":null,"children":"$L1f"}]}]}]]}]
+1c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+18:null
+20:I[622,[],"IconMark"]
+1a:{"metadata":[["$","title","0",{"children":"포트폴리오 공유 | 커뮤니티 | finsight"}],["$","meta","1",{"name":"description","content":"공유 Snapshot, 반응, 댓글을 확인합니다."}],["$","link","2",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","3",{"rel":"icon","href":"/finsight-logo.png","type":"image/png"}],["$","link","4",{"rel":"apple-touch-icon","href":"/finsight-logo.png"}],["$","$L20","5",{}]],"error":null,"digest":"$undefined"}
+1f:"$1a:metadata"

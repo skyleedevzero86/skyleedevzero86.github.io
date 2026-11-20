@@ -479,32 +479,28 @@ if (contactMessage) {
   });
 }
 
-function showDemoModal() {
-  const modal = document.getElementById('demoModal');
-  if (modal) {
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    modal.style.opacity = '0';
-    modal.style.transform = 'scale(0.8)';
-    
-    setTimeout(() => {
-      modal.style.opacity = '1';
-      modal.style.transform = 'scale(1)';
-    }, 10);
-  }
+function projectTitleFrom(element) {
+  const card = element && element.closest(".project-card");
+  const title = card && card.querySelector("h3");
+  return title ? title.textContent.trim() : "프로젝트";
+}
+
+function showDemoModal(title) {
+  const modal = document.getElementById("demoModal");
+  const nameEl = document.getElementById("demoModalProject");
+  if (!modal) return;
+  if (nameEl) nameEl.textContent = title || "프로젝트";
+  modal.classList.add("open");
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
 function closeDemoModal() {
-  const modal = document.getElementById('demoModal');
-  if (modal) {
-    modal.style.opacity = '0';
-    modal.style.transform = 'scale(0.8)';
-    
-    setTimeout(() => {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }, 300);
-  }
+  const modal = document.getElementById("demoModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -538,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("button.demo-status").forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      showDemoModal();
+      showDemoModal(projectTitleFrom(button));
     });
   });
 
@@ -547,9 +543,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (button.textContent.includes('데모') || button.textContent.includes('Demo')) {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        showDemoModal();
+        showDemoModal(projectTitleFrom(button));
       });
     }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDemoModal();
   });
   
   const codeLinks = document.querySelectorAll('a.project-link[href="#"]');
@@ -557,7 +557,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (link.textContent.includes('코드') || link.textContent.includes('Code')) {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        showDemoModal();
+        showDemoModal(projectTitleFrom(link));
       });
     }
   });

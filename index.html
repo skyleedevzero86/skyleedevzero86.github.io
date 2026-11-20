@@ -264,9 +264,9 @@
                 <span class="tech-tag">Spring Batch</span>
               </div>
               <div class="project-links">
-                <button type="button" class="project-link demo-status">
+                <a href="demo/antock/index.html" class="project-link" target="_blank" rel="noreferrer">
                   <i class="fas fa-external-link-alt"></i> 데모
-                </button>
+                </a>
                 <a href="https://github.com/skyleedevzero86/public-data-harvester" class="project-link" target="_blank" rel="noreferrer">
                   <i class="fab fa-github"></i> 코드
                 </a>
@@ -291,9 +291,9 @@
                 <span class="tech-tag">Swagger</span>
               </div>
               <div class="project-links">
-                <button type="button" class="project-link demo-status">
+                <a href="demo/kopanda/index.html" class="project-link" target="_blank" rel="noreferrer">
                   <i class="fas fa-external-link-alt"></i> 데모
-                </button>
+                </a>
                 <a href="https://github.com/skyleedevzero86/KAFKA_KOPANDA" class="project-link" target="_blank" rel="noreferrer">
                   <i class="fab fa-github"></i> 코드
                 </a>
@@ -750,22 +750,18 @@
         <div class="contact-content-simple">
           <h3>Communication.</h3>
           <div class="contact-items-simple">
-            <div class="contact-item-simple">
+            <a class="contact-item-simple" href="mailto:sleekydz86@naver.com">
               <i class="fas fa-envelope"></i>
-              <span>sleekydz86@naver.com</span>
-            </div>
-            <div class="contact-item-simple">
+              <span class="contact-item-text">sleekydz86@naver.com</span>
+            </a>
+            <a class="contact-item-simple" href="https://velog.io/@sleekydevzero86/posts" target="_blank" rel="noreferrer">
               <i class="fas fa-blog"></i>
-              <a href="https://velog.io/@sleekydevzero86/posts" target="_blank"
-                >기술블로그 - Velog</a
-              >
-            </div>
-            <div class="contact-item-simple">
+              <span class="contact-item-text">기술블로그 - Velog</span>
+            </a>
+            <a class="contact-item-simple" href="https://blog.naver.com/lasttokens9160" target="_blank" rel="noreferrer">
               <i class="fas fa-book"></i>
-              <a href="https://blog.naver.com/lasttokens9160" target="_blank"
-                >학습블로그 - 네이버 블로그</a
-              >
-            </div>
+              <span class="contact-item-text">학습블로그 - 네이버 블로그</span>
+            </a>
           </div>
           <p class="contact-message">
             이메일을 보내주시면 최대한 빠르게 답변드리겠습니다 :)
@@ -779,19 +775,33 @@
       </div>
     </footer>
     <div id="demoModal" class="demo-modal">
-      <div class="demo-modal-content">
-        <div class="demo-modal-header">
-          <h3>서비스중</h3>
-          <span class="demo-close" onclick="closeDemoModal()">&times;</span>
-        </div>
-        <div class="demo-modal-body">
-          <div class="demo-icon">
-            <i class="fas fa-check-circle"></i>
+      <div class="notice-popup" role="dialog" aria-modal="true" aria-labelledby="demoModalProject">
+        <aside class="notice-popup-sidebar">
+          <div class="notice-popup-sidebar-header">
+            <h3 id="demoModalProject">프로젝트</h3>
           </div>
-          <p>서비스중입니다</p>
-        </div>
-        <div class="demo-modal-footer">
-          <button class="demo-btn" onclick="closeDemoModal()">확인</button>
+          <ul class="notice-popup-items">
+            <li class="is-active">서비스 중</li>
+          </ul>
+          <div class="notice-popup-sidebar-footer">
+            <button type="button" class="notice-popup-close" onclick="closeDemoModal()">
+              닫기
+            </button>
+          </div>
+        </aside>
+        <div class="notice-popup-stage">
+          <div class="notice-popup-placeholder">곧 서비스할예정입니다</div>
+          <div class="notice-popup-controls is-hidden" hidden>
+            <button type="button" aria-label="이전">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" aria-label="일시정지">
+              <i class="fas fa-pause"></i>
+            </button>
+            <button type="button" aria-label="다음">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

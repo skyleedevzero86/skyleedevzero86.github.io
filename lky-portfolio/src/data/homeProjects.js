@@ -18,7 +18,7 @@ export const featuredProjects = [
     description:
       '경제·시장 뉴스를 수집해 AI 감성 분석과 함께 제공하는 서비스입니다. web·core·batch 멀티모듈 백엔드에서 제공처별 실패 격리, URL 정규화와 유니크제약으로 중복 저장을 막고, AI 장애 시 대체 모델과 서킷 브레이커로 대응합니다. Elasticsearch(nori)로 통합 검색을 제공합니다.',
     tech: ['Java 21', 'Spring Boot 3.5', 'Spring Batch', 'MySQL', 'Elasticsearch', 'Redis', 'PyTorch(DJL)', 'Next.js 15'],
-    demo: { type: 'modal' },
+    demo: { type: 'route', to: '/demos/finsight' },
     code: { type: 'link', href: 'https://github.com/skyleedevzero86/FinSight' },
   },
   {
@@ -37,7 +37,7 @@ export const featuredProjects = [
       'JSP',
       'Spring Batch',
     ],
-    demo: { type: 'modal' },
+    demo: { type: 'route', to: '/demos/antock' },
     code: { type: 'link', href: 'https://github.com/skyleedevzero86/public-data-harvester' },
   },
   {
@@ -47,7 +47,7 @@ export const featuredProjects = [
     description:
       '연결 관리, 토픽 관리, 메시지 처리, 실시간 모니터링, 알림 시스템을 통해 Kafka 인프라를 효율적으로 운영할 수 있는 웹 기반 솔루션',
     tech: ['Kotlin', 'Spring Boot', 'Kafka Client', 'H2/PostgreSQL', 'Vue 3', 'Swagger'],
-    demo: { type: 'modal' },
+    demo: { type: 'route', to: '/demos/kopanda' },
     code: { type: 'link', href: 'https://github.com/skyleedevzero86/KAFKA_KOPANDA' },
   },
 ]

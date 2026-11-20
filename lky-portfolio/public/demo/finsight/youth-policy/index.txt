@@ -1,0 +1,259 @@
+1:"$Sreact.fragment"
+a:I[7150,[],""]
+:HL["/demo/finsight/_next/static/media/2bcd4b1f8f3a3e9f.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/media/cf72403939ff961f-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/css/9d97557ca7c2b054.css","style"]
+2:T6b2,(function () {
+  if (typeof window === "undefined") return;
+  if (window.__finsightChunkLoadRecovery) return;
+  window.__finsightChunkLoadRecovery = true;
+
+  var RELOAD_KEY = "finsight-chunk-load-reloaded";
+  var COOLDOWN_MS = 20000;
+
+  function isChunkErr(reason) {
+    if (reason == null) return false;
+    if (typeof reason === "string") {
+      return /ChunkLoadError|Loading chunk .+ failed/i.test(reason);
+    }
+    if (typeof reason !== "object") return false;
+    if (reason.name === "ChunkLoadError") return true;
+    var message = String(reason.message || "");
+    return /ChunkLoadError|Loading chunk .+ failed/i.test(message);
+  }
+
+  function reloadOnce() {
+    try {
+      var raw = sessionStorage.getItem(RELOAD_KEY);
+      var last = raw ? Number(raw) : 0;
+      if (isFinite(last) && Date.now() - last < COOLDOWN_MS) return;
+      sessionStorage.setItem(RELOAD_KEY, String(Date.now()));
+    } catch (e) {
+      return;
+    }
+    try {
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("Next.js 청크 로드에 실패했습니다. 페이지를 새로고침합니다.");
+      }
+    } catch (e) {}
+    location.reload();
+  }
+
+  window.addEventListener("unhandledrejection", function (event) {
+    if (!isChunkErr(event.reason)) return;
+    try { event.preventDefault(); } catch (e) {}
+    reloadOnce();
+  });
+
+  window.addEventListener("error", function (event) {
+    var target = event.target;
+    if (target && target.tagName === "SCRIPT") {
+      var src = target.src || "";
+      if (src.indexOf("/_next/static/chunks/") !== -1) {
+        reloadOnce();
+        return;
+      }
+    }
+    if (isChunkErr(event.error || event.message)) reloadOnce();
+  }, true);
+})();3:T74e,(function () {
+  if (typeof window === "undefined" || typeof WebSocket === "undefined") return;
+  if (window.__finsightNextHmrBfcacheGuard) return;
+  window.__finsightNextHmrBfcacheGuard = true;
+
+  var Original = window.WebSocket;
+  var hmrSockets = new Set();
+
+  function warnHmr(message, err) {
+    if (typeof console === "undefined" || typeof console.warn !== "function") return;
+    if (err === undefined) {
+      console.warn(message);
+      return;
+    }
+    console.warn(message, err);
+  }
+
+  function isNextHmr(url) {
+    try {
+      return String(url).indexOf("/_next/webpack-hmr") !== -1;
+    } catch (err) {
+      warnHmr("HMR 웹소켓 URL을 확인하는 중 오류가 발생했습니다. 해당 소켓은 HMR로 처리하지 않습니다.", err);
+      return false;
+    }
+  }
+
+  function closeHmrSockets() {
+    hmrSockets.forEach(function (ws) {
+      try {
+        if (ws.readyState === Original.OPEN || ws.readyState === Original.CONNECTING) {
+          ws.close();
+        }
+      } catch (err) {
+        warnHmr("Next.js HMR 웹소켓을 닫는 중 오류가 발생했습니다. BFCache 정리는 계속 진행합니다.", err);
+      }
+    });
+    try {
+      hmrSockets.clear();
+    } catch (err) {
+      warnHmr("HMR 웹소켓 목록을 비우는 중 오류가 발생했습니다.", err);
+    }
+  }
+
+  class GuardedWebSocket extends Original {
+    constructor(url, protocols) {
+      if (protocols === undefined) {
+        super(url);
+      } else {
+        super(url, protocols);
+      }
+      if (isNextHmr(url)) {
+        var self = this;
+        hmrSockets.add(self);
+        self.addEventListener("close", function () {
+          hmrSockets.delete(self);
+        });
+      }
+    }
+  }
+
+  window.WebSocket = GuardedWebSocket;
+  window.addEventListener("pagehide", closeHmrSockets);
+  document.addEventListener("freeze", closeHmrSockets);
+})();0:{"P":null,"b":"epKNCil2mlvE1CIE8_y_Z","p":"/demo/finsight","c":["","youth-policy",""],"i":false,"f":[[["",{"children":["(site)",{"children":["youth-policy",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demo/finsight/_next/static/css/9d97557ca7c2b054.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__variable_e8460a __variable_226622","children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}],"$L5"]}]]}],{"children":["(site)","$L6",{"children":["youth-policy","$L7",{"children":["__PAGE__","$L8",{},null,false]},null,false]},null,false]},null,false],"$L9",false]],"m":"$undefined","G":["$a",[]],"s":false,"S":true}
+c:I[5015,["7177","static/chunks/app/layout-7b26dcece50e7390.js"],"default"]
+d:I[9766,[],""]
+e:I[8924,[],""]
+f:I[5298,["2619","static/chunks/2619-3c9e02e22d10480a.js","5239","static/chunks/5239-6837ded35395fd65.js","6750","static/chunks/app/(site)/layout-892e6c89bdf0ad91.js"],"default"]
+10:I[8912,["2619","static/chunks/2619-3c9e02e22d10480a.js","5239","static/chunks/5239-6837ded35395fd65.js","6750","static/chunks/app/(site)/layout-892e6c89bdf0ad91.js"],"default"]
+12:I[4431,[],"OutletBoundary"]
+14:I[5278,[],"AsyncMetadataOutlet"]
+16:I[4431,[],"ViewportBoundary"]
+18:I[4431,[],"MetadataBoundary"]
+19:"$Sreact.suspense"
+b:Tafc,(function () {
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
+  if (typeof navigator.serviceWorker.getRegistrations !== "function") return;
+
+  var SAFE_SW_PATH = "/finsight-sw.js";
+  var host = location.hostname;
+  var isLocal = host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+  var reloadFlag = "finsight-sw-cleanup-reloaded";
+
+  function pathnameOf(url) {
+    try { return new URL(url, location.href).pathname; } catch (e) { return ""; }
+  }
+
+  function scriptURL(reg) {
+    return (reg.active && reg.active.scriptURL)
+      || (reg.waiting && reg.waiting.scriptURL)
+      || (reg.installing && reg.installing.scriptURL)
+      || "";
+  }
+
+  function isSafe(reg) {
+    return pathnameOf(scriptURL(reg)) === SAFE_SW_PATH;
+  }
+
+  function controllerSafe() {
+    if (!navigator.serviceWorker.controller) return true;
+    return pathnameOf(navigator.serviceWorker.controller.scriptURL) === SAFE_SW_PATH;
+  }
+
+  function disablePreload(reg) {
+    try {
+      if (reg.navigationPreload && typeof reg.navigationPreload.disable === "function") {
+        return reg.navigationPreload.disable().catch(function () {});
+      }
+    } catch (e) {}
+    return Promise.resolve();
+  }
+
+  navigator.serviceWorker.getRegistrations().then(function (regs) {
+    regs = regs || [];
+    var hadForeign = !!navigator.serviceWorker.controller && !controllerSafe();
+    var hadAny = regs.length > 0 || !!navigator.serviceWorker.controller;
+    var tasks = regs.map(function (reg) {
+      return disablePreload(reg).then(function () {
+        if (isLocal) {
+          try { return reg.unregister(); } catch (e) {}
+          return;
+        }
+        if (isSafe(reg)) return;
+        var path = pathnameOf(scriptURL(reg));
+        var stale = path === "/sw.js"
+          || path === "/service-worker.js"
+          || path === "/serviceworker.js"
+          || /workbox|serwist|next-pwa|ngsw/i.test(scriptURL(reg));
+        if (!stale) return;
+        try { return reg.unregister(); } catch (e) {}
+      });
+    });
+
+    return Promise.all(tasks).then(function () {
+      if (isLocal) return null;
+      if (!hadAny) return null;
+      return navigator.serviceWorker.register(SAFE_SW_PATH, {
+        scope: "/",
+        updateViaCache: "none"
+      }).then(function (reg) {
+        return disablePreload(reg).then(function () { return reg; });
+      }).catch(function () { return null; });
+    }).then(function () {
+      if (!isLocal) return;
+      if (!hadAny && !hadForeign) {
+        try { sessionStorage.removeItem(reloadFlag); } catch (e) {}
+        return;
+      }
+      try {
+        if (sessionStorage.getItem(reloadFlag) === "1") return;
+        sessionStorage.setItem(reloadFlag, "1");
+        location.reload();
+      } catch (e) {}
+    });
+  }).catch(function () {});
+})();4:["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$b"}}]
+5:["$","body",null,{"suppressHydrationWarning":true,"className":"antialiased","children":["$","$Lc",null,{"children":["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]
+6:["$","$1","c",{"children":[null,["$","div",null,{"className":"flex min-h-screen w-full flex-1 flex-col bg-white","children":[["$","$Lf",null,{}],["$","main",null,{"className":"relative flex min-h-0 w-full flex-1 flex-col","children":["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L10",null,{}]]}]]}]
+7:["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+11:Tcaf,<div class="board__inner"><div class="board__box"><div class="fr-element fr-view">
+<p style="text-align: center;"><strong><u>finsight 청소년 보호 정책</u></strong></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>finsight 온라인 사이트는 정보통신망이용촉진 및 정보보호 등에 관한 법률 및 청소년보호법에 근거하여 각종 청소년유해환경으로부터 청소년을 보호하여 청소년이 건전한 인격체로 성장할 수 있도록 돕기 위해 청소년 보호정책을 수립, 시행하고 있습니다. 정보통신윤리위원회 심의규정 및 청소년보호위원회 청소년유해매체물 기준에 따라, 19세 미만의 청소년들이 유해정보에 접근할 수 없도록 규제합니다.</p>
+<p><br></p>
+<p><strong>1. 청소년 보호 활동</strong></p>
+<p>finsight 온라인 사이트는 서비스 약관 및 정책을 수립하고, 자체적으로 음란, 불법 등의 유해정보를 규제하고 있습니다. 청소년의 건전한 성장을 저해하는 비윤리적, 반사회적 행위에 대해서는 엄격히 제재하고자 노력하고 있습니다.</p>
+<p><br></p>
+<p>1) 유해정보에 대한 청소년접근제한 및 관리조치</p>
+<p>finsight 온라인 사이트는 청소년이 아무런 제한장치 없이 청소년 유해정보에 노출되지 않도록 청소년유해매체물에 대해서는 별도의 인증장치를 마련, 적용하며 청소년 유해정보가 노출되지 않기 위한 예방차원의 조치를 강구합니다.</p>
+<p><br></p>
+<p>2) 유해정보로부터의 청소년보호를 위한 업무 담당자 교육 시행</p>
+<p>finsight 온라인 사이트는 청소년이 유해정보에 노출되지 않도록 청소년유해매체물에 대한 관리·감독을 철저히 하기 위해 청소년보호 업무 담당자에 대한 교육을 수시로 시행하고 있습니다.</p>
+<p><br></p>
+<p>3) 유해정보로 인한 피해상담 및 고충처리</p>
+<p>finsight 온라인 사이트는 청소년 유해정보로 인한 피해상담 및 고충처리를 위한 전문인력을 배치하여 그 피해가 확산되지 않도록 하고 있습니다. 하단에 명시한 청소년보호 책임자 및 담당자의 소속, 성명 및 연락처를 참고하여 전화나 메일을 통해 피해상담 및 고충처리를 요청할 수 있습니다.</p>
+<p><br></p>
+<p>4) 청소년보호 책임자 및 담당자의 소속, 성명 및 연락처</p>
+<p>finsight 온라인 사이트는 청소년들이 좋은 정보를 안전하게 이용할 수 있도록 노력하고 있습니다.</p>
+<p><br></p>
+<p><strong>[청소년 보호 책임자 및 담당자]</strong></p>
+<p>* 청소년 보호 관리 책임자</p>
+<p>이름 : —</p>
+<p>소속(직책) : 핀사이트 주식회사 디지털사업본부 (본부장)</p>
+<p>전화 : 02-0000-0000</p>
+<p>e-mail : <u><a href="mailto:help@finsight.kr">help@finsight.kr</a></u></p>
+<p><br></p>
+<p>* 청소년 보호 관리 담당자</p>
+<p>이름 : —</p>
+<p>소속(직책) : 핀사이트 주식회사 디지털사업본부 (국장)</p>
+<p>전화 : 02-0000-0000</p>
+<p>e-mail : <u><a href="mailto:help@finsight.kr">help@finsight.kr</a></u></p>
+</div></div></div>
+8:["$","$1","c",{"children":[["$","div",null,{"className":"px-4 py-8 md:px-6 md:py-10","children":["$","div",null,{"className":"mx-auto max-w-4xl bg-white px-4 py-10 text-gray-900 shadow-sm md:px-10 md:py-14 border border-gray-100/90 [&_.fr-element]:text-[15px] [&_.fr-element]:leading-[1.8] [&_.fr-element]:tracking-[-0.01em] [&_.fr-element_p]:mb-0 [&_.fr-element_p+p]:mt-3 [&_.fr-element_strong]:text-gray-900 [&_a]:text-finsight-primary [&_a]:underline","children":["$","div",null,{"className":"youth-policy-doc max-w-none overflow-x-auto [&_.board__inner]:text-gray-800","dangerouslySetInnerHTML":{"__html":"$11"}}]}]}],null,["$","$L12",null,{"children":["$L13",["$","$L14",null,{"promise":"$@15"}]]}]]}]
+9:["$","$1","h",{"children":[null,[["$","$L16",null,{"children":"$L17"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L18",null,{"children":["$","div",null,{"hidden":true,"children":["$","$19",null,{"fallback":null,"children":"$L1a"}]}]}]]}]
+17:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+13:null
+1b:I[622,[],"IconMark"]
+15:{"metadata":[["$","title","0",{"children":"청소년보호정책 | finsight"}],["$","meta","1",{"name":"description","content":"finsight 청소년 보호 정책"}],["$","link","2",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","3",{"rel":"icon","href":"/finsight-logo.png","type":"image/png"}],["$","link","4",{"rel":"apple-touch-icon","href":"/finsight-logo.png"}],["$","$L1b","5",{}]],"error":null,"digest":"$undefined"}
+1a:"$15:metadata"

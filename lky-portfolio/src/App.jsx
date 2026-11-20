@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import ScrollManager from './components/ScrollManager.jsx'
+import DemoPage from './pages/DemoPage.jsx'
 import HomePage from './pages/HomePage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import SkillsPage from './pages/SkillsPage.jsx'
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects.html" element={<Navigate to="/projects" replace />} />
         <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/demos/:name" element={<DemoPage />} />
         <Route path="/skills.html" element={<Navigate to="/skills" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
