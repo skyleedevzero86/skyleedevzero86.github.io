@@ -1,0 +1,242 @@
+1:"$Sreact.fragment"
+a:I[57150,[],""]
+:HL["/demo/finsight/_next/static/media/2bcd4b1f8f3a3e9f.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/media/cf72403939ff961f-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/demo/finsight/_next/static/css/140481964d4a15cd.css","style"]
+:HL["/demo/finsight/_next/static/css/41e62eb71e06675d.css","style"]
+2:T6b2,(function () {
+  if (typeof window === "undefined") return;
+  if (window.__finsightChunkLoadRecovery) return;
+  window.__finsightChunkLoadRecovery = true;
+
+  var RELOAD_KEY = "finsight-chunk-load-reloaded";
+  var COOLDOWN_MS = 20000;
+
+  function isChunkErr(reason) {
+    if (reason == null) return false;
+    if (typeof reason === "string") {
+      return /ChunkLoadError|Loading chunk .+ failed/i.test(reason);
+    }
+    if (typeof reason !== "object") return false;
+    if (reason.name === "ChunkLoadError") return true;
+    var message = String(reason.message || "");
+    return /ChunkLoadError|Loading chunk .+ failed/i.test(message);
+  }
+
+  function reloadOnce() {
+    try {
+      var raw = sessionStorage.getItem(RELOAD_KEY);
+      var last = raw ? Number(raw) : 0;
+      if (isFinite(last) && Date.now() - last < COOLDOWN_MS) return;
+      sessionStorage.setItem(RELOAD_KEY, String(Date.now()));
+    } catch (e) {
+      return;
+    }
+    try {
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("Next.js 청크 로드에 실패했습니다. 페이지를 새로고침합니다.");
+      }
+    } catch (e) {}
+    location.reload();
+  }
+
+  window.addEventListener("unhandledrejection", function (event) {
+    if (!isChunkErr(event.reason)) return;
+    try { event.preventDefault(); } catch (e) {}
+    reloadOnce();
+  });
+
+  window.addEventListener("error", function (event) {
+    var target = event.target;
+    if (target && target.tagName === "SCRIPT") {
+      var src = target.src || "";
+      if (src.indexOf("/_next/static/chunks/") !== -1) {
+        reloadOnce();
+        return;
+      }
+    }
+    if (isChunkErr(event.error || event.message)) reloadOnce();
+  }, true);
+})();3:T74e,(function () {
+  if (typeof window === "undefined" || typeof WebSocket === "undefined") return;
+  if (window.__finsightNextHmrBfcacheGuard) return;
+  window.__finsightNextHmrBfcacheGuard = true;
+
+  var Original = window.WebSocket;
+  var hmrSockets = new Set();
+
+  function warnHmr(message, err) {
+    if (typeof console === "undefined" || typeof console.warn !== "function") return;
+    if (err === undefined) {
+      console.warn(message);
+      return;
+    }
+    console.warn(message, err);
+  }
+
+  function isNextHmr(url) {
+    try {
+      return String(url).indexOf("/_next/webpack-hmr") !== -1;
+    } catch (err) {
+      warnHmr("HMR 웹소켓 URL을 확인하는 중 오류가 발생했습니다. 해당 소켓은 HMR로 처리하지 않습니다.", err);
+      return false;
+    }
+  }
+
+  function closeHmrSockets() {
+    hmrSockets.forEach(function (ws) {
+      try {
+        if (ws.readyState === Original.OPEN || ws.readyState === Original.CONNECTING) {
+          ws.close();
+        }
+      } catch (err) {
+        warnHmr("Next.js HMR 웹소켓을 닫는 중 오류가 발생했습니다. BFCache 정리는 계속 진행합니다.", err);
+      }
+    });
+    try {
+      hmrSockets.clear();
+    } catch (err) {
+      warnHmr("HMR 웹소켓 목록을 비우는 중 오류가 발생했습니다.", err);
+    }
+  }
+
+  class GuardedWebSocket extends Original {
+    constructor(url, protocols) {
+      if (protocols === undefined) {
+        super(url);
+      } else {
+        super(url, protocols);
+      }
+      if (isNextHmr(url)) {
+        var self = this;
+        hmrSockets.add(self);
+        self.addEventListener("close", function () {
+          hmrSockets.delete(self);
+        });
+      }
+    }
+  }
+
+  window.WebSocket = GuardedWebSocket;
+  window.addEventListener("pagehide", closeHmrSockets);
+  document.addEventListener("freeze", closeHmrSockets);
+})();0:{"P":null,"b":"rSQbKHuPs49ESWk1Ds3La","p":"/demo/finsight","c":["","company",""],"i":false,"f":[[["",{"children":["(site)",{"children":["company",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demo/finsight/_next/static/css/140481964d4a15cd.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ko","className":"__variable_e8460a __variable_226622","children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}],"$L5"]}]]}],{"children":["(site)","$L6",{"children":["company","$L7",{"children":["__PAGE__","$L8",{},null,false]},null,false]},null,false]},null,false],"$L9",false]],"m":"$undefined","G":["$a",[]],"s":false,"S":true}
+c:I[45015,["7177","static/chunks/app/layout-16c4ebc8db8da2c7.js"],"default"]
+d:I[9766,[],""]
+e:I[98924,[],""]
+f:I[25298,["2619","static/chunks/2619-04bc32f026a0d946.js","5239","static/chunks/5239-be6834f404bb2794.js","6750","static/chunks/app/(site)/layout-0dae9d728a7789fc.js"],"default"]
+10:I[88912,["2619","static/chunks/2619-04bc32f026a0d946.js","5239","static/chunks/5239-be6834f404bb2794.js","6750","static/chunks/app/(site)/layout-0dae9d728a7789fc.js"],"default"]
+1a:I[24431,[],"ViewportBoundary"]
+1c:I[24431,[],"MetadataBoundary"]
+1d:"$Sreact.suspense"
+b:Tafc,(function () {
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
+  if (typeof navigator.serviceWorker.getRegistrations !== "function") return;
+
+  var SAFE_SW_PATH = "/finsight-sw.js";
+  var host = location.hostname;
+  var isLocal = host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+  var reloadFlag = "finsight-sw-cleanup-reloaded";
+
+  function pathnameOf(url) {
+    try { return new URL(url, location.href).pathname; } catch (e) { return ""; }
+  }
+
+  function scriptURL(reg) {
+    return (reg.active && reg.active.scriptURL)
+      || (reg.waiting && reg.waiting.scriptURL)
+      || (reg.installing && reg.installing.scriptURL)
+      || "";
+  }
+
+  function isSafe(reg) {
+    return pathnameOf(scriptURL(reg)) === SAFE_SW_PATH;
+  }
+
+  function controllerSafe() {
+    if (!navigator.serviceWorker.controller) return true;
+    return pathnameOf(navigator.serviceWorker.controller.scriptURL) === SAFE_SW_PATH;
+  }
+
+  function disablePreload(reg) {
+    try {
+      if (reg.navigationPreload && typeof reg.navigationPreload.disable === "function") {
+        return reg.navigationPreload.disable().catch(function () {});
+      }
+    } catch (e) {}
+    return Promise.resolve();
+  }
+
+  navigator.serviceWorker.getRegistrations().then(function (regs) {
+    regs = regs || [];
+    var hadForeign = !!navigator.serviceWorker.controller && !controllerSafe();
+    var hadAny = regs.length > 0 || !!navigator.serviceWorker.controller;
+    var tasks = regs.map(function (reg) {
+      return disablePreload(reg).then(function () {
+        if (isLocal) {
+          try { return reg.unregister(); } catch (e) {}
+          return;
+        }
+        if (isSafe(reg)) return;
+        var path = pathnameOf(scriptURL(reg));
+        var stale = path === "/sw.js"
+          || path === "/service-worker.js"
+          || path === "/serviceworker.js"
+          || /workbox|serwist|next-pwa|ngsw/i.test(scriptURL(reg));
+        if (!stale) return;
+        try { return reg.unregister(); } catch (e) {}
+      });
+    });
+
+    return Promise.all(tasks).then(function () {
+      if (isLocal) return null;
+      if (!hadAny) return null;
+      return navigator.serviceWorker.register(SAFE_SW_PATH, {
+        scope: "/",
+        updateViaCache: "none"
+      }).then(function (reg) {
+        return disablePreload(reg).then(function () { return reg; });
+      }).catch(function () { return null; });
+    }).then(function () {
+      if (!isLocal) return;
+      if (!hadAny && !hadForeign) {
+        try { sessionStorage.removeItem(reloadFlag); } catch (e) {}
+        return;
+      }
+      try {
+        if (sessionStorage.getItem(reloadFlag) === "1") return;
+        sessionStorage.setItem(reloadFlag, "1");
+        location.reload();
+      } catch (e) {}
+    });
+  }).catch(function () {});
+})();4:["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$b"}}]
+5:["$","body",null,{"suppressHydrationWarning":true,"className":"antialiased","children":["$","$Lc",null,{"children":["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]
+6:["$","$1","c",{"children":[null,["$","div",null,{"className":"flex min-h-screen w-full flex-1 flex-col bg-white","children":[["$","$Lf",null,{}],["$","main",null,{"className":"relative flex min-h-0 w-full flex-1 flex-col","children":["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$5:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L10",null,{}]]}]]}]
+7:["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Le",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+8:["$","$1","c",{"children":[["$","div",null,{"className":"fcb-page","children":[["$","div",null,{"className":"fcb-vis","children":["$","div",null,{"className":"fcb-titler","children":["$","h1",null,{"className":"fcb-leader","children":"회사소개"}]}]}],["$","div",null,{"className":"mx-auto w-full max-w-6xl px-4 py-12 md:px-8 md:py-16","children":[["$","section",null,{"className":"grid items-center gap-8 md:grid-cols-[1.1fr_1fr]","children":[["$","div",null,{"children":[["$","p",null,{"className":"text-sm font-semibold tracking-wide text-finsight-secondary","children":"ABOUT FINSIGHT"}],["$","h2",null,{"className":"mt-3 text-2xl font-bold leading-snug text-gray-900 md:text-[2rem]","children":["세계 경제의 흐름을",["$","br",null,{}],"가장 빠르고 쉽게 읽는 방법"]}],["$","p",null,{"className":"mt-5 text-[15px] leading-7 text-gray-600","children":"핀사이트는 해외 경제 뉴스를 AI로 번역·요약하고 감성 분석까지 더해, 투자자가 매일 쏟아지는 정보 속에서 꼭 필요한 흐름만 빠르게 확인할 수 있도록 돕는 경제 미디어 플랫폼입니다. 뉴스, 시세, 방송, 커뮤니티를 한 곳에 모아 정보를 찾고 비교하는 시간을 줄여 드립니다."}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-2xl bg-finsight-primary p-8 text-white shadow-lg","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.6,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-building2 h-10 w-10 text-finsight-secondary","aria-hidden":true,"children":[["$","path","1b4qmf",{"d":"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"}],["$","path","i71pzd",{"d":"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"}],["$","path","10jefs",{"d":"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"}],["$","path","1itunk",{"d":"M10 6h4"}],["$","path","tcdvrf",{"d":"M10 10h4"}],["$","path","kelpxr",{"d":"M10 14h4"}],["$","path","1ulq68",{"d":"M10 18h4"}],"$undefined"]}],["$","p",null,{"className":"mt-6 text-lg font-semibold","children":"핀사이트의 약속"}],["$","p",null,{"className":"mt-3 text-sm leading-6 text-white/80","children":"더 많은 정보가 아니라 더 정확한 정보. 독자가 판단할 수 있도록 근거와 출처를 함께 전합니다."}],["$","div",null,{"className":"mt-8 grid grid-cols-3 gap-3 text-center","children":[["$","div","뉴스 수집",{"className":"rounded-lg bg-white/10 px-2 py-3","children":[["$","p",null,{"className":"text-base font-bold text-finsight-secondary","children":"24시간"}],["$","p",null,{"className":"mt-1 text-xs text-white/75","children":"뉴스 수집"}]]}],["$","div","번역·요약",{"className":"rounded-lg bg-white/10 px-2 py-3","children":[["$","p",null,{"className":"text-base font-bold text-finsight-secondary","children":"AI"}],["$","p",null,{"className":"mt-1 text-xs text-white/75","children":"번역·요약"}]]}],["$","div","감성 분석",{"className":"rounded-lg bg-white/10 px-2 py-3","children":[["$","p",null,{"className":"text-base font-bold text-finsight-secondary","children":"3단계"}],["$","p",null,{"className":"mt-1 text-xs text-white/75","children":"감성 분석"}]]}]]}]]}]]}],["$","section",null,{"className":"mt-16","children":[["$","h3",null,{"className":"text-xl font-bold text-gray-900","children":"핵심 가치"}],["$","div",null,{"className":"mt-6 grid gap-4 md:grid-cols-3","children":[["$","div","글로벌 뉴스를 한국어로",{"className":"rounded-xl border border-gray-200 bg-white p-6","children":[["$","span",null,{"className":"inline-flex h-11 w-11 items-center justify-center rounded-lg bg-finsight-secondary/15 text-finsight-primary","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-earth h-6 w-6","aria-hidden":true,"children":[["$","path","1djwo0",{"d":"M21.54 15H17a2 2 0 0 0-2 2v4.54"}],["$","path","1tzkfa",{"d":"M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"}],["$","path","14pb5j",{"d":"M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"}],["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],"$undefined"]}]}],["$","p",null,{"className":"mt-4 text-base font-semibold text-gray-900","children":"글로벌 뉴스를 한국어로"}],["$","p",null,{"className":"mt-2 text-sm leading-6 text-gray-600","children":"해외 주요 매체의 경제 뉴스를 수집해 AI가 번역하고 핵심만 요약합니다."}]]}],["$","div","AI 감성 분석",{"className":"rounded-xl border border-gray-200 bg-white p-6","children":["$L11","$L12","$L13"]}],"$L14"]}]]}],"$L15","$L16","$L17"]}]]}],["$L18"],"$L19"]}]
+9:["$","$1","h",{"children":[null,[["$","$L1a",null,{"children":"$L1b"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L1c",null,{"children":["$","div",null,{"hidden":true,"children":["$","$1d",null,{"fallback":null,"children":"$L1e"}]}]}]]}]
+1f:I[52619,["2619","static/chunks/2619-04bc32f026a0d946.js","3909","static/chunks/app/(site)/company/page-ab099eca92df43d7.js"],""]
+27:I[24431,[],"OutletBoundary"]
+29:I[15278,[],"AsyncMetadataOutlet"]
+11:["$","span",null,{"className":"inline-flex h-11 w-11 items-center justify-center rounded-lg bg-finsight-secondary/15 text-finsight-primary","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-bot h-6 w-6","aria-hidden":true,"children":[["$","path","hb8ula",{"d":"M12 8V4H8"}],["$","rect","enze0r",{"width":"16","height":"12","x":"4","y":"8","rx":"2"}],["$","path","vft8re",{"d":"M2 14h2"}],["$","path","4cs60a",{"d":"M20 14h2"}],["$","path","1xurst",{"d":"M15 13v2"}],["$","path","rq6x2g",{"d":"M9 13v2"}],"$undefined"]}]}]
+12:["$","p",null,{"className":"mt-4 text-base font-semibold text-gray-900","children":"AI 감성 분석"}]
+13:["$","p",null,{"className":"mt-2 text-sm leading-6 text-gray-600","children":"기사마다 긍정·중립·부정 흐름을 분석해 종목별 시장 분위기를 한눈에 보여줍니다."}]
+14:["$","div","믿을 수 있는 정보",{"className":"rounded-xl border border-gray-200 bg-white p-6","children":[["$","span",null,{"className":"inline-flex h-11 w-11 items-center justify-center rounded-lg bg-finsight-secondary/15 text-finsight-primary","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check h-6 w-6","aria-hidden":true,"children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}]}],["$","p",null,{"className":"mt-4 text-base font-semibold text-gray-900","children":"믿을 수 있는 정보"}],["$","p",null,{"className":"mt-2 text-sm leading-6 text-gray-600","children":"중복 기사 제거와 출처 표기로 같은 소식을 여러 번 읽지 않도록 정리합니다."}]]}]
+15:["$","section",null,{"className":"mt-16","children":[["$","h3",null,{"className":"text-xl font-bold text-gray-900","children":"서비스"}],["$","div",null,{"className":"mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3","children":[["$","$L1f","뉴스",{"href":"/news","className":"group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-finsight-secondary hover:shadow-md","children":[["$","span",null,{"className":"inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-finsight-primary text-white","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-newspaper h-5 w-5","aria-hidden":true,"children":[["$","path","7pis2x",{"d":"M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"}],["$","path","sponae",{"d":"M18 14h-8"}],["$","path","95g1m2",{"d":"M15 18h-5"}],["$","path","smlsk5",{"d":"M10 6h8v4h-8V6Z"}],"$undefined"]}]}],["$","span",null,{"className":"min-w-0","children":[["$","span",null,{"className":"block text-[15px] font-semibold text-gray-900 group-hover:text-finsight-primary","children":"뉴스"}],["$","span",null,{"className":"mt-1 block text-sm text-gray-500","children":"AI 번역·요약 경제 뉴스와 감성 분석"}]]}]]}],["$","$L1f","경제 Pick",{"href":"/economy-pick","className":"group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-finsight-secondary hover:shadow-md","children":[["$","span",null,{"className":"inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-finsight-primary text-white","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-chart-column h-5 w-5","aria-hidden":true,"children":[["$","path","c24i48",{"d":"M3 3v16a2 2 0 0 0 2 2h16"}],["$","path","2bz60n",{"d":"M18 17V9"}],["$","path","1frdt8",{"d":"M13 17V5"}],["$","path","17ska0",{"d":"M8 17v-3"}],"$undefined"]}]}],["$","span",null,{"className":"min-w-0","children":[["$","span",null,{"className":"block text-[15px] font-semibold text-gray-900 group-hover:text-finsight-primary","children":"경제 Pick"}],["$","span",null,{"className":"mt-1 block text-sm text-gray-500","children":"시세·차트·퀀트 시그널을 한 화면에"}]]}]]}],["$","$L1f","실시간 VOD",{"href":"/live-vod","className":"group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-finsight-secondary hover:shadow-md","children":[["$","span",null,{"className":"inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-finsight-primary text-white","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clapperboard h-5 w-5","aria-hidden":true,"children":[["$","path","1tn4o7",{"d":"M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z"}],["$","path","iuk76l",{"d":"m6.2 5.3 3.1 3.9"}],["$","path","6hsd6n",{"d":"m12.4 3.4 3.1 4"}],["$","path","ltgou9",{"d":"M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"}],"$undefined"]}]}],["$","span",null,{"className":"min-w-0","children":[["$","span",null,{"className":"block text-[15px] font-semibold text-gray-900 group-hover:text-finsight-primary","children":"실시간 VOD"}],["$","span",null,{"className":"mt-1 block text-sm text-gray-500","children":"경제 방송 라이브와 다시보기 모음"}]]}]]}],["$","$L1f","커뮤니티",{"href":"/community/notice","className":"group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-finsight-secondary hover:shadow-md","children":[["$","span",null,{"className":"inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-finsight-primary text-white","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-users h-5 w-5","aria-hidden":true,"children":["$L20","$L21","$L22","$L23","$undefined"]}]}],"$L24"]}],"$L25","$L26"]}]]}]
+16:["$","section",null,{"className":"mt-16","children":[["$","h3",null,{"className":"text-xl font-bold text-gray-900","children":"기술"}],["$","div",null,{"className":"mt-6 overflow-hidden rounded-xl border border-gray-200 bg-white","children":[["$","div","백엔드",{"className":"flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 ","children":[["$","span",null,{"className":"w-28 shrink-0 text-sm font-semibold text-finsight-primary","children":"백엔드"}],["$","span",null,{"className":"text-sm text-gray-700","children":"Java 21 · Spring Boot 3.5 · web/core/batch 멀티모듈"}]]}],["$","div","뉴스 수집",{"className":"flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 border-t border-gray-100","children":[["$","span",null,{"className":"w-28 shrink-0 text-sm font-semibold text-finsight-primary","children":"뉴스 수집"}],["$","span",null,{"className":"text-sm text-gray-700","children":"Spring Batch · 제공처별 실패 격리 · URL 정규화 중복 제거"}]]}],["$","div","AI",{"className":"flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 border-t border-gray-100","children":[["$","span",null,{"className":"w-28 shrink-0 text-sm font-semibold text-finsight-primary","children":"AI"}],["$","span",null,{"className":"text-sm text-gray-700","children":"PyTorch(DJL) 감성 분석 · 장애 시 대체 모델과 서킷 브레이커"}]]}],["$","div","검색",{"className":"flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 border-t border-gray-100","children":[["$","span",null,{"className":"w-28 shrink-0 text-sm font-semibold text-finsight-primary","children":"검색"}],["$","span",null,{"className":"text-sm text-gray-700","children":"Elasticsearch(nori) 통합 검색"}]]}],["$","div","데이터",{"className":"flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 border-t border-gray-100","children":[["$","span",null,{"className":"w-28 shrink-0 text-sm font-semibold text-finsight-primary","children":"데이터"}],["$","span",null,{"className":"text-sm text-gray-700","children":"MySQL · Redis"}]]}],["$","div","프론트엔드",{"className":"flex flex-col gap-1 px-5 py-4 sm:flex-row sm:gap-6 border-t border-gray-100","children":[["$","span",null,{"className":"w-28 shrink-0 text-sm font-semibold text-finsight-primary","children":"프론트엔드"}],["$","span",null,{"className":"text-sm text-gray-700","children":"Next.js 15 · TypeScript · Tailwind CSS"}]]}]]}]]}]
+17:["$","section",null,{"className":"mt-16 grid gap-6 md:grid-cols-2","children":[["$","div",null,{"children":[["$","h3",null,{"className":"text-xl font-bold text-gray-900","children":"회사 정보"}],["$","dl",null,{"className":"mt-6 overflow-hidden rounded-xl border border-gray-200 bg-white","children":[["$","div","상호",{"className":"flex gap-4 px-5 py-3.5 text-sm ","children":[["$","dt",null,{"className":"w-28 shrink-0 text-gray-500","children":"상호"}],["$","dd",null,{"className":"min-w-0 font-medium text-gray-900","children":"핀사이트(주)"}]]}],["$","div","대표이사",{"className":"flex gap-4 px-5 py-3.5 text-sm border-t border-gray-100","children":[["$","dt",null,{"className":"w-28 shrink-0 text-gray-500","children":"대표이사"}],["$","dd",null,{"className":"min-w-0 font-medium text-gray-900","children":"궁금하면 500원"}]]}],["$","div","사업자등록번호",{"className":"flex gap-4 px-5 py-3.5 text-sm border-t border-gray-100","children":[["$","dt",null,{"className":"w-28 shrink-0 text-gray-500","children":"사업자등록번호"}],["$","dd",null,{"className":"min-w-0 font-medium text-gray-900","children":"000-00-00000"}]]}],["$","div","통신판매업신고",{"className":"flex gap-4 px-5 py-3.5 text-sm border-t border-gray-100","children":[["$","dt",null,{"className":"w-28 shrink-0 text-gray-500","children":"통신판매업신고"}],["$","dd",null,{"className":"min-w-0 font-medium text-gray-900","children":"0000-서울마포-0000"}]]}],["$","div","대표전화",{"className":"flex gap-4 px-5 py-3.5 text-sm border-t border-gray-100","children":[["$","dt",null,{"className":"w-28 shrink-0 text-gray-500","children":"대표전화"}],["$","dd",null,{"className":"min-w-0 font-medium text-gray-900","children":"xxx-XXXX"}]]}],["$","div","이메일",{"className":"flex gap-4 px-5 py-3.5 text-sm border-t border-gray-100","children":[["$","dt",null,{"className":"w-28 shrink-0 text-gray-500","children":"이메일"}],["$","dd",null,{"className":"min-w-0 font-medium text-gray-900","children":"help@finsight.kr"}]]}]]}]]}],["$","div",null,{"children":[["$","h3",null,{"className":"text-xl font-bold text-gray-900","children":"오시는 길"}],["$","div",null,{"className":"mt-6 rounded-xl border border-gray-200 bg-white p-6","children":[["$","div",null,{"className":"flex items-start gap-3","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-map-pin mt-0.5 h-5 w-5 shrink-0 text-finsight-secondary","aria-hidden":true,"children":[["$","path","1r0f0z",{"d":"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"}],["$","circle","ilqhr7",{"cx":"12","cy":"10","r":"3"}],"$undefined"]}],["$","div",null,{"children":[["$","p",null,{"className":"text-[15px] font-semibold text-gray-900","children":"서울특별시 마포구 상암산로 48-6"}],["$","p",null,{"className":"mt-1 text-sm text-gray-500","children":"(상암동, finsight 타워)"}]]}]]}],["$","div",null,{"className":"mt-6 grid gap-3 text-sm text-gray-600","children":[["$","p",null,{"children":[["$","span",null,{"className":"mr-2 inline-block rounded bg-finsight-primary px-2 py-0.5 text-xs font-semibold text-white","children":"지하철"}],"6호선·경의중앙선·공항철도 디지털미디어시티역 하차"]}],["$","p",null,{"children":[["$","span",null,{"className":"mr-2 inline-block rounded bg-finsight-secondary px-2 py-0.5 text-xs font-semibold text-white","children":"버스"}],"DMC 첨단산업센터 정류장 하차"]}]]}],["$","p",null,{"className":"mt-6 text-xs text-gray-400","children":["문의는 ",["$","$L1f",null,{"href":"/community/qna","className":"text-finsight-primary underline","children":"Q&A 게시판"}],"을 이용해 주세요."]}]]}]]}]]}]
+18:["$","link","0",{"rel":"stylesheet","href":"/demo/finsight/_next/static/css/41e62eb71e06675d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:["$","$L27",null,{"children":["$L28",["$","$L29",null,{"promise":"$@2a"}]]}]
+20:["$","path","1yyitq",{"d":"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"}]
+21:["$","circle","nufk8",{"cx":"9","cy":"7","r":"4"}]
+22:["$","path","kshegd",{"d":"M22 21v-2a4 4 0 0 0-3-3.87"}]
+23:["$","path","1da9ce",{"d":"M16 3.13a4 4 0 0 1 0 7.75"}]
+24:["$","span",null,{"className":"min-w-0","children":[["$","span",null,{"className":"block text-[15px] font-semibold text-gray-900 group-hover:text-finsight-primary","children":"커뮤니티"}],["$","span",null,{"className":"mt-1 block text-sm text-gray-500","children":"공지사항, Q&A, 포트폴리오 공유"}]]}]
+25:["$","$L1f","나의 포트폴리오",{"href":"/myinfo/portfolio","className":"group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-finsight-secondary hover:shadow-md","children":[["$","span",null,{"className":"inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-finsight-primary text-white","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-chart-pie h-5 w-5","aria-hidden":true,"children":[["$","path","pzmjnu",{"d":"M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"}],["$","path","k2fpak",{"d":"M21.21 15.89A10 10 0 1 1 8 2.83"}],"$undefined"]}]}],["$","span",null,{"className":"min-w-0","children":[["$","span",null,{"className":"block text-[15px] font-semibold text-gray-900 group-hover:text-finsight-primary","children":"나의 포트폴리오"}],["$","span",null,{"className":"mt-1 block text-sm text-gray-500","children":"자산 등록과 목표 달성률 관리"}]]}]]}]
+26:["$","$L1f","통합 검색",{"href":"/search","className":"group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 transition hover:border-finsight-secondary hover:shadow-md","children":[["$","span",null,{"className":"inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-finsight-primary text-white","children":["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":1.8,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-search h-5 w-5","aria-hidden":true,"children":[["$","circle","4ej97u",{"cx":"11","cy":"11","r":"8"}],["$","path","1qie3q",{"d":"m21 21-4.3-4.3"}],"$undefined"]}]}],["$","span",null,{"className":"min-w-0","children":[["$","span",null,{"className":"block text-[15px] font-semibold text-gray-900 group-hover:text-finsight-primary","children":"통합 검색"}],["$","span",null,{"className":"mt-1 block text-sm text-gray-500","children":"뉴스·게시글·영상을 한 번에 검색"}]]}]]}]
+1b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+28:null
+2b:I[80622,[],"IconMark"]
+2a:{"metadata":[["$","title","0",{"children":"회사소개 | finsight"}],["$","meta","1",{"name":"description","content":"핀사이트 회사소개"}],["$","link","2",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","3",{"rel":"icon","href":"/finsight-logo.png","type":"image/png"}],["$","link","4",{"rel":"apple-touch-icon","href":"/finsight-logo.png"}],["$","$L2b","5",{}]],"error":null,"digest":"$undefined"}
+1e:"$2a:metadata"
