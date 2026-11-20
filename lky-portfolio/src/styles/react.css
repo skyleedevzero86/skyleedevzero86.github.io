@@ -95,6 +95,8 @@ button.close {
   position: fixed;
   left: 0;
   width: 100%;
+  height: calc(100vh - var(--demo-top, 70px));
+  height: calc(100dvh - var(--demo-top, 70px));
   border: 0;
   background: #fff;
 }

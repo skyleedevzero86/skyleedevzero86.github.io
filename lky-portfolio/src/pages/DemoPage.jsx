@@ -29,7 +29,7 @@ export default function DemoPage() {
         className="demo-frame"
         title={`${demo.title} 데모`}
         src={demo.src}
-        style={{ top: offset, height: `calc(100vh - ${offset}px)` }}
+        style={{ top: offset, '--demo-top': `${offset}px` }}
       />
     </div>
   )
