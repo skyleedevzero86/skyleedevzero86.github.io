@@ -27,7 +27,8 @@
     document.getElementById('demoNoticeX').addEventListener('click',close);
     b.addEventListener('click',function(e){if(e.target===b)close()});
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(show,300)});else setTimeout(show,300);
+  // 데모 안내 팝업 임시 숨김: 다시 보이게 하려면 아래 줄의 주석(//)을 푼다
+  // if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(show,300)});else setTimeout(show,300);
 })();
 </script>
   </body>
