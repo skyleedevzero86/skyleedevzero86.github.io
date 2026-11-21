@@ -58,6 +58,13 @@ const skills = [
   },
   {
     group: 'Database',
+    icon: 'fas fa-search',
+    name: 'Elasticsearch',
+    stage: '개인 프로젝트',
+    description: 'FinSight에서 nori 한국어 분석기와 벡터 kNN으로 통합 검색 색인을 만들고, 별칭 교체로 무중단 재색인합니다.',
+  },
+  {
+    group: 'Database',
     icon: 'fas fa-database',
     name: 'Oracle',
     stage: '실무',

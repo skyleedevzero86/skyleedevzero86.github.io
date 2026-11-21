@@ -5,7 +5,7 @@ export const experiences = [
     role: '재직 없음 · 백엔드 개인 프로젝트',
     points: [
       'IdolGlow: 공공 공연 API 5종 메타데이터 통합, 예약·토스 결제 정합성 (테스트 304개 통과)',
-      'FinSight: 뉴스 수집 배치 중복 제거·장애 격리, Elasticsearch 통합 검색',
+      'FinSight: 뉴스 수집 배치 중복 제거·장애 격리, Elasticsearch 검색 색인(nori·벡터 kNN·별칭 교체 무중단 재색인·MySQL 폴백)',
       '기술 블로그 운영',
     ],
   },

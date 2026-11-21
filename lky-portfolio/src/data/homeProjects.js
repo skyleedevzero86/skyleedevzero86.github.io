@@ -16,7 +16,7 @@ export const featuredProjects = [
     alt: '미국경제 뉴스 시스템',
     title: 'Finsight',
     description:
-      '경제·시장 뉴스를 수집해 AI 감성 분석과 함께 제공하는 서비스입니다. web·core·batch 멀티모듈 백엔드에서 제공처별 실패 격리, URL 정규화와 유니크제약으로 중복 저장을 막고, AI 장애 시 대체 모델과 서킷 브레이커로 대응합니다. Elasticsearch(nori)로 통합 검색을 제공합니다.',
+      '경제·시장 뉴스를 수집해 AI 감성 분석과 함께 제공하는 서비스입니다. web·core·batch 멀티모듈 백엔드에서 제공처별 실패 격리, URL 정규화와 유니크제약으로 중복 저장을 막고, AI 장애 시 대체 모델과 서킷 브레이커로 대응합니다. Elasticsearch로 뉴스·VOD·커뮤니티를 색인해 통합 검색을 제공합니다: nori 한국어 분석기, 임베딩 벡터 kNN 유사 검색, 읽기·쓰기 별칭을 바꿔 끼우는 무중단 재색인, Elasticsearch 장애 시 MySQL 조회로 전환, Redis 검색 캐시.',
     tech: ['Java 21', 'Spring Boot 3.5', 'Spring Batch', 'MySQL', 'Elasticsearch', 'Redis', 'PyTorch(DJL)', 'Next.js 15'],
     demo: { type: 'route', to: '/demos/finsight' },
     code: { type: 'link', href: 'https://github.com/skyleedevzero86/FinSight' },

@@ -222,7 +222,7 @@
             <div class="project-content">
               <h3>Finsight</h3>
               <p>
-                경제·시장 뉴스를 수집해 AI 감성 분석과 함께 제공하는 서비스입니다. web·core·batch 멀티모듈 백엔드에서 제공처별 실패 격리, URL 정규화와 유니크제약으로 중복 저장을 막고, AI 장애 시 대체 모델과 서킷 브레이커로 대응합니다. Elasticsearch(nori)로 통합 검색을 제공합니다.
+                경제·시장 뉴스를 수집해 AI 감성 분석과 함께 제공하는 서비스입니다. web·core·batch 멀티모듈 백엔드에서 제공처별 실패 격리, URL 정규화와 유니크제약으로 중복 저장을 막고, AI 장애 시 대체 모델과 서킷 브레이커로 대응합니다. Elasticsearch로 뉴스·VOD·커뮤니티를 색인해 통합 검색을 제공합니다: nori 한국어 분석기, 임베딩 벡터 kNN 유사 검색, 읽기·쓰기 별칭을 바꿔 끼우는 무중단 재색인, Elasticsearch 장애 시 MySQL 조회로 전환, Redis 검색 캐시.
               </p>
               <div class="project-tech">
                 <span class="tech-tag">Java 21</span>
@@ -680,7 +680,7 @@
               <h4>재직 없음 · 백엔드 개인 프로젝트</h4>
               <p>
                 • IdolGlow: 공공 공연 API 5종 메타데이터 통합, 예약·토스 결제 정합성 (테스트 304개 통과)<br />
-                • FinSight: 뉴스 수집 배치 중복 제거·장애 격리, Elasticsearch 통합 검색<br />
+                • FinSight: 뉴스 수집 배치 중복 제거·장애 격리, Elasticsearch 검색 색인(nori·벡터 kNN·별칭 교체 무중단 재색인·MySQL 폴백)<br />
                 • 기술 블로그 운영
               </p>
             </div>
