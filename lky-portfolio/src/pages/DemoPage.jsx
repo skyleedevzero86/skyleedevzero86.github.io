@@ -19,6 +19,8 @@ export default function DemoPage() {
         className="demo-frame"
         title={`${demo.title} 데모`}
         src={demo.src}
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; web-share"
+        allowFullScreen
         style={{ top: 0, '--demo-top': '0px' }}
       />
     </div>

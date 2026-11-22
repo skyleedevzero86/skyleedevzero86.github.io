@@ -96,3 +96,99 @@
   if (document.readyState !== 'loading') go()
   else document.addEventListener('DOMContentLoaded', go)
 })()
+
+;(function () {
+  if (window.__demoVodPlayerInstalled) return
+  window.__demoVodPlayerInstalled = true
+  var ID = /\/live-vod\/watch\/([A-Za-z0-9_-]{11})/
+  var overlay = null
+  var prevOverflow = ''
+
+  function close() {
+    if (!overlay) return
+    overlay.remove()
+    overlay = null
+    document.body.style.overflow = prevOverflow
+    document.removeEventListener('keydown', onKey)
+  }
+  function onKey(e) { if (e.key === 'Escape') close() }
+
+  function open(videoId, title, href) {
+    close()
+    var params = new URLSearchParams({ autoplay: '1', playsinline: '1', rel: '0', modestbranding: '1' })
+    overlay = document.createElement('div')
+    overlay.setAttribute('role', 'dialog')
+    overlay.setAttribute('aria-modal', 'true')
+    overlay.setAttribute('aria-label', title || '영상 재생')
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483000;background:rgba(0,0,0,.82);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box'
+
+    var box = document.createElement('div')
+    box.style.cssText = 'position:relative;width:100%;max-width:960px'
+
+    var bar = document.createElement('div')
+    bar.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:8px;color:#fff;font-size:14px'
+    var name = document.createElement('div')
+    name.textContent = title || ''
+    name.style.cssText = 'flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600'
+    var more = document.createElement('a')
+    more.href = href
+    more.textContent = '상세 보기'
+    more.style.cssText = 'color:#fff;text-decoration:underline;white-space:nowrap'
+    more.addEventListener('click', function () { close() })
+    var x = document.createElement('button')
+    x.type = 'button'
+    x.setAttribute('aria-label', '닫기')
+    x.textContent = '×'
+    x.style.cssText = 'width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:26px;line-height:1;cursor:pointer;flex:none'
+    x.addEventListener('click', close)
+    bar.appendChild(name)
+    bar.appendChild(more)
+    bar.appendChild(x)
+
+    var frameWrap = document.createElement('div')
+    frameWrap.style.cssText = 'position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:8px;overflow:hidden'
+    var iframe = document.createElement('iframe')
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?' + params.toString()
+    iframe.title = title || 'YouTube 영상'
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen')
+    iframe.setAttribute('allowfullscreen', '')
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin')
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0'
+    frameWrap.appendChild(iframe)
+
+    var watch = document.createElement('a')
+    watch.href = 'https://www.youtube.com/watch?v=' + videoId
+    watch.target = '_blank'
+    watch.rel = 'noopener'
+    watch.textContent = '재생이 안 되면 YouTube에서 보기'
+    watch.style.cssText = 'display:inline-block;margin-top:10px;color:#ddd;font-size:13px;text-decoration:underline'
+
+    box.appendChild(bar)
+    box.appendChild(frameWrap)
+    box.appendChild(watch)
+    overlay.appendChild(box)
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) close() })
+    prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.body.appendChild(overlay)
+    document.addEventListener('keydown', onKey)
+    x.focus()
+  }
+
+  window.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    var t = e.target
+    if (!t || !t.closest) return
+    var a = t.closest('a[href]')
+    if (!a) return
+    var m = (a.getAttribute('href') || '').match(ID)
+    if (!m) return
+    var img = a.querySelector('img')
+    var thumb = img && img.parentElement
+    if (!thumb || !thumb.contains(t)) return
+    e.preventDefault()
+    e.stopPropagation()
+    var title = (img.getAttribute('alt') || '').trim()
+    open(m[1], title, a.href)
+  }, true)
+})()
