@@ -553,8 +553,12 @@ body {
 
 .skills-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.skills-category {
+    min-width: 0;
 }
 
 .skills-category h3 {
@@ -566,7 +570,7 @@ body {
 
 .skill-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -574,7 +578,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
+    min-width: 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
     background: white;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -595,6 +601,9 @@ body {
 }
 
 .skill-item span {
+    max-width: 100%;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
     font-weight: 500;
     color: #2c3e50;
 }
