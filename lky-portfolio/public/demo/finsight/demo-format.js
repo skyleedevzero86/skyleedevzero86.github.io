@@ -103,6 +103,24 @@
   var ID = /\/live-vod\/watch\/([A-Za-z0-9_-]{11})/
   var overlay = null
   var prevOverflow = ''
+  var sourceLink = null
+  var bypass = false
+
+  function suppressChunkReload() {
+    try { sessionStorage.setItem('finsight-chunk-load-reloaded', String(Date.now())) } catch (e) {}
+  }
+
+  function goDetail(href) {
+    var link = sourceLink
+    close()
+    suppressChunkReload()
+    if (link && link.isConnected) {
+      bypass = true
+      try { link.click() } finally { bypass = false }
+      return
+    }
+    window.location.assign(href)
+  }
 
   function close() {
     if (!overlay) return
@@ -134,7 +152,12 @@
     more.href = href
     more.textContent = '상세 보기'
     more.style.cssText = 'color:#fff;text-decoration:underline;white-space:nowrap'
-    more.addEventListener('click', function () { close() })
+    more.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) { close(); return }
+      e.preventDefault()
+      e.stopPropagation()
+      goDetail(href)
+    })
     var x = document.createElement('button')
     x.type = 'button'
     x.setAttribute('aria-label', '닫기')
@@ -176,6 +199,7 @@
   }
 
   window.addEventListener('click', function (e) {
+    if (bypass) return
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     var t = e.target
     if (!t || !t.closest) return
@@ -190,5 +214,6 @@
     e.stopPropagation()
     var title = (img.getAttribute('alt') || '').trim()
     open(m[1], title, a.href)
+    sourceLink = a
   }, true)
 })()

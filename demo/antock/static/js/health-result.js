@@ -8,6 +8,5 @@ function refreshResults() {
   location.reload();
 }
 
-// Auto refresh every 60 seconds
 setInterval(refreshResults, 60000);
 
