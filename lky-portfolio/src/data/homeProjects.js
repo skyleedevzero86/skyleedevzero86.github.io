@@ -8,7 +8,7 @@ export const featuredProjects = [
     description:
       '공공 공연·축제 API 5종(KOPIS 공연·축제, 세종문화회관, 문화정보, 한국관광공사 Tour API)의 외부 ID를 내부 기준 ID 하나로 통합하고, 충돌 후보는 자동 병합하지 않고 검토로 보류합니다. 슬롯 예약과 토스페이먼츠 결제·정기결제에서 잠금 순서 고정, 외부 호출과 트랜잭션 분리, 타임아웃 결과의 대기 처리 후 조회 확정으로 정합성을 다룹니다. 테스트 304개 통과.',
     tech: ['Kotlin', 'Spring Boot 4', 'JPA', 'PostgreSQL', 'Querydsl', 'GraphQL', '토스페이먼츠', 'Testcontainers'],
-    demo: { type: 'modal' },
+    demo: { type: 'route', to: '/demos/idolglow' },
     code: { type: 'link', href: 'https://github.com/skyleedevzero86/IdolGlow' },
   },
   {

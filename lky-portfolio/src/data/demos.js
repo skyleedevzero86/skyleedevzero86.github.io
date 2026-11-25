@@ -11,4 +11,8 @@ export const demos = {
     title: 'Kafka 모니터링 관리 플랫폼',
     src: '/demo/kopanda/index.html',
   },
+  idolglow: {
+    title: 'IdolGlow',
+    src: '/demo/idolglow/index.html',
+  },
 }

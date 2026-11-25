@@ -8,7 +8,7 @@ export default function DemoPage() {
 
   useEffect(() => {
     if (!demo) return
-    document.title = `${demo.title} 데모 - 궁금하면500원`
+    document.title = `${demo.title} - 궁금하면500원`
   }, [demo])
 
   if (!demo) return <Navigate to="/" replace />
@@ -17,7 +17,7 @@ export default function DemoPage() {
     <div className="demo-page">
       <iframe
         className="demo-frame"
-        title={`${demo.title} 데모`}
+        title={demo.title}
         src={demo.src}
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; web-share"
         allowFullScreen

@@ -61,7 +61,7 @@ function ProjectCard({ project, onDemo, showStatusDemo = false }) {
         <div className="project-links">
           {showDemo ? (
             <ProjectAction action={project.demo} onDemo={onDemo}>
-              <i className="fas fa-external-link-alt" /> 데모
+              <i className="fas fa-external-link-alt" /> 사이트 보기
             </ProjectAction>
           ) : null}
         </div>
